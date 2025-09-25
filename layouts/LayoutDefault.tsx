@@ -1,22 +1,70 @@
-import React from 'react'
-import './LayoutDefault.css'
+export {Layout}
 
-export default function LayoutDefault({ children }: { children: React.ReactNode }) {
+import {usePageContext} from "vike-react/usePageContext";
+import "./css/index.css";
+import "./LayoutDefault.css";
+import React from "react";
+import {getSlideNumber} from "../utils/getSlideNumber";
+
+const footerContent: {name: string, numberOfSlides: number}[] = [
+  {
+    name: 'Section 1',
+    numberOfSlides: 3,
+  },
+  {
+    name: 'Section 2',
+    numberOfSlides: 3,
+  },
+  {
+    name: 'Section 3',
+    numberOfSlides: 3,
+  },
+  {
+    name: 'Section 4',
+    numberOfSlides: 3,
+  },
+]
+
+function Layout({children}: {children: React.ReactNode}) {
+  const pageContext = usePageContext()
+  /* Implement +style setting?
+  const {style} = pageContext.config
+  */
+  const style = {}
   return (
-    <div className="presentation-layout">
-      <main className="slide-container">
+    <div id="slide-wrapper">
+      <div id="slide-content" style={style}>
         {children}
-      </main>
-      <nav className="slide-navigation">
-        <a href="/" className="nav-link">Home</a>
-        <a href="/1" className="nav-link">1</a>
-        <a href="/2" className="nav-link">2</a>
-        <a href="/3" className="nav-link">3</a>
-        <a href="/4" className="nav-link">4</a>
-        <a href="/5" className="nav-link">5</a>
-        <a href="/6" className="nav-link">6</a>
-        <a href="/7" className="nav-link">7</a>
-      </nav>
+      </div>
+      <Footer />
+    </div>
+  )
+}
+
+function Footer() {
+  const pageContext = usePageContext()
+  const {pathname} = pageContext.urlParsed
+  const slideNumber = getSlideNumber(pathname)
+  let slideNumberFooter = 0
+  return (
+    <div id='footer'>
+      {
+        footerContent.map(({name, numberOfSlides}) => (
+          <div>
+            <div>
+              {name}
+            </div>
+            <div> {
+              Array(numberOfSlides).fill(undefined).map(() => {
+                slideNumberFooter++
+                const isCurrentSlide = slideNumberFooter === slideNumber
+                return !isCurrentSlide ? '○' : '●'
+              })
+            }
+            </div>
+          </div>
+        ))
+      }
     </div>
   )
 }
