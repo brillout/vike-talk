@@ -48,25 +48,25 @@ function Footer() {
   let slideNumberFooter = 0
   return (
     <div id='footer'>
-    <div id='footer-content'>
-      {
-        footerContent.map(({name, numberOfSlides}) => (
-          <div>
+      <div id='footer-content'>
+        {
+          footerContent.map(({name, numberOfSlides}) => (
             <div>
-              {name}
+              <div>
+                {name}
+              </div>
+              <div> {
+                Array(numberOfSlides).fill(undefined).map(() => {
+                  slideNumberFooter++
+                  const isCurrentSlide = slideNumberFooter === slideNumber
+                  return !isCurrentSlide ? '○' : '●'
+                })
+              }
+              </div>
             </div>
-            <div> {
-              Array(numberOfSlides).fill(undefined).map(() => {
-                slideNumberFooter++
-                const isCurrentSlide = slideNumberFooter === slideNumber
-                return !isCurrentSlide ? '○' : '●'
-              })
-            }
-            </div>
-          </div>
-        ))
-      }
-    </div>
+          ))
+        }
+      </div>
     </div>
   )
 }

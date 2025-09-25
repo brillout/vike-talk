@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-size: 1.6em;
 }
+
 h1 {
   font-size: 3.4rem;
 }
@@ -19,10 +20,12 @@ h1 {
   justify-items: center;
   justify-content: center;
 }
+
 #footer-content {
   display: flex;
   justify-content: space-between;
-  & > * {
+
+  &>* {
     --padding: 40px;
     padding-left: var(--padding);
     padding-right: var(--padding);
@@ -37,10 +40,10 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+
 /*
 #slide-content {
   width: 800px;
   margin: auto;
 }
 */
-
