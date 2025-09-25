@@ -8,7 +8,7 @@ code {
   padding: 0px 5px;
 }
 pre > code {
-  padding: 16px !important;
+  padding: 5px 15px !important;
 }
 @media screen and (max-width: 900px) {
   pre > code {
@@ -67,4 +67,12 @@ code {
 .inline-code-break code {
   display: inline;
   word-break: break-word;
+}
+
+figure {
+  margin: 0
+}
+
+pre {
+  margin: 10px;
 }
