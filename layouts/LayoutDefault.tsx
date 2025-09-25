@@ -17,7 +17,7 @@ const footerContent: { name: string; numberOfSlides: number }[] = [
   },
   {
     name: 'Hooks',
-    numberOfSlides: 5,
+    numberOfSlides: 6,
   },
   {
     name: 'RPC',
