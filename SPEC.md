@@ -39,14 +39,10 @@ vite-plugin-ssr — Like Next.js/Nuxt but as do-one-thing-do-it-well Vite plugin
 
 ```js
 pages/+onRenderHtml.js
-
-TODO: fill this
 ```
 
 ```js
 pages/+onRenderClient.js
-
-TODO: fill this
 ```
 
 - `renderPage()`
