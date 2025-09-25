@@ -6,31 +6,28 @@ import { Center } from '../../components'
       Next.js 😨
     </Center>
 
-{/* TODO: replace REmix example with a Next.js example using Server Actions */}
-
     <div style={{fontSize: '16px', marginTop: -30 }}>
       ```js
-      // todo/delete.ts
-      export async function action({ request }) {
-        // Onnly one single action per file
-        const { article_id } = await request.json()
+      // app/actions.ts
+      'use server'
+
+      export async function deleteArticle(formData: FormData) {
+        const article_id = formData.get('article_id')
         await db.article.delete({ article_id })
-        return Response.json({ success: true })
+        revalidatePath('/articles')
       }
       ```
       ```js
-      // article.tsx
-      export default function Index() {
-        const onClick = async () => {
-          const res = await fetch("/article/delete", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ article_id })
-          })
-          const { success } = await res.json()
-          if (!success) alert("Deletion failed")
-        }
-        return <button onClick={onClick}>Delete</button>
+      // app/article.tsx
+      import { deleteArticle } from './actions'
+
+      export default function Article() {
+        return (
+          <form action={deleteArticle}>
+            <input type="hidden" name="article_id" value={article_id} />
+            <button type="submit">Delete</button>
+          </form>
+        )
       }
       ```
     </div>
