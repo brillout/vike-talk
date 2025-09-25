@@ -15,7 +15,6 @@ Next.js/Nuxt alternative with a novel architecture
 Rom(uald Brillout)
 
 - Creator of Vike
-
 - Half French/German
   > @AI use flags emoji
 - Grew up in Paris
