@@ -5,7 +5,7 @@ code {
   */
   background-color: rgba(0, 0, 0, 0.043137255);
   border-radius: 4px;
-  padding: 2px 5px;
+  padding: 0px 5px;
 }
 pre > code {
   padding: 16px !important;
