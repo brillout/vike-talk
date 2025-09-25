@@ -1,1 +1,0 @@
-import{a as s,b as t,r as i}from"./chunk-QtDcjt-F.js";function o(e){return parseInt(e.slice(1),10)}s();async function g(e,{keepScrollPosition:a=!1,overwriteLastHistoryEntry:r=!1}={}){t(e,"[navigate(url)] url"),await i({scrollTarget:{preserveScroll:a},urlOriginal:e,overwriteLastHistoryEntry:r,isBackwardNavigation:!1})}export{o as g,g as n};
