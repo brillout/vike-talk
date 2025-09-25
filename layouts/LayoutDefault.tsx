@@ -9,27 +9,31 @@ import { getSlideNumber } from '../utils/getSlideNumber'
 const footerContent: { name: string; numberOfSlides: number }[] = [
   {
     name: 'Intro',
-    numberOfSlides: 3,
+    numberOfSlides: 1,
   },
   {
     name: 'Brief History',
-    numberOfSlides: 3,
+    numberOfSlides: 1,
   },
   {
     name: 'DX',
-    numberOfSlides: 3,
-  },
-  {
-    name: 'Ecosystem',
-    numberOfSlides: 3,
+    numberOfSlides: 5,
   },
   {
     name: 'Business model',
-    numberOfSlides: 3,
+    numberOfSlides: 1,
+  },
+  {
+    name: 'Ecosystem',
+    numberOfSlides: 1,
+  },
+  {
+    name: 'Future',
+    numberOfSlides: 1,
   },
   {
     name: 'Conclusion',
-    numberOfSlides: 3,
+    numberOfSlides: 1,
   },
 ]
 

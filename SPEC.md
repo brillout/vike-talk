@@ -128,14 +128,6 @@ Versus Next.js
 
 ==Slide==
 
-# Ecosystem
-
-- Telefunc
-- Photon
-
-
-==Slide==
-
 # Open Source Pricing
 
 - 100% MIT licensed
@@ -149,6 +141,14 @@ Versus Next.js
     - Next.js is hard to self host
     - Astro is VC backed => they will have to make money at some point
     - Frameworks are complex to develop — donations alone cannot cover the cost
+
+
+==Slide==
+
+# Ecosystem
+
+- Telefunc
+- Photon
 
 
 ==Slide==
