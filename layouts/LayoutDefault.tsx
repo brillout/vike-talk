@@ -48,6 +48,7 @@ function Footer() {
   let slideNumberFooter = 0
   return (
     <div id='footer'>
+    <div id='footer-content'>
       {
         footerContent.map(({name, numberOfSlides}) => (
           <div>
@@ -65,6 +66,7 @@ function Footer() {
           </div>
         ))
       }
+    </div>
     </div>
   )
 }
