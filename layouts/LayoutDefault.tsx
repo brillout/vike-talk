@@ -24,6 +24,10 @@ const footerContent: { name: string; numberOfSlides: number }[] = [
     numberOfSlides: 3,
   },
   {
+    name: 'Details',
+    numberOfSlides: 1,
+  },
+  {
     name: 'Business model',
     numberOfSlides: 1,
   },

@@ -115,7 +115,7 @@ Versus Next.js
 
 ==Slide==
 
-# Polished
+# Details
 
 - We care about details
 - TypeScript
