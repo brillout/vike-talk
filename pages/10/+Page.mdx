@@ -8,25 +8,18 @@ import { Center } from '../../components'
 
     <div style={{fontSize: '16px', marginTop: -30 }}>
       ```js
-      // app/actions.ts
-      'use server'
-
-      export async function deleteArticle(formData: FormData) {
-        const article_id = formData.get('article_id')
-        await db.article.delete({ article_id })
-        revalidatePath('/articles')
-      }
-      ```
-      ```js
       // app/article.tsx
-      import { deleteArticle } from './actions'
+      import { revalidatePath } from 'next/cache'
 
       export default function Article() {
+        async function deleteArticle() {
+          'use server'
+          await db.article.delete({ article_id })
+          revalidatePath('/articles')
+        }
+
         return (
-          <form action={deleteArticle}>
-            <input type="hidden" name="article_id" value={article_id} />
-            <button type="submit">Delete</button>
-          </form>
+          <button onClick={deleteArticle}>Delete</button>
         )
       }
       ```
