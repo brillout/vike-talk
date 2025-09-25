@@ -2,7 +2,7 @@ name: Website
 on:
   push:
     branches:
-      - main
+      - meetup-react-berlin
 permissions:
   contents: write
 jobs:
