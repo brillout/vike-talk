@@ -3,7 +3,7 @@ import{j as e,i as o,a as r,L as n,b as l,c as s,o as d}from"../chunks/chunk-aAM
 `,e.jsx(u,{}),`
 `,e.jsx("div",{style:{marginTop:-20}}),`
 `,e.jsxs("div",{style:{display:"flex"},children:[e.jsx("div",{children:e.jsx("img",{src:"https://i.imgur.com/tuIqUGt.png",width:"128",style:{marginTop:45}})}),e.jsxs("div",{style:{paddingLeft:30},children:[e.jsxs("h2",{style:{marginBottom:-20,fontWeight:550,fontSize:"36px"},children:["Rom",e.jsx("span",{style:{color:"#8c8c8c",fontWeight:400},children:"uald Brillout"})]}),e.jsxs(t.ul,{children:[`
-`,e.jsx(t.li,{children:"Creator of Vike, and Telefunc (tRPC alternative)"}),`
+`,e.jsx(t.li,{children:"Creator of Vike and Telefunc (tRPC alternative)"}),`
 `,e.jsx(t.li,{children:"Half French/German, grew up in Paris"}),`
 `,e.jsx(t.li,{children:"Computer Science at KIT (Karlsruhe, Germany)"}),`
 `,e.jsx(t.li,{children:"Lived in Berlin (for 5 years), now in Munich"}),`

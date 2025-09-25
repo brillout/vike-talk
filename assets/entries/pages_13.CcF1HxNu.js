@@ -3,7 +3,7 @@ import{j as e,i as n,a as o,L as l,b as r,c as s,o as d}from"../chunks/chunk-aAM
 `,e.jsx(t.li,{children:"100% MIT licensed"}),`
 `,e.jsxs(t.li,{children:["100% free for engineers",`
 `,e.jsxs(t.ul,{children:[`
-`,e.jsx(t.li,{children:"No license need — works like a normal open source tool."}),`
+`,e.jsx(t.li,{children:"No license needed — works like a normal open source tool"}),`
 `]}),`
 `]}),`
 `,e.jsxs(t.li,{children:["Only larger companies pay",`
