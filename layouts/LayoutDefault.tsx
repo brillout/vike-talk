@@ -50,7 +50,7 @@ function Footer() {
     <div id="footer">
       <div id="footer-content">
         {footerContent.map(({ name, numberOfSlides }) => (
-          <div>
+          <div key={name}>
             <div>{name}</div>
             <div>
               {' '}
