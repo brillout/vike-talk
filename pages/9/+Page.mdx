@@ -6,13 +6,11 @@ import { Center } from '../../components'
       Remix 😨
     </Center>
 
-{/* TODO: double check whether the Remix example is accurate? */}
-
     <div style={{fontSize: '16px', marginTop: -30 }}>
       ```js
-      // todo/delete.ts
+      // article/delete.ts
+      // Only a single action per file 😕
       export async function action({ request }) {
-        // Onnly one single action per file
         const { article_id } = await request.json()
         await db.article.delete({ article_id })
         return Response.json({ success: true })
@@ -20,7 +18,7 @@ import { Center } from '../../components'
       ```
       ```js
       // article.tsx
-      export default function Index() {
+      export default function Article() {
         const onClick = async () => {
           const res = await fetch("/article/delete", {
             method: "POST",
@@ -51,7 +49,7 @@ import { Center } from '../../components'
       ```js
       // article.tsx
       import { onArticleDelete } from './article.telefunc.ts'
-      export default function Index() {
+      export default function Article() {
         const onClick = async () => {
           const { success } = await onArticleDelete({ article_id })
           if (!success) alert("Deletion failed")

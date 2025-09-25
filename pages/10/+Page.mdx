@@ -9,21 +9,22 @@ import { Center } from '../../components'
     <div style={{fontSize: '16px', marginTop: -30 }}>
       ```js
       // app/article.tsx
-      // Environment: client,server
+      // Environment: client
       import { revalidatePath } from 'next/cache'
 
       export default function Article() {
-        async function deleteArticle() {
+        async function onArticleDelete() {
           'use server'
           // Environment: server
           // 😨 Mixed server and client code inside same file
+          // 😨 Magic passing of props
           await db.article.delete({ article_id })
           // 😨 Complex cache handling
           revalidatePath('/articles')
         }
 
         return (
-          <button onClick={deleteArticle}>Delete</button>
+          <button onClick={onArticleDelete}>Delete</button>
         )
       }
       ```
@@ -37,6 +38,7 @@ import { Center } from '../../components'
     <div style={{fontSize: '16px', marginTop: -30 }}>
       ```js
       // article.telefunc.ts
+      // Environment: server
       export async function onArticleDelete({ article_id }) {
         await db.article.delete({ article_id })
         return { success: true }
@@ -44,9 +46,9 @@ import { Center } from '../../components'
       ```
       ```js
       // article.tsx
+      // Environment: client
       import { onArticleDelete } from './article.telefunc.ts'
-
-      export default function Index() {
+      export default function Article() {
         const onClick = async () => {
           const { success } = await onArticleDelete({ article_id })
           if (!success) alert("Deletion failed")
