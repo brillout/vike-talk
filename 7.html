@@ -2,7 +2,7 @@
     <html lang="en">
       <head>
         <link rel="stylesheet" type="text/css" href="/assets/static/layouts_css_index-745bd045.CruA3W7P.css">
-        <link rel="stylesheet" type="text/css" href="/assets/static/layouts_LayoutDefault-fc0c0614.DkjMO7Az.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/layouts_LayoutDefault-fc0c0614.DW2dLl8y.css">
         <link rel="preload" href="/assets/static/Inter-Var.dulBMp8D.ttf" as="font" type="font/ttf" crossorigin>
         <meta charset="UTF-8" />
         
@@ -16,17 +16,29 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper"><div id="slide-content"><h1>Slide</h1>
-<p>Foo bar</p></div><div id="footer"><div id="footer-content"><div><div>Section 1</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Section 2</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Section 3</div><div> <!-- -->●<!-- -->○<!-- -->○</div></div><div><div>Section 4</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div></div></div></div></div>
+        <div id="root"><div id="slide-wrapper"><div id="slide-content"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// pages/+onCreateGlobalContext.server.js</span></span>
+<span data-line=""><span style="color:#6A737D">// Environment: server</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#24292E"> async </span><span style="color:#6F42C1">onCreateGlobalContext</span><span style="color:#24292E">() {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> dataFromAPI</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> fetchDataFromAPI</span><span style="color:#24292E">()</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> someGlobalData</span><span style="color:#D73A49"> =</span><span style="color:#6F42C1"> select</span><span style="color:#24292E">(dataFromAPI)</span></span>
+<span data-line=""><span style="color:#24292E">  globalContext.someGlobalData </span><span style="color:#D73A49">=</span><span style="color:#24292E"> someGlobalData</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure>
+<figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// pages/+config.js</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#24292E"> {</span></span>
+<span data-line=""><span style="color:#24292E">  passToClient: </span><span style="color:#032F62">&#x27;someGlobalData&#x27;</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure>
+<figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// Anywhere (client,server)</span></span>
+<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { getGlobalContext } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;vike&#x27;</span></span>
+<span data-line=""><span style="color:#D73A49">const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">someGlobalData</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> getGlobalContext</span><span style="color:#24292E">()</span></span></code></pre></figure></div><div id="footer"><div id="footer-content"><div><div>Intro</div><div> <!-- -->○</div></div><div><div>History</div><div> <!-- -->○</div></div><div><div>Hooks</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->●<!-- -->○</div></div><div><div>RPC</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Details</div><div> <!-- -->○</div></div><div><div>Business model</div><div> <!-- -->○</div></div><div><div>Ecosystem</div><div> <!-- -->○</div></div><div><div>Future</div><div> <!-- -->○</div></div><div><div>Conclusion</div><div> <!-- -->○</div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"_urlRewrite":null,"pageId":"\\/pages\\/7","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
 import("/assets/entries/pages_client.DLcSGtds.js");
-import("/assets/entries/entry-client-routing.DjKgt1Z4.js");
+import("/assets/entries/entry-client-routing.B412bq27.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_7.BGdhKVBC.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-BFeaOUcQ.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_7.BKBunnIr.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-CX5PfsYO.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-C8Q88_sE.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-BPY0c0Pk.js" as="script" type="text/javascript">
       </body>
