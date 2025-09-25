@@ -1,12 +1,12 @@
-export {Layout}
+export { Layout }
 
-import {usePageContext} from "vike-react/usePageContext";
-import "./css/index.css";
-import "./LayoutDefault.css";
-import React from "react";
-import {getSlideNumber} from "../utils/getSlideNumber";
+import { usePageContext } from 'vike-react/usePageContext'
+import './css/index.css'
+import './LayoutDefault.css'
+import React from 'react'
+import { getSlideNumber } from '../utils/getSlideNumber'
 
-const footerContent: {name: string, numberOfSlides: number}[] = [
+const footerContent: { name: string; numberOfSlides: number }[] = [
   {
     name: 'Section 1',
     numberOfSlides: 3,
@@ -25,7 +25,7 @@ const footerContent: {name: string, numberOfSlides: number}[] = [
   },
 ]
 
-function Layout({children}: {children: React.ReactNode}) {
+function Layout({ children }: { children: React.ReactNode }) {
   const pageContext = usePageContext()
   /* Implement +style setting?
   const {style} = pageContext.config
@@ -43,29 +43,27 @@ function Layout({children}: {children: React.ReactNode}) {
 
 function Footer() {
   const pageContext = usePageContext()
-  const {pathname} = pageContext.urlParsed
+  const { pathname } = pageContext.urlParsed
   const slideNumber = getSlideNumber(pathname)
   let slideNumberFooter = 0
   return (
-    <div id='footer'>
-      <div id='footer-content'>
-        {
-          footerContent.map(({name, numberOfSlides}) => (
+    <div id="footer">
+      <div id="footer-content">
+        {footerContent.map(({ name, numberOfSlides }) => (
+          <div>
+            <div>{name}</div>
             <div>
-              <div>
-                {name}
-              </div>
-              <div> {
-                Array(numberOfSlides).fill(undefined).map(() => {
+              {' '}
+              {Array(numberOfSlides)
+                .fill(undefined)
+                .map(() => {
                   slideNumberFooter++
                   const isCurrentSlide = slideNumberFooter === slideNumber
                   return !isCurrentSlide ? '○' : '●'
-                })
-              }
-              </div>
+                })}
             </div>
-          ))
-        }
+          </div>
+        ))}
       </div>
     </div>
   )

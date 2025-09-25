@@ -25,7 +25,7 @@ h1 {
   display: flex;
   justify-content: space-between;
 
-  &>* {
+  & > * {
     --padding: 40px;
     padding-left: var(--padding);
     padding-right: var(--padding);

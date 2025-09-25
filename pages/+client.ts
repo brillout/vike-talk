@@ -1,8 +1,8 @@
-import {navigate} from "vike/client/router"
-import {getSlideNumber} from "../utils/getSlideNumber"
+import { navigate } from 'vike/client/router'
+import { getSlideNumber } from '../utils/getSlideNumber'
 
-window.onkeydown = ({code, shiftKey}) => {
-  const {pathname} = window.location
+window.onkeydown = ({ code, shiftKey }) => {
+  const { pathname } = window.location
 
   const slideNumber = getSlideNumber(pathname)
   let slideNumberNext = slideNumber
@@ -13,8 +13,7 @@ window.onkeydown = ({code, shiftKey}) => {
     } else {
       slideNumberNext--
     }
-  }
-  else if (['ArrowRight', 'Space'].includes(code)) {
+  } else if (['ArrowRight', 'Space'].includes(code)) {
     if (shiftKey) {
       slideNumberNext--
     } else {
