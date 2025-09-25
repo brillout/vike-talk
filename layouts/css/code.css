@@ -19,7 +19,6 @@ pre {
   display: grid;
 }
 pre > code {
-  padding-right: 0px !important;
   overflow-x: auto;
 }
 
