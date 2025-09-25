@@ -21,7 +21,7 @@ const footerContent: { name: string; numberOfSlides: number }[] = [
   },
   {
     name: 'RPC',
-    numberOfSlides: 5,
+    numberOfSlides: 3,
   },
   {
     name: 'Business model',
