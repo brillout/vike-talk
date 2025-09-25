@@ -2,9 +2,19 @@ Sections: Intro | Brief history | Why Vike > Architecture | Why Vike > DX | Vike
 
 ==Slide==
 
-- Creator of Vike — a Next.js/Nuxt alternative with a novel architecture
-  - Used by `bild.de` | `ecosia.de` | `focus.de` | Sourcegraph
-    > @AI take the logos from https://vike.dev/
+Vike
+
+Next.js/Nuxt alternative with a novel architecture
+
+[tagline]
+
+`name.com` | `bild.de` | Spline | `ecosia.de` | `focus.de` | Sourcegraph
+
+===
+
+Rom(uald Brillout)
+
+- Creator of Vike
 
 - Half French/German
   > @AI use flags emoji
@@ -19,11 +29,14 @@ Sections: Intro | Brief history | Why Vike > Architecture | Why Vike > DX | Vike
 
 > @me: don't hesitate to ask questions
 
+
 ==Slide==
 
-# Brief history
+# History
 
 vite-plugin-ssr — Like Next.js/Nuxt but as do-one-thing-do-it-well Vite plugin
+
+- 2021 (right after Vite 2 came out)
 
 ```js
 pages/+onRenderHtml.js
@@ -37,17 +50,40 @@ pages/+onRenderClient.js
 TODO: fill this
 ```
 
-> @AI: show both slides in parallel
+- `renderPage()`
 
-- Renamed to Vike for marketing reasons
+- Renamed to Vike
+
+- Created extensions vike-react/vike-vue/vike-solid
+
 
 ==Slide==
 
-# Why Vike > Architecture
+# Architecture
+
+- Control over integration
+  - Any UI framework (React/Vue/Solid/...)
+  - Data fetching tools (React Query, GraphQL, tRPC...)
+  - Any server (Hono/Express.js/Fastify/Elysia/...)
+  - Any deployment (Self-hosted/Cloudflare/Vercel/...)
+  - Any render mode (SSR/SPA/SSG/
+  - i18n
+
+- Choice between:
+  - Vike Extensions => Easy path
+  - Manual integration => full control
+
+- Confidence to build whatever you want
+  - E.g. BurdaForward building a publishing framework
+
+- Future proof
+  - E.g. Gatsby's demise
+  - Confidence for Vike team => confidence for users
+
 
 ==Slide==
 
-# Why Vike > DX
+# Low-level hooks
 
 - Lots of hooks => lot's of power.
 
@@ -55,9 +91,18 @@ TODO: fill this
 +onCreateGlobalContext.js
 ```
 
+```js
++onCreatePageContext.js
+```
+
+```js
++onBeforeRoute.js
+```
+
+
 ==Slide==
 
-# Why Vike > DX
+# RPC
 
 Versus Remix
 RPC
@@ -65,18 +110,22 @@ RPC
 
 ==Slide==
 
-# Why Vike > DX
+# RPC
 
 Versus Next.js
 > @AI: take example of previous slide and compare it to a Next.js counterpart
 
 - No environemnet mingling in same file
 
+
 ==Slide==
 
 # Polished
 
 - We care about details
+- Bugs quickly fixed (usually under 24h)
+
+==Slide==
 
 # Open Source Pricing
 
@@ -97,6 +146,7 @@ Versus Next.js
 - Telefunc
 - Photon
 
+
 # Future
 
 - Extensions, extensions, extensions
@@ -105,6 +155,17 @@ Versus Next.js
 > @me: I believe it's the future not only of Vike, but any framework will have to go down that route
 
 
+# Why Vike
+
+- Architecture (extensible core + powerful extensions)
+- Next-gen DX
+- Polished
+- Vibrant ecosystem
+- Transparent business model
+
+
 ## Slide
 
  - Vike team
+ - Significant contributors
+ - Join us
