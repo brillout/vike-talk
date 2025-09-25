@@ -1,4 +1,4 @@
-import{j as e,i as o,a as r,L as n,b as l,c as d,o as s}from"../chunks/chunk-CX5PfsYO.js";import"../chunks/chunk-C8Q88_sE.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-BPY0c0Pk.js";function i(a){const t={h1:"h1",li:"li",ul:"ul",...a.components};return e.jsxs(e.Fragment,{children:[e.jsx(t.h1,{children:"RPC"}),`
+import{j as e,i as o,a as r,L as n,b as l,c as d,o as s}from"../chunks/chunk-aAMZCQ0G.js";import"../chunks/chunk-C8Q88_sE.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-BPY0c0Pk.js";function i(a){const t={h1:"h1",li:"li",ul:"ul",...a.components};return e.jsxs(e.Fragment,{children:[e.jsx(t.h1,{children:"RPC"}),`
 `,e.jsxs(t.ul,{children:[`
 `,e.jsx(t.li,{children:"Not built-in by design (unlike Remix and Next.js)"}),`
 `,e.jsx(t.li,{children:"Any RPC tool: Telefunc, tRPC, ..."}),`

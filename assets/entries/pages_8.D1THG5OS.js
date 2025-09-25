@@ -1,4 +1,4 @@
-import{j as t,i as a,a as o,L as l,b as r,c as d,o as s}from"../chunks/chunk-CX5PfsYO.js";import"../chunks/chunk-C8Q88_sE.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-BPY0c0Pk.js";function n(i){const e={code:"code",li:"li",ul:"ul",...i.components};return t.jsxs(e.ul,{children:[`
+import{j as t,i as a,a as o,L as l,b as r,c as d,o as s}from"../chunks/chunk-aAMZCQ0G.js";import"../chunks/chunk-C8Q88_sE.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-BPY0c0Pk.js";function n(i){const e={code:"code",li:"li",ul:"ul",...i.components};return t.jsxs(e.ul,{children:[`
 `,t.jsxs(e.li,{children:[t.jsx(e.code,{children:"+data.js"}),`
 `,t.jsxs(e.ul,{children:[`
 `,t.jsx(e.li,{children:"Data fetching"}),`

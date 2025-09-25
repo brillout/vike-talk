@@ -1,4 +1,4 @@
-import{j as e,i as o,a as l,L as n,b as r,c as d,o as s}from"../chunks/chunk-CX5PfsYO.js";import"../chunks/chunk-C8Q88_sE.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-BPY0c0Pk.js";function i(a){const t={code:"code",h2:"h2",li:"li",ul:"ul",...a.components};return e.jsxs(e.Fragment,{children:[e.jsx(t.h2,{children:"Ecosystem"}),`
+import{j as e,i as o,a as l,L as n,b as r,c as d,o as s}from"../chunks/chunk-aAMZCQ0G.js";import"../chunks/chunk-C8Q88_sE.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-BPY0c0Pk.js";function i(a){const t={code:"code",h2:"h2",li:"li",ul:"ul",...a.components};return e.jsxs(e.Fragment,{children:[e.jsx(t.h2,{children:"Ecosystem"}),`
 `,e.jsxs(t.ul,{children:[`
 `,e.jsxs(t.li,{children:["Extensions",`
 `,e.jsxs(t.ul,{children:[`

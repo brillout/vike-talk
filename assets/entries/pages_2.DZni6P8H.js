@@ -1,4 +1,4 @@
-import{j as e,i as o,a as r,L as l,b as n,c as s,o as d}from"../chunks/chunk-CX5PfsYO.js";import{C as p}from"../chunks/chunk-rVn0k5-k.js";import"../chunks/chunk-C8Q88_sE.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-BPY0c0Pk.js";function a(i){const t={code:"code",li:"li",ul:"ul",...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(p,{children:e.jsx("img",{src:"https://i.imgur.com/tT4OwOK.png"})}),`
+import{j as e,i as o,a as r,L as l,b as n,c as s,o as d}from"../chunks/chunk-aAMZCQ0G.js";import{C as p}from"../chunks/chunk-Z4L20_CL.js";import"../chunks/chunk-C8Q88_sE.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-BPY0c0Pk.js";function a(i){const t={code:"code",li:"li",ul:"ul",...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(p,{children:e.jsx("img",{src:"https://i.imgur.com/tT4OwOK.png"})}),`
 `,e.jsx("div",{style:{marginTop:10}}),`
 `,e.jsxs(t.ul,{children:[`
 `,e.jsxs(t.li,{children:["Started ",e.jsx(t.code,{children:"vite-plugin-ssr"})," in 2021",`

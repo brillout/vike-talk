@@ -1,4 +1,4 @@
-import{j as e,i as o,a as r,L as n,b as l,c as s,o as d}from"../chunks/chunk-CX5PfsYO.js";import{C as p}from"../chunks/chunk-rVn0k5-k.js";import"../chunks/chunk-C8Q88_sE.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-BPY0c0Pk.js";function u(){return e.jsx(e.Fragment,{children:e.jsx("hr",{style:{opacity:.3}})})}function a(i){const t={li:"li",ul:"ul",...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(p,{children:e.jsx("img",{src:"https://i.imgur.com/QhPzsZb.png"})}),`
+import{j as e,i as o,a as r,L as n,b as l,c as s,o as d}from"../chunks/chunk-aAMZCQ0G.js";import{C as p}from"../chunks/chunk-Z4L20_CL.js";import"../chunks/chunk-C8Q88_sE.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-BPY0c0Pk.js";function u(){return e.jsx(e.Fragment,{children:e.jsx("hr",{style:{opacity:.3}})})}function a(i){const t={li:"li",ul:"ul",...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(p,{children:e.jsx("img",{src:"https://i.imgur.com/QhPzsZb.png"})}),`
 `,e.jsx("div",{style:{marginTop:30}}),`
 `,e.jsx(u,{}),`
 `,e.jsx("div",{style:{marginTop:-20}}),`
