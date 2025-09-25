@@ -123,6 +123,7 @@ Versus Next.js
 
 - We care about details
 - TypeScript
+- Cloudflare's brand new `@cloudflare/vite-plugin`
 - Bugs quickly fixed (usually under 24h)
 
 
