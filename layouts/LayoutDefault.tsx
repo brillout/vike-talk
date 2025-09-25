@@ -20,11 +20,11 @@ const footerContent: { name: string; numberOfSlides: number }[] = [
     numberOfSlides: 3,
   },
   {
-    name: 'Business model',
+    name: 'Ecosystem',
     numberOfSlides: 3,
   },
   {
-    name: 'Ecosystem',
+    name: 'Business model',
     numberOfSlides: 3,
   },
   {

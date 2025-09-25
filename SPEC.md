@@ -125,6 +125,15 @@ Versus Next.js
 - We care about details
 - Bugs quickly fixed (usually under 24h)
 
+
+==Slide==
+
+# Ecosystem
+
+- Telefunc
+- Photon
+
+
 ==Slide==
 
 # Open Source Pricing
@@ -141,11 +150,8 @@ Versus Next.js
     - Astro is VC backed => they will have to make money at some point
     - Frameworks are complex to develop — donations alone cannot cover the cost
 
-# Ecosystem
 
-- Telefunc
-- Photon
-
+==Slide==
 
 # Future
 
@@ -157,11 +163,11 @@ Versus Next.js
 
 # Why Vike
 
-- Architecture (extensible core + powerful extensions)
-- Next-gen DX
-- Polished
-- Vibrant ecosystem
-- Transparent business model
+✅ Architecture (extensible core + powerful extensions)
+✅ Next-gen DX
+✅ Polished
+✅ Vibrant ecosystem
+✅ Transparent business model
 
 
 ## Slide
