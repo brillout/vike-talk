@@ -1,11 +1,16 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "========= Formatting": "",
+    "format": "biome check --write --unsafe",
+    "format:check": "biome ci && echo '\\033[1;32mFormatting is correct.\\033[0m' || (echo '\\033[1;34mFix formatting by running `$ pnpm run format`.\\033[0m' && exit 1)",
+    "========= Reset": "",
+    "reset": "git clean -Xdf && pnpm install && pnpm run build",
+    "========= Only allow pnpm; forbid yarn & npm": "",
+    "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@mdx-js/mdx": "3.1.1",
     "@mdx-js/react": "3.1.1",
     "@mdx-js/rollup": "3.1.1",
