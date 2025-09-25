@@ -1,3 +1,22 @@
-# Slide
+```js
+// pages/+onCreateGlobalContext.server.js
+// Environment: server
+export async onCreateGlobalContext() {
+  const dataFromAPI = await fetchDataFromAPI()
+  const someGlobalData = select(dataFromAPI)
+  globalContext.someGlobalData = someGlobalData
+}
+```
 
-Foo bar
+```js
+// pages/+config.js
+export default {
+  passToClient: 'someGlobalData'
+}
+```
+
+```js
+// Anywhere (client,server)
+import { getGlobalContext } from 'vike'
+const { someGlobalData } = await getGlobalContext()
+```

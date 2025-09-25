@@ -122,6 +122,7 @@ Versus Next.js
 # Polished
 
 - We care about details
+- TypeScript
 - Bugs quickly fixed (usually under 24h)
 
 
@@ -146,6 +147,9 @@ Versus Next.js
 
 # Ecosystem
 
+- Extensions
+  - `vike-react-zustand`
+  - ...
 - Telefunc
 - Photon
 
