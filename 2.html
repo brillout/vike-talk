@@ -16,16 +16,35 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper"><div id="slide-content"><h1>Slide</h1>
-<p>Foo bar</p></div><div id="footer"><div id="footer-content"><div><div>Section 1</div><div> <!-- -->○<!-- -->●<!-- -->○</div></div><div><div>Section 2</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Section 3</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Section 4</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div></div></div></div></div>
+        <div id="root"><div id="slide-wrapper"><div id="slide-content"><h1>What is SSR</h1>
+<div style="margin-top:-30px"></div>
+<div style="position:relative"><div style="position:absolute;left:-60px"><strong>SPA:</strong></div></div>
+<div style="font-size:16px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="html" data-theme="github-light"><code data-language="html" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#24292E">&lt;</span><span style="color:#22863A">html</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">  &lt;</span><span style="color:#22863A">body</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#6A737D">    &lt;!-- Empty container: content will be added dynamically by render.js --&gt;</span></span>
+<span data-line=""><span style="color:#24292E">    &lt;</span><span style="color:#22863A">div</span><span style="color:#6F42C1"> id</span><span style="color:#24292E">=</span><span style="color:#032F62">&quot;root&quot;</span><span style="color:#24292E">&gt;&lt;/</span><span style="color:#22863A">div</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">    &lt;</span><span style="color:#22863A">script</span><span style="color:#6F42C1"> src</span><span style="color:#24292E">=</span><span style="color:#032F62">&quot;/render.js&quot;</span><span style="color:#24292E">&gt;&lt;/</span><span style="color:#22863A">script</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">  &lt;/</span><span style="color:#22863A">body</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">&lt;/</span><span style="color:#22863A">html</span><span style="color:#24292E">&gt;</span></span></code></pre></figure></div>
+<div style="position:relative"><div style="position:absolute;left:-60px"><strong>SSR:</strong></div></div>
+<div style="font-size:16px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="html" data-theme="github-light"><code data-language="html" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#24292E">&lt;</span><span style="color:#22863A">html</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">  &lt;</span><span style="color:#22863A">body</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#6A737D">    &lt;!-- Content is rendered to HTML --&gt;</span></span>
+<span data-line=""><span style="color:#24292E">    &lt;</span><span style="color:#22863A">div</span><span style="color:#6F42C1"> id</span><span style="color:#24292E">=</span><span style="color:#032F62">&quot;root&quot;</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">      &lt;</span><span style="color:#22863A">h1</span><span style="color:#24292E">&gt;Welcome to my blog&lt;/</span><span style="color:#22863A">h1</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">      &lt;</span><span style="color:#22863A">p</span><span style="color:#24292E">&gt;This is an article about web development...&lt;/</span><span style="color:#22863A">p</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">    &lt;/</span><span style="color:#22863A">div</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">    &lt;</span><span style="color:#22863A">script</span><span style="color:#6F42C1"> src</span><span style="color:#24292E">=</span><span style="color:#032F62">&quot;/hydrate.js&quot;</span><span style="color:#24292E">&gt;&lt;/</span><span style="color:#22863A">script</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">  &lt;/</span><span style="color:#22863A">body</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">&lt;/</span><span style="color:#22863A">html</span><span style="color:#24292E">&gt;</span></span></code></pre></figure></div></div><div id="footer"><div id="footer-content"><div><div>Section 1</div><div> <!-- -->○<!-- -->●<!-- -->○</div></div><div><div>Section 2</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Section 3</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Section 4</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"_urlRewrite":null,"pageId":"\\/pages\\/2","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
 import("/assets/entries/pages_client.DLcSGtds.js");
-import("/assets/entries/entry-client-routing.B94hzkGx.js");
+import("/assets/entries/entry-client-routing.pWmYaR3v.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_2.BJ2tTYWK.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_2.CLdwYqOn.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-BntV-Crw.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-C8Q88_sE.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-BPY0c0Pk.js" as="script" type="text/javascript">
