@@ -16,50 +16,18 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper"><div id="slide-content"><div style="display:flex"><div><div style="display:flex;justify-content:center;align-items:center;margin-top:-20px"><p>Next.js 😨</p></div><div style="font-size:16px;margin-top:-30px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// app/article.tsx</span></span>
-<span data-line=""><span style="color:#6A737D">// Environment: client</span></span>
-<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { revalidatePath } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;next/cache&#x27;</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> Article</span><span style="color:#24292E">() {</span></span>
-<span data-line=""><span style="color:#D73A49">  async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onArticleDelete</span><span style="color:#24292E">() {</span></span>
-<span data-line=""><span style="color:#032F62">    &#x27;use server&#x27;</span></span>
-<span data-line=""><span style="color:#6A737D">    // Environment: server</span></span>
-<span data-line=""><span style="color:#6A737D">    // 😨 Mixed server and client code inside same file</span></span>
-<span data-line=""><span style="color:#6A737D">    // 😨 Magic passing of props</span></span>
-<span data-line=""><span style="color:#D73A49">    await</span><span style="color:#24292E"> db.article.</span><span style="color:#6F42C1">delete</span><span style="color:#24292E">({ article_id })</span></span>
-<span data-line=""><span style="color:#6A737D">    // 😨 Complex cache handling</span></span>
-<span data-line=""><span style="color:#6F42C1">    revalidatePath</span><span style="color:#24292E">(</span><span style="color:#032F62">&#x27;/articles&#x27;</span><span style="color:#24292E">)</span></span>
-<span data-line=""><span style="color:#24292E">  }</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> (</span></span>
-<span data-line=""><span style="color:#24292E">    &lt;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49">=</span><span style="color:#24292E">{onArticleDelete}&gt;Delete&lt;/</span><span style="color:#22863A">button</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#24292E">  )</span></span>
-<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div><div><div style="display:flex;justify-content:center;align-items:center;margin-top:-20px"><p>Vike + Telefunc ✨</p></div><div style="font-size:16px;margin-top:-30px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// article.telefunc.ts</span></span>
-<span data-line=""><span style="color:#6A737D">// Environment: server</span></span>
-<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onArticleDelete</span><span style="color:#24292E">({ </span><span style="color:#E36209">article_id</span><span style="color:#24292E"> }) {</span></span>
-<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#24292E"> db.article.</span><span style="color:#6F42C1">delete</span><span style="color:#24292E">({ article_id })</span></span>
-<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> { success: </span><span style="color:#005CC5">true</span><span style="color:#24292E"> }</span></span>
-<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// article.tsx</span></span>
-<span data-line=""><span style="color:#6A737D">// Environment: client</span></span>
-<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { onArticleDelete } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;./article.telefunc.ts&#x27;</span></span>
-<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> Article</span><span style="color:#24292E">() {</span></span>
-<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> async</span><span style="color:#24292E"> () </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> {</span></span>
-<span data-line=""><span style="color:#D73A49">    const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">success</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> onArticleDelete</span><span style="color:#24292E">({ article_id })</span></span>
-<span data-line=""><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#D73A49">!</span><span style="color:#24292E">success) </span><span style="color:#6F42C1">alert</span><span style="color:#24292E">(</span><span style="color:#032F62">&quot;Deletion failed&quot;</span><span style="color:#24292E">)</span></span>
-<span data-line=""><span style="color:#24292E">  }</span></span>
-<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> &lt;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49">=</span><span style="color:#24292E">{onClick}&gt;Delete&lt;/</span><span style="color:#22863A">button</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure><p style="font-size:20px;margin-left:10px"><p>✅ No caching by default (but you can if you want)</p></p></div></div></div></div><div id="footer"><div id="footer-content"><div><div>Intro</div><div> <!-- -->○</div></div><div><div>History</div><div> <!-- -->○</div></div><div><div>Hooks</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>RPC</div><div> <!-- -->○<!-- -->●<!-- -->○</div></div><div><div>Details</div><div> <!-- -->○</div></div><div><div>Business model</div><div> <!-- -->○</div></div><div><div>Ecosystem</div><div> <!-- -->○</div></div><div><div>Future</div><div> <!-- -->○</div></div><div><div>Conclusion</div><div> <!-- -->○</div></div></div></div></div></div>
+        <div id="root"><div id="slide-wrapper"><div id="slide-content"><h1>Slide</h1>
+<p>Foo bar</p></div><div id="footer"><div id="footer-content"><div><div>Section 1</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Section 2</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Section 3</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Section 4</div><div> <!-- -->●<!-- -->○<!-- -->○</div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"_urlRewrite":null,"pageId":"\\/pages\\/10","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
 import("/assets/entries/pages_client.DLcSGtds.js");
-import("/assets/entries/entry-client-routing.DvL939st.js");
+import("/assets/entries/entry-client-routing.B94hzkGx.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_10.DaEPIBFQ.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-aAMZCQ0G.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_10.CJju2NYV.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BntV-Crw.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-C8Q88_sE.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-BPY0c0Pk.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-Z4L20_CL.js" as="script" type="text/javascript">
       </body>
     </html>
