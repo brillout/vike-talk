@@ -1,3 +1,36 @@
-# Slide
+# What is SSR
 
-Foo bar
+<div style={{marginTop: -30}} />
+
+<div style={{position: 'relative'}}>
+  <div style={{position: 'absolute', left: -60}}>**SPA:**</div>
+</div>
+<div style={{fontSize: '16px' }}>
+```html
+<html>
+  <body>
+    <!-- Empty container: content will be added dynamically by render.js -->
+    <div id="root"></div>
+    <script src="/render.js"></script>
+  </body>
+</html>
+```
+</div>
+
+<div style={{position: 'relative'}}>
+  <div style={{position: 'absolute', left: -60}}>**SSR:**</div>
+</div>
+<div style={{fontSize: '16px' }}>
+```html
+<html>
+  <body>
+    <!-- Content is rendered to HTML -->
+    <div id="root">
+      <h1>Welcome to my blog</h1>
+      <p>This is an article about web development...</p>
+    </div>
+    <script src="/hydrate.js"></script>
+  </body>
+</html>
+```
+</div>
