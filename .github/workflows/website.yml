@@ -2,7 +2,7 @@ name: Website
 on:
   push:
     branches:
-      - meetup-react-berlin
+      - vite-conf-2025
 permissions:
   contents: write
 jobs:
