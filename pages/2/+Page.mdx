@@ -1,15 +1,15 @@
-# What is SSR
+# What is SSR?
 
-<div style={{marginTop: -30}} />
+<div style={{marginTop: -10}} />
 
 <div style={{position: 'relative'}}>
-  <div style={{position: 'absolute', left: -60}}>**SPA:**</div>
+  <div style={{position: 'absolute'}}>**SPA:**</div>
 </div>
-<div style={{fontSize: '16px' }}>
+<div style={{fontSize: '16px', position: 'relative', left: 70 }}>
 ```html
 <html>
   <body>
-    <!-- Empty container: content will be added dynamically by render.js -->
+    <!-- Content is added to div#root dynamically on the client-side by render.js -->
     <div id="root"></div>
     <script src="/render.js"></script>
   </body>
@@ -18,9 +18,9 @@
 </div>
 
 <div style={{position: 'relative'}}>
-  <div style={{position: 'absolute', left: -60}}>**SSR:**</div>
+  <div style={{position: 'absolute'}}>**SSR:**</div>
 </div>
-<div style={{fontSize: '16px' }}>
+<div style={{fontSize: '16px', position: 'relative', left: 70 }}>
 ```html
 <html>
   <body>
