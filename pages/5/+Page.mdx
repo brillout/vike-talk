@@ -1,3 +1,16 @@
-# Slide
+import { Hr } from '../../components'
 
-Foo bar
+# SSR vs SSG
+
+SSG: pre-render the HTML of pages at build-time  
+  => no production server required ✅
+
+Recommendation: use SSG whenever possible.
+
+❌ SSG isn't an option for frequently changing content.
+
+<Hr />
+
+Examples:
+- Landing page => SSG or SSR?
+- `reddit.com` => SSG or SSR?
