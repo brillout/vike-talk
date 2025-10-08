@@ -1,17 +1,11 @@
-```ts
-// pages/+onRenderHtml.js
-// Environment: server
+import { Center, Hr } from '../../components'
 
-import ReactDOMServer from 'react-dom/server'
+<Center>
+<img src="https://i.imgur.com/QhPzsZb.png" />
+</Center>
 
-export function onRenderHtml(pageContext) {
-  const { Page } = pageContext
-  const pageHtml = ReactDOMServer.renderToString(<Page/>)
-  return `
-    <html>
-      <body>
-        <div id="root">${pageHtml}</div>
-      </body>
-    </html>`
-}
-```
+<div style={{height: 20}} />
+<Hr />
+<div style={{height: 5}} />
+
+✅ Almost full control, with all framework benefits  

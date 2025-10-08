@@ -1,12 +1,18 @@
-import { Center, Hr } from '../../components'
+```js
+// Doesn't depend on Node.js (e.g. can be used in Cloudflare Workers)
+import { renderPage } from 'vike/server'
 
-<Center>
-<img src="https://i.imgur.com/QhPzsZb.png" />
-</Center>
-
-<div style={{height: 20}} />
-<Hr />
-<div style={{height: 5}} />
-
-Learn more: [vike.dev](https://vike.dev)  
-Guide for adding Vike to a Vite app: [vike.dev/add](https://vike.dev/add)  
+// Any server: Express.js, Cloudflare Worker, AWS Lambda Function, Fastify, Hono, Nitro, ...
+server.addMiddleware({
+  method: 'GET',
+  route: '*', // catch-all
+  async handler(request) {
+    const pageContextInit = { urlOriginal: request.url }
+    const pageContext = await renderPage(pageContextInit)
+    // `body` is the HTML of the page with a route matching pageContextInit.urlOriginal
+    const { body, statusCode, headers } = pageContext.httpResponse
+    const response = { body, statusCode, headers }
+    return response
+  }
+})
+```

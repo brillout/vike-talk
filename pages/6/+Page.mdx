@@ -1,17 +1,16 @@
-## Custom integration
+import { Hr } from '../../components'
 
-✅ Full control  
-👎 Lot's of integration & boilerplate code — okay for simple apps  
-❌ No-go for some apps (you'd essentially re-create a framework)  
+# SSR vs SSG
 
-## Framework
+SSG: pre-render the HTML of pages at build-time  
+  => no production server required ✅
 
-👍 Minimal boilerplate code  
-👍 SSR/SPA/SSG toggles  
-👍 Data-fetching  
-👍 Client-side routing & pre-fetching  
-👍 Code-splitting  
-👍 HTML streaming  
-...  
+Recommendation: use SSG whenever possible.
 
-😕 No control (bad with some frameworks => "framework slave")
+❌ SSG isn't an option for frequently changing content.
+
+<Hr />
+
+Examples:
+- Landing page => SSG or SSR?
+- `reddit.com` => SSG or SSR?
