@@ -21,7 +21,7 @@ const footerContent: { name: string; numberOfSlides: number }[] = [
   },
   {
     name: 'Workshop',
-    numberOfSlides: 1,
+    numberOfSlides: 2,
   },
   {
     name: 'SSR vs SSG',
