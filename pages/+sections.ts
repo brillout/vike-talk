@@ -13,19 +13,19 @@ export const sections: Sections = [
     numberOfSlides: 6,
   },
   {
-    name: 'RPC',
+    name: 'Extensions',
+    numberOfSlides: 1,
+  },
+  {
+    name: 'Use Case',
+    numberOfSlides: 1,
+  },
+  {
+    name: 'DX',
     numberOfSlides: 3,
   },
   {
-    name: 'Details',
-    numberOfSlides: 1,
-  },
-  {
     name: 'Business model',
-    numberOfSlides: 1,
-  },
-  {
-    name: 'Ecosystem',
     numberOfSlides: 1,
   },
   {
