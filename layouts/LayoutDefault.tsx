@@ -52,7 +52,7 @@ function Footer() {
         {footerContent.map(({ name, numberOfSlides }) => (
           <div key={name}>
             <div>{name}</div>
-            <div className="footer-bullets">
+            <div>
               {' '}
               {Array(numberOfSlides)
                 .fill(undefined)
