@@ -8,6 +8,7 @@ const config = {
   title: 'Vike Talk',
   meta: {
     sections: {
+      global: true,
       env: { client: true, server: true },
     },
   },
