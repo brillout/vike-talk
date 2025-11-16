@@ -2,7 +2,7 @@ name: Website
 on:
   push:
     branches:
-      - vite-conf-2025
+      - 2025-ct-webdev
 permissions:
   contents: write
 jobs:

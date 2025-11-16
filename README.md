@@ -1,7 +1,7 @@
 ## Current talk
 
 Currently deployed:
-- [talk.vike.dev](https://talk.vike.dev) — [`2025-vite-conf`](https://github.com/brillout/vike-talk/tree/2025-vite-conf)
+- [talk.vike.dev](https://talk.vike.dev) — [`2025-ct-webdev`](https://github.com/brillout/vike-talk/tree/2025-ct-webdev)
 
 Permanently deployed:
 - [2025-react-berlin.vike.dev](https://2025-react-berlin.vike.dev) — [React Berlin 2025](https://guild.host/events/react-berlin-meetup-6a789v) / [github.com/brillout/2025-react-berlin](https://github.com/brillout/2025-react-berlin)
@@ -13,6 +13,7 @@ Permanently deployed:
 
 ## Talks
 
+- [`2025-ct-webdev`](https://github.com/brillout/vike-talk/tree/2025-ct-webdev) — [c't `<webdev>` 2025](https://ct-webdev.com/agenda-2025/)
 - [`2025-vite-conf`](https://github.com/brillout/vike-talk/tree/2025-vite-conf) — [ViteConf 2025](https://viteconf.amsterdam/workshops/)
 - [`2025-react-berlin`](https://github.com/brillout/vike-talk/tree/2025-react-berlin) — [React Berlin 2025](https://guild.host/events/react-berlin-meetup-6a789v)
 - [`2024-vite-conf`](https://github.com/brillout/vike-talk/tree/2024-vite-conf) — [ViteConf 2024](https://www.youtube.com/watch?v=jzjtDC31ZnI)
