@@ -1,5 +1,3 @@
-// TODO: add remove command
-
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -139,6 +137,36 @@ function addSlide(title = 'New Slide', content = 'TO-DO: Add content') {
 }
 
 /**
+ * Remove a slide directory and shift subsequent slides
+ */
+function removeSlide(slideNumber) {
+  const slidePath = path.join(pagesDir, slideNumber.toString())
+
+  if (!fs.existsSync(slidePath)) {
+    throw new Error(`Slide ${slideNumber} does not exist`)
+  }
+
+  // Remove the slide directory and all its contents
+  fs.rmSync(slidePath, { recursive: true, force: true })
+  console.log(`Removed slide ${slideNumber}`)
+
+  // Rename subsequent slides to fill the gap
+  const existingSlides = getExistingSlides().filter((num) => num > slideNumber)
+
+  if (existingSlides.length > 0) {
+    console.log(`Shifting slides: ${existingSlides.join(', ')}`)
+
+    for (const oldNumber of existingSlides) {
+      const newNumber = oldNumber - 1
+      renameSlide(oldNumber, newNumber)
+    }
+  }
+
+  console.log(`\n✅ Successfully removed slide ${slideNumber}`)
+  console.log(`📊 Total slides: ${getMaxSlideNumber()}`)
+}
+
+/**
  * List all existing slides
  */
 function listSlides() {
@@ -173,11 +201,13 @@ Commands:
   list                           List all existing slides
   add [title] [content]         Add a new slide at the end
   insert <position> [title] [content]  Insert a slide at position, shifting subsequent slides
+  remove <position>             Remove a slide and renumber subsequent slides
 
 Examples:
   node scripts/manage-slides.js list
   node scripts/manage-slides.js add "My New Slide" "This is the content"
   node scripts/manage-slides.js insert 5 "Inserted Slide" "This goes between slide 4 and 5"
+  node scripts/manage-slides.js remove 3
 
 Notes:
   - Position numbers start from 1
@@ -218,6 +248,14 @@ function main() {
         const insertTitle = args[2] || 'New Slide'
         const insertContent = args[3] || 'TO-DO: Add content'
         insertSlide(position, insertTitle, insertContent)
+        break
+
+      case 'remove':
+        const removePosition = parseInt(args[1], 10)
+        if (isNaN(removePosition)) {
+          throw new Error('Position must be a number')
+        }
+        removeSlide(removePosition)
         break
 
       default:
