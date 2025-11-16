@@ -1,62 +1,12 @@
-import { Center } from '../../components'
+# Use case
 
-<div style={{display: 'flex'}}>
-  <div>
-    <Center style={{marginTop: -20}}>
-      Remix 😨
-    </Center>
+Burda GmbH owns [focus.de](), [chip.de](), [bunte.de](), ...
 
-    <div style={{fontSize: '16px', marginTop: -30 }}>
-      ```js
-      // article/delete.ts
-      // Only a single action per file 😕
-      export async function action({ request }) {
-        const { article_id } = await request.json()
-        await db.article.delete({ article_id })
-        return Response.json({ success: true })
-      }
-      ```
-      ```js
-      // article.tsx
-      export default function Article() {
-        const onClick = async () => {
-          const res = await fetch("/article/delete", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ article_id })
-          })
-          const { success } = await res.json()
-          if (!success) alert("Deletion failed")
-        }
-        return <button onClick={onClick}>Delete</button>
-      }
-      ```
-    </div>
-  </div>
-  <div>
-    <Center style={{marginTop: -20}}>
-      Vike + Telefunc ✨
-    </Center>
-
-    <div style={{fontSize: '16px', marginTop: -30 }}>
-      ```js
-      // article.telefunc.ts
-      export async function onArticleDelete({ article_id }) {
-        await db.article.delete({ article_id })
-        return { success: true }
-      }
-      ```
-      ```js
-      // article.tsx
-      import { onArticleDelete } from './article.telefunc.ts'
-      export default function Article() {
-        const onClick = async () => {
-          const { success } = await onArticleDelete({ article_id })
-          if (!success) alert("Deletion failed")
-        }
-        return <button onClick={onClick}>Delete</button>
-      }
-      ```
-    </div>
-  </div>
-</div>
+- **Before**: fragmented stacks  
+  => cannot impove all websites at once
+- **Now**: Internal company framework powering all websites  
+  => Software Architects controls architecture of all websites  
+  => App code: product developers
+- **Vike core**, without any Vike extension  
+  => full control over architecture + rock-solid foundation  
+- `vike-react` is ~1k LoC => easy to build your own framework
