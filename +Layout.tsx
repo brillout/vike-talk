@@ -6,25 +6,6 @@ import './Layout.css'
 import React from 'react'
 import { getSlideNumber } from './utils/getSlideNumber'
 
-const footerContent: { name: string; numberOfSlides: number }[] = [
-  {
-    name: 'Section 1',
-    numberOfSlides: 3,
-  },
-  {
-    name: 'Section 2',
-    numberOfSlides: 3,
-  },
-  {
-    name: 'Section 3',
-    numberOfSlides: 3,
-  },
-  {
-    name: 'Section 4',
-    numberOfSlides: 3,
-  },
-]
-
 function Layout({ children }: { children: React.ReactNode }) {
   const pageContext = usePageContext()
   /* Implement +style setting?
@@ -49,7 +30,7 @@ function Footer() {
   return (
     <div id="footer" style={{ lineHeight: '1.2em' }}>
       <div id="footer-content">
-        {footerContent.map(({ name, numberOfSlides }) => (
+        {pageContext.config.sections!.map(({ name, numberOfSlides }) => (
           <div key={name}>
             <div>{name}</div>
             <div>
