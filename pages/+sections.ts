@@ -1,19 +1,39 @@
 import type { Sections } from '../+config'
 export const sections: Sections = [
   {
-    name: 'Section 1',
+    name: 'Intro',
+    numberOfSlides: 1,
+  },
+  {
+    name: 'History',
+    numberOfSlides: 1,
+  },
+  {
+    name: 'Hooks',
+    numberOfSlides: 6,
+  },
+  {
+    name: 'RPC',
     numberOfSlides: 3,
   },
   {
-    name: 'Section 2',
-    numberOfSlides: 3,
+    name: 'Details',
+    numberOfSlides: 1,
   },
   {
-    name: 'Section 3',
-    numberOfSlides: 3,
+    name: 'Business model',
+    numberOfSlides: 1,
   },
   {
-    name: 'Section 4',
-    numberOfSlides: 3,
+    name: 'Ecosystem',
+    numberOfSlides: 1,
+  },
+  {
+    name: 'Future',
+    numberOfSlides: 1,
+  },
+  {
+    name: 'Conclusion',
+    numberOfSlides: 1,
   },
 ]
