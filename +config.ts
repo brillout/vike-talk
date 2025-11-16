@@ -6,6 +6,9 @@ import type { Config } from 'vike/types'
 
 const config = {
   title: 'Vike Talk',
+  prerender: {
+    noExtraDir: true,
+  },
   meta: {
     sections: {
       global: true,
