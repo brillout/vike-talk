@@ -1,9 +1,9 @@
-export { config }
+import vikeReact from 'vike-react/config'
+import type { Config } from 'vike/types'
+import { Layout } from './layouts/LayoutDefault.js'
 
-import { Config } from 'vike/types'
-
-const config = {
-  prerender: {
-    noExtraDir: true,
-  },
+export default {
+  Layout,
+  title: 'Vike Talk',
+  extends: vikeReact,
 } satisfies Config
