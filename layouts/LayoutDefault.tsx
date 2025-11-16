@@ -47,7 +47,7 @@ function Footer() {
   const slideNumber = getSlideNumber(pathname)
   let slideNumberFooter = 0
   return (
-    <div id="footer">
+    <div id="footer" style={{ lineHeight: '1.2em' }}>
       <div id="footer-content">
         {footerContent.map(({ name, numberOfSlides }) => (
           <div key={name}>

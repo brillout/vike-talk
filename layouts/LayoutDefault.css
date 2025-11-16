@@ -34,7 +34,7 @@ h1 {
 
 #slide-wrapper {
   height: 100vh;
-  --footer-height: 70px;
+  --footer-height: 60px;
   padding-bottom: var(--footer-height);
   display: flex;
   justify-content: center;
