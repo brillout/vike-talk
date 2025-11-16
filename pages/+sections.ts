@@ -1,4 +1,4 @@
-import type { Sections } from '../+config'
+import type { Sections } from './+config'
 export const sections: Sections = [
   {
     name: 'Section 1',
