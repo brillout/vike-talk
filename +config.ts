@@ -11,6 +11,9 @@ const config = {
       global: true,
       env: { client: true, server: true },
     },
+    fullscreen: {
+      env: { client: true, server: true },
+    },
   },
   extends: vikeReact,
 } satisfies Config
@@ -19,6 +22,7 @@ declare global {
   namespace Vike {
     interface Config {
       sections?: Sections
+      fullscreen?: boolean
     }
   }
 }

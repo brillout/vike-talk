@@ -12,12 +12,14 @@ function Layout({ children }: { children: React.ReactNode }) {
   const {style} = pageContext.config
   */
   const style = {}
+  const { fullscreen } = pageContext.config
+  const className = fullscreen ? 'fullscreen' : undefined
   return (
-    <div id="slide-wrapper">
+    <div id="slide-wrapper" className={className}>
       <div id="slide-content" style={style}>
         {children}
       </div>
-      <Footer />
+      {!fullscreen && <Footer />}
     </div>
   )
 }
