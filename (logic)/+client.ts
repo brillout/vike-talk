@@ -1,5 +1,5 @@
 import { navigate } from 'vike/client/router'
-import { getSlideNumber } from './utils/getSlideNumber'
+import { getSlideNumber } from '../utils/getSlideNumber'
 
 window.onkeydown = ({ code, shiftKey }) => {
   const { pathname } = window.location
