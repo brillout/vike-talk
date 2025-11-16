@@ -2,9 +2,9 @@ export { Layout }
 
 import { usePageContext } from 'vike-react/usePageContext'
 import './css/index.css'
-import './LayoutDefault.css'
+import './Layout.css'
 import React from 'react'
-import { getSlideNumber } from '../utils/getSlideNumber'
+import { getSlideNumber } from './utils/getSlideNumber'
 
 const footerContent: { name: string; numberOfSlides: number }[] = [
   {
