@@ -22,7 +22,7 @@ export const sections: Sections = [
   },
   {
     name: 'DX',
-    numberOfSlides: 3,
+    numberOfSlides: 8,
   },
   {
     name: 'Business model',
