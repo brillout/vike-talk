@@ -1,12 +1,7 @@
-## Details
+# RPC
 
-- Bugs quickly fixed (usually under 24h)
-- Deployment skew protection
-- Different Base URL for client/server
-- `>=400` helpful warnings & error messages
-  - Mimimal in client-side production to save KBs
-- Infinite loop guards
-- CSP support
-- ISR support (via `@photonjs/vercel`)
-- Route Functions
-- ...
+- Not built-in by design (unlike Remix and Next.js)
+- Any RPC tool: Telefunc, tRPC, ...
+- Any non-RPC tool: React Query, GraphQL, ...
+- Progressive migration from one paradigm to another
+  - E.g. progressively migrate from GraphQL to RPC
