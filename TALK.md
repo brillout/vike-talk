@@ -14,16 +14,6 @@
 
 ---
 
-Stable & flexible core:
-- Unopinionated & agnostic core => foundational stability
-- Low-level hooks => powerful flexibility
-
-Powerful extensions:
-- 
-Opin
-
----
-
 Theory: ideal architecture?
 
 ---
