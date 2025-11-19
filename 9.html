@@ -1,8 +1,8 @@
 <!DOCTYPE html>
     <html lang="en">
       <head>
-        <link rel="stylesheet" type="text/css" href="/assets/static/pages_css_index-a4efb3f3.CruA3W7P.css">
-        <link rel="stylesheet" type="text/css" href="/assets/static/pages_Layout-69d9ce51.Dzg8Gi79.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/pages_css_index-a4efb3f3.BxBZChYX.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/pages_Layout-69d9ce51.yxAOMWKq.css">
         <link rel="preload" href="/assets/static/Inter-Var.dulBMp8D.ttf" as="font" type="font/ttf" crossorigin>
         <meta charset="UTF-8" />
         
@@ -18,27 +18,45 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper"><div id="slide-content"><h1>Extensions</h1>
+        <div id="root"><div id="slide-wrapper"><div id="slide-content"><ul>
+<li><code>+data.js</code>
 <ul>
-<li><code>vike-react</code></li>
-<li><code>vike-react-rsc</code> 🚧 =&gt; Server Components</li>
-<li><code>vike-react-redux</code></li>
-<li><code>vike-react-zustand</code></li>
-<li><code>vike-react-query</code></li>
-<li><code>vike-react-apollo</code></li>
-<li>...</li>
+<li>Data fetching</li>
 </ul>
-<p><code>vike-photon</code> =&gt; server &amp; deployment</p>
-<p>More: <code>vike-vue</code>, <code>vike-vue-pinia</code>, <code>vike-vue-query</code>, <code>vike-solid</code>, <code>vike-angular</code>, ...</p></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><div>Intro</div><div> <!-- -->○</div></div><div><div>History</div><div> <!-- -->○</div></div><div><div>Hooks</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Extensions</div><div> <!-- -->●</div></div><div><div>Use Case</div><div> <!-- -->○</div></div><div><div>DX</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Business model</div><div> <!-- -->○</div></div><div><div>Future</div><div> <!-- -->○</div></div><div><div>Conclusion</div><div> <!-- -->○</div></div></div></div></div></div>
+</li>
+<li><code>+onCreateGlobalContext.client.js</code>
+<ul>
+<li>Client-side initialization (e.g. authentication)</li>
+<li>Init store (e.g. Redux or Zustand)</li>
+</ul>
+</li>
+<li><code>+onCreatePageContext.{client,server}.js</code></li>
+<li><code>+guard.js</code>
+<ul>
+<li>Authorization</li>
+</ul>
+</li>
+<li><code>+onPageTransition{Start,End}.js</code>
+<ul>
+<li>Full control over page transition anmiation</li>
+</ul>
+</li>
+<li><code>+onBeforeRoute.js</code>
+<ul>
+<li>Full control over i18n integration</li>
+</ul>
+</li>
+<li>...</li>
+</ul></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><div>Intro</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Hooks</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->●</div></div><div><div>Architecture</div><div> <!-- -->○<!-- -->○</div></div><div><div>Use Case</div><div> <!-- -->○</div></div><div><div>DX</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Business model</div><div> <!-- -->○</div></div><div><div>Future</div><div> <!-- -->○</div></div><div><div>Conclusion</div><div> <!-- -->○</div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"_urlRewrite":null,"pageId":"\\/pages\\/9","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
 import("/assets/entries/pages_client.DKTDeNS_.js");
-import("/assets/entries/entry-client-routing.D0IpepgM.js");
+import("/assets/entries/entry-client-routing.BEjcJzYr.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_9.B11bQ_Em.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-M0Bay0lY.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_9.CBFhsUyM.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BnzG0HPw.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-C0l-XPzm.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-CbKO0cQm.js" as="script" type="text/javascript">
       </body>

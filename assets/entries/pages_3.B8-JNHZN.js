@@ -1,0 +1,17 @@
+import{j as e,i as o,a as r,b as l,c as n,d as s,o as d}from"../chunks/chunk-BnzG0HPw.js";import{C as p}from"../chunks/chunk-Dch_-iV5.js";import"../chunks/chunk-C0l-XPzm.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-CbKO0cQm.js";function a(i){const t={code:"code",li:"li",ul:"ul",...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(p,{children:e.jsx("img",{src:"https://i.imgur.com/tT4OwOK.png"})}),`
+`,e.jsx("div",{style:{marginTop:10}}),`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsxs(t.li,{children:["Started ",e.jsx(t.code,{children:"vite-plugin-ssr"})," in 2021",`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsx(t.li,{children:"Vite's early days (before its meteoric rise)"}),`
+`,e.jsx(t.li,{children:"Idea: Powerful low-level hooks, for full control over integration"}),`
+`]}),`
+`]}),`
+`,e.jsxs(t.li,{children:["Renamed to Vike",`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsx(t.li,{children:'For "street cred"'}),`
+`,e.jsxs(t.li,{children:["Extensions: ",e.jsx(t.code,{children:"vike-react"}),"/",e.jsx(t.code,{children:"vike-vue"}),"/",e.jsx(t.code,{children:"vike-solid"})," (and more)"]}),`
+`]}),`
+`]}),`
+`]}),`
+`,e.jsx("div",{style:{height:40}})]})}function u(i={}){const{wrapper:t}=i.components||{};return t?e.jsx(t,{...i,children:e.jsx(a,{...i})}):a(i)}const h=Object.freeze(Object.defineProperty({__proto__:null,default:u},Symbol.toStringTag,{value:"Module"})),S={hasServerOnlyHook:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!1}},isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},onBeforeRenderEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},dataEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},onRenderClient:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/__internal/integration/onRenderClient",fileExportPathToShowToUser:[]},valueSerialized:{type:"pointer-import",value:d}},onPageTransitionStart:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/+onPageTransitionStart.ts",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:s}},onPageTransitionEnd:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/+onPageTransitionEnd.ts",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:n}},Page:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/3/+Page.mdx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:h}},hydrationCanBeAborted:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/config",fileExportPathToShowToUser:["default","hydrationCanBeAborted"]},valueSerialized:{type:"js-serialized",value:!0}},Layout:{type:"cumulative",definedAtData:[{filePathToShowToUser:"/pages/+Layout.tsx",fileExportPathToShowToUser:[]}],valueSerialized:[{type:"plus-file",exportValues:l}]},title:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/+config.ts",fileExportPathToShowToUser:["default","title"]},valueSerialized:{type:"js-serialized",value:"Vike Talk"}},onAfterRenderClient:{type:"cumulative",definedAtData:[{filePathToShowToUser:"/pages/+onAfterRenderClient.ts",fileExportPathToShowToUser:[]}],valueSerialized:[{type:"plus-file",exportValues:r}]},Loading:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/__internal/integration/Loading",fileExportPathToShowToUser:[]},valueSerialized:{type:"pointer-import",value:o}}};export{S as configValuesSerialized};

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
     <html lang="en">
       <head>
-        <link rel="stylesheet" type="text/css" href="/assets/static/pages_css_index-a4efb3f3.CruA3W7P.css">
-        <link rel="stylesheet" type="text/css" href="/assets/static/pages_Layout-69d9ce51.Dzg8Gi79.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/pages_css_index-a4efb3f3.BxBZChYX.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/pages_Layout-69d9ce51.yxAOMWKq.css">
         <link rel="preload" href="/assets/static/Inter-Var.dulBMp8D.ttf" as="font" type="font/ttf" crossorigin>
         <meta charset="UTF-8" />
         
@@ -18,27 +18,49 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper"><div id="slide-content"><h1>RPC</h1>
-<ul>
-<li>Not built-in by design (unlike Remix and Next.js)</li>
-<li>Any RPC tool: Telefunc, tRPC, ...</li>
-<li>Any non-RPC tool: React Query, GraphQL, ...</li>
-<li>Progressive migration from one paradigm to another<!-- -->
-<ul>
-<li>E.g. progressively migrate from GraphQL to RPC</li>
-</ul>
-</li>
-</ul></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><div>Intro</div><div> <!-- -->○</div></div><div><div>History</div><div> <!-- -->○</div></div><div><div>Hooks</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Extensions</div><div> <!-- -->○</div></div><div><div>Use Case</div><div> <!-- -->○</div></div><div><div>DX</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->●<!-- -->○<!-- -->○</div></div><div><div>Business model</div><div> <!-- -->○</div></div><div><div>Future</div><div> <!-- -->○</div></div><div><div>Conclusion</div><div> <!-- -->○</div></div></div></div></div></div>
+        <div id="root"><div id="slide-wrapper"><div id="slide-content"><div style="display:flex"><div><div style="display:flex;justify-content:center;align-items:center"><p>React Router 😨</p></div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// article/delete.ts</span></span>
+<span data-line=""><span style="color:#6A737D">// Only a single action per file 😕</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> action</span><span style="color:#24292E">({ </span><span style="color:#E36209">request</span><span style="color:#24292E"> }) {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">article_id</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> request.</span><span style="color:#6F42C1">json</span><span style="color:#24292E">()</span></span>
+<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#24292E"> db.article.</span><span style="color:#6F42C1">delete</span><span style="color:#24292E">({ article_id })</span></span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> Response.</span><span style="color:#6F42C1">json</span><span style="color:#24292E">({ success: </span><span style="color:#005CC5">true</span><span style="color:#24292E"> })</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// article.tsx</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> Article</span><span style="color:#24292E">() {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> async</span><span style="color:#24292E"> () </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> {</span></span>
+<span data-line=""><span style="color:#D73A49">    const</span><span style="color:#005CC5"> res</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> fetch</span><span style="color:#24292E">(</span><span style="color:#032F62">&quot;/article/delete&quot;</span><span style="color:#24292E">, {</span></span>
+<span data-line=""><span style="color:#24292E">      method: </span><span style="color:#032F62">&quot;POST&quot;</span><span style="color:#24292E">,</span></span>
+<span data-line=""><span style="color:#24292E">      headers: { </span><span style="color:#032F62">&quot;Content-Type&quot;</span><span style="color:#24292E">: </span><span style="color:#032F62">&quot;application/json&quot;</span><span style="color:#24292E"> },</span></span>
+<span data-line=""><span style="color:#24292E">      body: </span><span style="color:#005CC5">JSON</span><span style="color:#24292E">.</span><span style="color:#6F42C1">stringify</span><span style="color:#24292E">({ article_id })</span></span>
+<span data-line=""><span style="color:#24292E">    })</span></span>
+<span data-line=""><span style="color:#D73A49">    const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">success</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> res.</span><span style="color:#6F42C1">json</span><span style="color:#24292E">()</span></span>
+<span data-line=""><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#D73A49">!</span><span style="color:#24292E">success) </span><span style="color:#6F42C1">alert</span><span style="color:#24292E">(</span><span style="color:#032F62">&quot;Deletion failed&quot;</span><span style="color:#24292E">)</span></span>
+<span data-line=""><span style="color:#24292E">  }</span></span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> &lt;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49">=</span><span style="color:#24292E">{onClick}&gt;Delete&lt;/</span><span style="color:#22863A">button</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div><div><div style="display:flex;justify-content:center;align-items:center"><p>Vike + Telefunc ✨</p></div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// article.telefunc.ts</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onArticleDelete</span><span style="color:#24292E">({ </span><span style="color:#E36209">article_id</span><span style="color:#24292E"> }) {</span></span>
+<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#24292E"> db.article.</span><span style="color:#6F42C1">delete</span><span style="color:#24292E">({ article_id })</span></span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> { success: </span><span style="color:#005CC5">true</span><span style="color:#24292E"> }</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// article.tsx</span></span>
+<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { onArticleDelete } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;./article.telefunc.ts&#x27;</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> Article</span><span style="color:#24292E">() {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> async</span><span style="color:#24292E"> () </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> {</span></span>
+<span data-line=""><span style="color:#D73A49">    const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">success</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> onArticleDelete</span><span style="color:#24292E">({ article_id })</span></span>
+<span data-line=""><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#D73A49">!</span><span style="color:#24292E">success) </span><span style="color:#6F42C1">alert</span><span style="color:#24292E">(</span><span style="color:#032F62">&quot;Deletion failed&quot;</span><span style="color:#24292E">)</span></span>
+<span data-line=""><span style="color:#24292E">  }</span></span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> &lt;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49">=</span><span style="color:#24292E">{onClick}&gt;Delete&lt;/</span><span style="color:#22863A">button</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div></div></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><div>Intro</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Hooks</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Architecture</div><div> <!-- -->○<!-- -->○</div></div><div><div>Use Case</div><div> <!-- -->○</div></div><div><div>DX</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->●<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Business model</div><div> <!-- -->○</div></div><div><div>Future</div><div> <!-- -->○</div></div><div><div>Conclusion</div><div> <!-- -->○</div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"_urlRewrite":null,"pageId":"\\/pages\\/16","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
 import("/assets/entries/pages_client.DKTDeNS_.js");
-import("/assets/entries/entry-client-routing.D0IpepgM.js");
+import("/assets/entries/entry-client-routing.BEjcJzYr.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_16.CdYbAnEr.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-M0Bay0lY.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_16.B3mqpae-.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BnzG0HPw.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-C0l-XPzm.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-CbKO0cQm.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-Dch_-iV5.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-B31b2ils.js" as="script" type="text/javascript">
       </body>
     </html>
