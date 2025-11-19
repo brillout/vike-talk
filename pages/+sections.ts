@@ -13,7 +13,7 @@ export const sections: Sections = [
     numberOfSlides: 2,
   },
   {
-    name: 'Use Case',
+    name: 'Use cases',
     numberOfSlides: 3,
   },
   {
