@@ -13,6 +13,6 @@ body {
   font-family: 'Inter';
   font-weight: 100 900;
   font-stretch: 75% 125%;
-  font-style: oblique 0deg 12deg;
+  font-style: oblique 8deg;
   src: url('./Inter-Var.ttf') format('truetype-variations');
 }
