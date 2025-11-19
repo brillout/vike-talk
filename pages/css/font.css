@@ -13,6 +13,8 @@ body {
   font-family: 'Inter';
   font-weight: 100 900;
   font-stretch: 75% 125%;
-  font-style: oblique 8deg;
+  /* https://chatgpt.com/c/691dd03d-c238-832a-b337-ddf118570446
+  font-style: oblique 0 12deg;
+  */
   src: url('./Inter-Var.ttf') format('truetype-variations');
 }
