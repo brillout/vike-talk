@@ -1,62 +1,68 @@
 import { Center } from '../../components'
+import './Page.css'
 
-<div style={{display: 'flex'}}>
+<div style={{display: 'flex'}} id="telefunc-demo">
   <div>
-    <Center style={{marginTop: -20}}>
-      React Router 😨
-    </Center>
+    <div style={{fontSize: '15px', marginTop: -30 }}>
+      ```ts
+      // CreateTodo.telefunc.ts
+      // Environment: server
 
-    <div style={{fontSize: '16px', marginTop: -30 }}>
-      ```js
-      // article/delete.ts
-      // Only a single action per file 😕
-      export async function action({ request }) {
-        const { article_id } = await request.json()
-        await db.article.delete({ article_id })
-        return Response.json({ success: true })
-      }
-      ```
-      ```js
-      // article.tsx
-      export default function Article() {
-        const onClick = async () => {
-          const res = await fetch("/article/delete", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ article_id })
-          })
-          const { success } = await res.json()
-          if (!success) alert("Deletion failed")
-        }
-        return <button onClick={onClick}>Delete</button>
+      // Telefunc makes onNewTodo() remotely callable
+      // from the browser.
+      export { onNewTodo }
+
+      import { getContext } from 'telefunc'
+
+      // Telefunction arguments are automatically validated
+      // at runtime, so `text` is guaranteed to be a string.
+      async function onNewTodo(text: string) {
+        const { user } = getContext()
+
+        // With an ORM
+        await Todo.create({ text, authorId: user.id })
+
+        // With SQL
+        await sql(
+          'INSERT INTO todo_items VALUES (:text, :authorId)',
+          { text, authorId: user.id }
+        )
       }
       ```
     </div>
+    <Center>
+      <small>Server</small>
+    </Center>
   </div>
   <div>
-    <Center style={{marginTop: -20}}>
-      Vike + Telefunc ✨
-    </Center>
+    <div style={{fontSize: '15px', marginTop: -30 }}>
+      ```ts
+      // CreateTodo.tsx
+      // Environment: client
 
-    <div style={{fontSize: '16px', marginTop: -30 }}>
-      ```js
-      // article.telefunc.ts
-      export async function onArticleDelete({ article_id }) {
-        await db.article.delete({ article_id })
-        return { success: true }
+      // CreateTodo.telefunc.ts isn't actually loaded;
+      // Telefunc transforms it into a thin HTTP client.
+      import { onNewTodo } from './CreateTodo.telefunc.ts'
+
+      async function onClick(form) {
+        const text = form.input.value
+        // Behind the scenes, Telefunc makes an HTTP request
+        // to the server.
+        await onNewTodo(text)
       }
-      ```
-      ```js
-      // article.tsx
-      import { onArticleDelete } from './article.telefunc.ts'
-      export default function Article() {
-        const onClick = async () => {
-          const { success } = await onArticleDelete({ article_id })
-          if (!success) alert("Deletion failed")
-        }
-        return <button onClick={onClick}>Delete</button>
+
+      function CreateTodo() {
+        return (
+          <form>
+            <input input="text"></input>
+            <button onClick={onClick}>Add To-Do</button>
+          </form>
+        )
       }
       ```
     </div>
+    <Center>
+      <small>Browser</small>
+    </Center>
   </div>
 </div>
