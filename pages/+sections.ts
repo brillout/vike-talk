@@ -9,7 +9,7 @@ export const sections: Sections = [
     numberOfSlides: 6,
   },
   {
-    name: 'Extensions',
+    name: 'Architecture',
     numberOfSlides: 1,
   },
   {

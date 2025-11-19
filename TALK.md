@@ -14,23 +14,6 @@
 
 ---
 
-## Status Quo
-
-Frameworks are:
-
-- Tightly coupled with UI framwork (e.g. Next.js with React, and Nuxt with Vue)
-- Sometimes even more tools, e.g. RedwoodJS (prev with GraphQL, now with Cloudflare)
-- Frameworks impose *their* priorties.
-  - E.g. Next.js focus on Server Components => what if yu don't need them? E.g. admin panel
-
-, but you should  into your priorities.
-
-## Vike
-
-A new approach :eyes:
-
----
-
 Stable & flexible core:
 - Unopinionated & agnostic core => foundational stability
 - Low-level hooks => powerful flexibility
