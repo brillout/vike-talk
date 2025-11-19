@@ -1,12 +1,12 @@
-import { Center } from '../../components'
+import { Center, CodeBlock } from '../../components'
 
 <div style={{display: 'flex'}}>
   <div>
-    <Center style={{marginTop: -20}}>
+    <Center>
       React Router 😨
     </Center>
 
-    <div style={{fontSize: '16px', marginTop: -30 }}>
+    <CodeBlock>
       ```js
       // article/delete.ts
       // Only a single action per file 😕
@@ -31,14 +31,14 @@ import { Center } from '../../components'
         return <button onClick={onClick}>Delete</button>
       }
       ```
-    </div>
+    </CodeBlock>
   </div>
   <div>
-    <Center style={{marginTop: -20}}>
+    <Center>
       Vike + Telefunc ✨
     </Center>
 
-    <div style={{fontSize: '16px', marginTop: -30 }}>
+    <CodeBlock>
       ```js
       // article.telefunc.ts
       export async function onArticleDelete({ article_id }) {
@@ -57,6 +57,6 @@ import { Center } from '../../components'
         return <button onClick={onClick}>Delete</button>
       }
       ```
-    </div>
+    </CodeBlock>
   </div>
 </div>

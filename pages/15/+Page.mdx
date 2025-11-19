@@ -1,9 +1,9 @@
-import { Center } from '../../components'
+import { Center, CodeBlock } from '../../components'
 import './Page.css'
 
 <div style={{display: 'flex'}} id="telefunc-demo">
   <div>
-    <div style={{fontSize: '15px', marginTop: -30 }}>
+    <CodeBlock style={{fontSize: '15px'}}>
       ```ts
       // CreateTodo.telefunc.ts
       // Environment: server
@@ -29,13 +29,13 @@ import './Page.css'
         )
       }
       ```
-    </div>
+    </CodeBlock>
     <Center>
       <small>Server</small>
     </Center>
   </div>
   <div>
-    <div style={{fontSize: '15px', marginTop: -30 }}>
+    <CodeBlock style={{fontSize: '15px'}}>
       ```ts
       // CreateTodo.tsx
       // Environment: client
@@ -60,7 +60,7 @@ import './Page.css'
         )
       }
       ```
-    </div>
+    </CodeBlock>
     <Center>
       <small>Browser</small>
     </Center>

@@ -1,12 +1,12 @@
-import { Center } from '../../components'
+import { Center, CodeBlock } from '../../components'
 
 <div style={{display: 'flex'}}>
   <div>
-    <Center style={{marginTop: -20}}>
+    <Center>
       Next.js 😨
     </Center>
 
-    <div style={{fontSize: '16px', marginTop: -30 }}>
+    <CodeBlock>
       ```js
       // app/article.tsx
       // Environment: client
@@ -28,14 +28,14 @@ import { Center } from '../../components'
         )
       }
       ```
-    </div>
+    </CodeBlock>
   </div>
   <div>
-    <Center style={{marginTop: -20}}>
+    <Center>
       Vike + Telefunc ✨
     </Center>
 
-    <div style={{fontSize: '16px', marginTop: -30 }}>
+    <CodeBlock>
       ```js
       // article.telefunc.ts
       // Environment: server
@@ -59,6 +59,6 @@ import { Center } from '../../components'
       <p style={{fontSize: '20px', marginLeft: 10 }}>
       ✅ No caching by default (but you can if you want)
       </p>
-    </div>
+    </CodeBlock>
   </div>
 </div>
