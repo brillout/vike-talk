@@ -1,14 +1,17 @@
 ```ts
-// pages/+onRenderClient.js
-// Environment: client
+// pages/+onRenderHtml.js
+// Environment: server
 
-import ReactDOMClient from 'react-dom/client'
+import ReactDOMServer from 'react-dom/server'
 
-export function onRenderClient(pageContext) {
+export function onRenderHtml(pageContext) {
   const { Page } = pageContext
-  ReactDOMClient.hydrateRoot(
-    document.getElementById('root'),
-    <Page/>
-  )
+  const pageHtml = ReactDOMServer.renderToString(<Page/>)
+  return `
+    <html>
+      <body>
+        <div id="root">${pageHtml}</div>
+      </body>
+    </html>`
 }
 ```
