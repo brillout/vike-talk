@@ -3,10 +3,6 @@ body {
   font-size: 1.6em;
 }
 
-h1 {
-  font-size: 3.4rem;
-}
-
 #footer {
   position: absolute;
   height: var(--footer-height);
@@ -50,3 +46,26 @@ h1 {
   margin: auto;
 }
 */
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 3.4rem;
+}
+h2 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+h1:first-of-type,
+h2:first-of-type {
+  margin-top: 0;
+}
+p,
+ul {
+  margin: 10px 0;
+}
+li > ul {
+  margin: 0px;
+}
+ul + p {
+  margin-top: 20px;
+}
