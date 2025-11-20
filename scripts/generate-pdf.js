@@ -1,9 +1,5 @@
 #!/usr/bin/env node
 
-// TODO/now: always re-build before rendering to PDF
-// NOTE: If slides appear to be missing or have wrong content, run `pnpm run build` first
-// to ensure dist/client/ is up to date with the source MDX files.
-
 import { readdir } from 'fs/promises';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
@@ -17,6 +13,29 @@ import { lookup } from 'mime-types';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Run build before generating PDFs
+async function runBuild() {
+  console.log('Building project...');
+
+  return new Promise((resolve, reject) => {
+    const build = spawn('pnpm', ['run', 'build'], {
+      cwd: join(__dirname, '..'),
+      stdio: 'inherit'
+    });
+
+    build.on('close', (code) => {
+      if (code === 0) {
+        console.log('✓ Build completed\n');
+        resolve();
+      } else {
+        reject(new Error(`Build failed with exit code ${code}`));
+      }
+    });
+
+    build.on('error', reject);
+  });
+}
 
 // Simple static file server
 function createStaticServer(distDir, port) {
@@ -55,13 +74,22 @@ function createStaticServer(distDir, port) {
 }
 
 async function generatePDF() {
-  console.log('Starting PDF generation...');
+  console.log('Starting PDF generation...\n');
+
+  // Always rebuild before generating PDFs
+  try {
+    await runBuild();
+  } catch (error) {
+    console.error('❌ Build failed:', error.message);
+    console.error('Continuing with existing build files...\n');
+    // Don't return - continue with existing build if available
+  }
 
   // Get all slide numbers by reading the dist/client directory
   const distDir = join(__dirname, '../dist/client');
 
   if (!existsSync(distDir)) {
-    console.error('❌ Build directory not found. Please run `pnpm run build` first.');
+    console.error('❌ Build directory not found after build.');
     return;
   }
 
