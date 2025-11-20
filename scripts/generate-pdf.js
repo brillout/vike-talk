@@ -118,7 +118,7 @@ async function generatePDF() {
         });
 
         // Wait a bit more for fonts and animations to load
-        await page.waitForTimeout(1000);
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
         await page.pdf({
           path: pdfFile,
