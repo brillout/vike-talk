@@ -6,9 +6,49 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { spawn } from 'child_process';
 import { existsSync } from 'fs';
+import puppeteer from 'puppeteer';
+import { createServer } from 'http';
+import { createReadStream, statSync } from 'fs';
+import { lookup } from 'mime-types';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Simple static file server
+function createStaticServer(distDir, port) {
+  const server = createServer((req, res) => {
+    let filePath = join(distDir, req.url === '/' ? 'index.html' : req.url);
+
+    // Security: prevent directory traversal
+    if (!filePath.startsWith(distDir)) {
+      res.writeHead(403);
+      res.end('Forbidden');
+      return;
+    }
+
+    if (!existsSync(filePath)) {
+      res.writeHead(404);
+      res.end('Not found');
+      return;
+    }
+
+    const stat = statSync(filePath);
+    if (stat.isDirectory()) {
+      filePath = join(filePath, 'index.html');
+    }
+
+    const mimeType = lookup(filePath) || 'application/octet-stream';
+    res.writeHead(200, { 'Content-Type': mimeType });
+    createReadStream(filePath).pipe(res);
+  });
+
+  return new Promise((resolve, reject) => {
+    server.listen(port, (err) => {
+      if (err) reject(err);
+      else resolve(server);
+    });
+  });
+}
 
 async function generatePDF() {
   console.log('Starting PDF generation...');
@@ -34,58 +74,73 @@ async function generatePDF() {
     return;
   }
 
+  // Start a local server to serve the built files
+  const port = 8765;
+  console.log(`Starting local server on port ${port}...`);
+  const server = await createStaticServer(distDir, port);
+  console.log('✓ Server started');
+
   const fs = await import('fs/promises');
 
-  // Create individual PDFs for each slide using the built HTML files
+  // Launch Puppeteer
+  console.log('Launching browser...');
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
+  console.log('✓ Browser launched');
+
+  // Create individual PDFs for each slide
   console.log('Generating individual PDFs...');
 
   const pdfFiles = [];
 
-  for (const slideNumber of slideNumbers) {
-    const htmlFile = join(distDir, `${slideNumber}.html`);
-    const pdfFile = join(__dirname, `../slide-${slideNumber}.pdf`);
+  try {
+    for (const slideNumber of slideNumbers) {
+      const url = `http://localhost:${port}/${slideNumber}.html`;
+      const pdfFile = join(__dirname, `../slide-${slideNumber}.pdf`);
 
-    if (!existsSync(htmlFile)) {
-      console.warn(`⚠️  HTML file not found for slide ${slideNumber}`);
-      continue;
-    }
+      console.log(`Generating PDF for slide ${slideNumber}...`);
 
-    console.log(`Generating PDF for slide ${slideNumber}...`);
+      try {
+        const page = await browser.newPage();
 
-    try {
-      const result = await new Promise((resolve, reject) => {
-        const chrome = spawn('google-chrome', [
-          '--headless',
-          '--disable-gpu',
-          '--disable-software-rasterizer',
-          '--disable-dev-shm-usage',
-          '--no-sandbox',
-          '--print-to-pdf=' + pdfFile,
-          '--print-to-pdf-no-header',
-          '--run-all-compositor-stages-before-draw',
-          '--virtual-time-budget=5000',
-          'file://' + htmlFile
-        ], {
-          stdio: 'pipe'
+        // Set viewport to match presentation size
+        await page.setViewport({
+          width: 1920,
+          height: 1080,
+          deviceScaleFactor: 2
         });
 
-        chrome.on('close', (code) => {
-          if (code === 0) {
-            resolve(pdfFile);
-          } else {
-            reject(new Error(`Chrome exited with code ${code}`));
-          }
+        await page.goto(url, {
+          waitUntil: 'networkidle0',
+          timeout: 30000
         });
 
-        chrome.on('error', reject);
-      });
+        // Wait a bit more for fonts and animations to load
+        await page.waitForTimeout(1000);
 
-      pdfFiles.push(result);
-      console.log(`✓ Generated: slide-${slideNumber}.pdf`);
+        await page.pdf({
+          path: pdfFile,
+          width: '1920px',
+          height: '1080px',
+          printBackground: true,
+          preferCSSPageSize: false
+        });
 
-    } catch (error) {
-      console.error(`❌ Failed to generate PDF for slide ${slideNumber}:`, error.message);
+        await page.close();
+
+        pdfFiles.push(pdfFile);
+        console.log(`✓ Generated: slide-${slideNumber}.pdf`);
+
+      } catch (error) {
+        console.error(`❌ Failed to generate PDF for slide ${slideNumber}:`, error.message);
+      }
     }
+  } finally {
+    await browser.close();
+    server.close();
+    console.log('✓ Server stopped');
   }
 
   if (pdfFiles.length === 0) {
