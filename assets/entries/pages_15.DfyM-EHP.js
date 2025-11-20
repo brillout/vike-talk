@@ -3,9 +3,9 @@ import{j as e,i,a as r,b as n,c as l,d as s,o as d}from"../chunks/chunk-4uGPss9t
 `,e.jsxs(t.ul,{children:[`
 `,e.jsx(t.li,{children:"Solid (React alternative) + SSR"}),`
 `,e.jsxs(t.li,{children:[e.jsx(t.strong,{children:"Before"}),": fragmented stacks",e.jsx(t.br,{}),`
-`,"=> cannot impove all websites at once"]}),`
+`,"=> cannot improve all websites at once"]}),`
 `,e.jsxs(t.li,{children:[e.jsx(t.strong,{children:"Now"}),": Internal company framework powering all websites",e.jsx(t.br,{}),`
-`,"=> Software Architects control stack of all websites",e.jsx(t.br,{}),`
+`,"=> Software architects control stack of all websites",e.jsx(t.br,{}),`
 `,"=> App code: product developers"]}),`
 `,e.jsxs(t.li,{children:["Vike without extensions",e.jsx(t.br,{}),`
 `,"=> full control over architecture + foundational stability"]}),`

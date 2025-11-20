@@ -9,8 +9,8 @@ import{j as e,i as o,a as r,b as l,c as n,d as s,o as d}from"../chunks/chunk-4uG
 `,e.jsxs(t.ul,{children:[`
 `,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+prerender"})," (boolean) => disable/enable (on page-by-page basis)"]}),`
 `,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+ssr"})," (boolean) => toggle SSR/SPA (on page-by-page basis)"]}),`
-`,e.jsx(t.li,{children:"SSG redirects"}),`
 `,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+data.client.js"})," => 100% client-side data fetching"]}),`
+`,e.jsx(t.li,{children:"SSG redirects"}),`
 `,e.jsx(t.li,{children:"🚧 SSG dynamic routes (aka SPA fallback)"}),`
 `]}),`
 `,e.jsxs(t.p,{children:["Easily create SPA like the old days.",e.jsx(t.br,{}),`
