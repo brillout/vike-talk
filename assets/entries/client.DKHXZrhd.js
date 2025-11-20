@@ -1,0 +1,1 @@
+import{g as t,n as l}from"../chunks/chunk-DTO5BjIp.js";import"../chunks/chunk-COF-xqOT.js";window.onkeydown=({code:i,shiftKey:n})=>{const{pathname:r}=window.location,o=t(r);let e=o;if(["ArrowLeft","PageDown"].includes(i))n?e++:e--;else if(["ArrowRight","PageUp","Space"].includes(i))n?e--:e++;else return;e!==o&&e!==0&&l(`/${e}`)};
