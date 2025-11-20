@@ -5,9 +5,9 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'node:path'
 import { spawn } from 'node:child_process'
-import { existsSync } from 'node:fs'
+import { existsSync, statSync, createReadStream } from 'node:fs'
 import { chromium } from 'playwright'
-import { preview } from 'vite'
+import { createServer } from 'node:http'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -35,22 +35,70 @@ async function runBuild() {
   })
 }
 
-// Start Vite preview server
-async function startPreviewServer(distDir) {
-  console.log('Starting preview server...')
+// Simple static file server
+function startStaticServer(distDir, port = 3000) {
+  console.log(`Starting static server on port ${port}...`)
 
-  const previewServer = await preview({
-    preview: {
-      port: 3000,
-      strictPort: true,
-    },
-    build: {
-      outDir: distDir,
-    },
+  const mimeTypes = {
+    '.html': 'text/html',
+    '.js': 'text/javascript',
+    '.css': 'text/css',
+    '.json': 'application/json',
+    '.png': 'image/png',
+    '.jpg': 'image/jpg',
+    '.gif': 'image/gif',
+    '.svg': 'image/svg+xml',
+    '.ico': 'image/x-icon',
+    '.woff': 'font/woff',
+    '.woff2': 'font/woff2',
+    '.ttf': 'font/ttf',
+    '.eot': 'application/vnd.ms-fontobject',
+  }
+
+  const server = createServer((req, res) => {
+    let url = req.url === '/' ? '/index.html' : req.url
+
+    // Try .html extension if no extension
+    if (!url.includes('.')) {
+      url = url + '.html'
+    }
+
+    let filePath = join(distDir, url)
+
+    // Security: prevent directory traversal
+    if (!filePath.startsWith(distDir)) {
+      res.writeHead(403)
+      res.end('Forbidden')
+      return
+    }
+
+    if (!existsSync(filePath)) {
+      res.writeHead(404)
+      res.end('Not found')
+      return
+    }
+
+    const stat = statSync(filePath)
+    if (stat.isDirectory()) {
+      filePath = join(filePath, 'index.html')
+    }
+
+    const ext = filePath.substring(filePath.lastIndexOf('.'))
+    const mimeType = mimeTypes[ext] || 'application/octet-stream'
+
+    res.writeHead(200, { 'Content-Type': mimeType })
+    createReadStream(filePath).pipe(res)
   })
 
-  console.log('✓ Preview server started on http://localhost:3000')
-  return previewServer
+  return new Promise((resolve, reject) => {
+    server.listen(port, (err) => {
+      if (err) reject(err)
+      else {
+        console.log(`✓ Static server started on http://localhost:${port}`)
+        resolve(server)
+      }
+    })
+  })
 }
 
 async function generatePDF() {
@@ -88,16 +136,15 @@ async function generatePDF() {
 
   const fs = await import('node:fs/promises')
 
-  // Start preview server
-  let previewServer
+  // Start static server
+  const port = 3000
+  let server
   try {
-    previewServer = await startPreviewServer(distDir)
+    server = await startStaticServer(distDir, port)
   } catch (error) {
-    console.error('❌ Failed to start preview server:', error.message)
+    console.error('❌ Failed to start static server:', error.message)
     return
   }
-
-  const port = 3000 // Vike preview default port
 
   // Launch Playwright browser
   console.log('Launching browser...')
@@ -196,11 +243,11 @@ async function generatePDF() {
   } finally {
     await browser.close()
 
-    // Stop preview server
-    if (previewServer) {
-      console.log('Stopping preview server...')
-      await previewServer.httpServer.close()
-      console.log('✓ Preview server stopped')
+    // Stop static server
+    if (server) {
+      console.log('Stopping static server...')
+      server.close()
+      console.log('✓ Static server stopped')
     }
   }
 
