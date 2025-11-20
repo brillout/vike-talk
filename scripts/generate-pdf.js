@@ -1,9 +1,5 @@
 #!/usr/bin/env node
 
-// TODO/now
-// - Change resolution to 720p
-// - Maybe use Playwright instead of puppeteer?
-
 import { readdir } from 'fs/promises';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
@@ -109,10 +105,10 @@ async function generatePDF() {
       try {
         const page = await browser.newPage();
 
-        // Set viewport to match presentation size
+        // Set viewport to match presentation size (720p)
         await page.setViewport({
-          width: 1920,
-          height: 1080,
+          width: 1280,
+          height: 720,
           deviceScaleFactor: 2
         });
 
@@ -126,8 +122,8 @@ async function generatePDF() {
 
         await page.pdf({
           path: pdfFile,
-          width: '1920px',
-          height: '1080px',
+          width: '1280px',
+          height: '720px',
           printBackground: true,
           preferCSSPageSize: false
         });
