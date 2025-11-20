@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { spawn } from 'child_process';
 import { existsSync } from 'fs';
-import puppeteer from 'puppeteer';
+import { chromium } from 'playwright';
 import { createServer } from 'http';
 import { createReadStream, statSync } from 'fs';
 import { lookup } from 'mime-types';
@@ -114,11 +114,10 @@ async function generatePDF() {
 
   const fs = await import('fs/promises');
 
-  // Launch Puppeteer
+  // Launch Playwright browser
   console.log('Launching browser...');
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  const browser = await chromium.launch({
+    headless: true
   });
   console.log('✓ Browser launched');
 
@@ -139,7 +138,7 @@ async function generatePDF() {
 
         // Check if this is a dummy "Foo bar" slide and skip it
         await page.goto(url, {
-          waitUntil: 'networkidle0',
+          waitUntil: 'networkidle',
           timeout: 30000
         });
 
@@ -155,17 +154,16 @@ async function generatePDF() {
         const renderPage = await browser.newPage();
 
         // Set viewport to match presentation size (1366x681)
-        await renderPage.setViewport({
+        await renderPage.setViewportSize({
           width: 1366,
-          height: 681,
-          deviceScaleFactor: 2
+          height: 681
         });
 
-        // Emulate screen media type instead of print to preserve gradients
-        await renderPage.emulateMediaType('screen');
+        // Emulate screen media type instead of print
+        await renderPage.emulateMedia({ media: 'screen' });
 
         await renderPage.goto(url, {
-          waitUntil: 'networkidle0',
+          waitUntil: 'networkidle',
           timeout: 30000
         });
 
