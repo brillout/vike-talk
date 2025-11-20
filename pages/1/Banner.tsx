@@ -2,7 +2,7 @@ export { BannerSlides }
 
 import React from 'react'
 import { HeroTagline } from './HeroTagline'
-import vikeLogo from './vike.svg'
+import vikeLogo from '../vike.svg'
 function BannerSlides() {
   return (
     <BannerCommon
