@@ -18,22 +18,31 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper"><div id="slide-content"><div style="display:flex;align-items:center;justify-content:center"><img src="data:image/svg+xml,%3csvg%20width=&#x27;47.02&#x27;%20height=&#x27;47.02&#x27;%20version=&#x27;1.1&#x27;%20viewBox=&#x27;0%200%2047.02%2047.02&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%3e%3ccircle%20cx=&#x27;23.51&#x27;%20cy=&#x27;23.51&#x27;%20r=&#x27;21.95&#x27;%20fill=&#x27;%23f7e018&#x27;%20stroke=&#x27;%2331343d&#x27;%20stroke-linejoin=&#x27;round&#x27;%20stroke-width=&#x27;3.12&#x27;%20style=&#x27;paint-order:normal&#x27;/%3e%3cg%20transform=&#x27;matrix(.95503%200%200%20.95503%20.34405%201.0117)&#x27;%20fill=&#x27;%2331343d&#x27;%20shape-rendering=&#x27;auto&#x27;%3e%3cpath%20d=&#x27;m21.804%2013.913%206.4333%209.6458-6.4333%209.6441h5.8824l3.493-5.2352%203.4913%205.2352h5.8824l-12.867-19.29z&#x27;%20color=&#x27;%23000000&#x27;%20color-rendering=&#x27;auto&#x27;%20dominant-baseline=&#x27;auto&#x27;%20image-rendering=&#x27;auto&#x27;%20solid-color=&#x27;%23000000&#x27;%20style=&#x27;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:%23000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal&#x27;/%3e%3cpath%20d=&#x27;m14.882%2013.913%206.4333%209.6458-6.4333%209.6441h5.8824c2.0855-3.2911%204.0452-6.2959%206.2221-9.9618l-6.2221-9.3281z&#x27;%20color=&#x27;%23000000&#x27;%20color-rendering=&#x27;auto&#x27;%20dominant-baseline=&#x27;auto&#x27;%20fill-opacity=&#x27;.57315&#x27;%20image-rendering=&#x27;auto&#x27;%20solid-color=&#x27;%23000000&#x27;%20style=&#x27;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:%23000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal&#x27;/%3e%3cpath%20d=&#x27;m7.9604%2013.913%206.4333%209.6458-6.4333%209.6441h5.8824c2.0855-3.2911%204.0452-6.2959%206.2221-9.9618l-6.2221-9.3281z&#x27;%20color=&#x27;%23000000&#x27;%20color-rendering=&#x27;auto&#x27;%20dominant-baseline=&#x27;auto&#x27;%20fill-opacity=&#x27;.27655&#x27;%20image-rendering=&#x27;auto&#x27;%20solid-color=&#x27;%23000000&#x27;%20style=&#x27;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:%23000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal&#x27;/%3e%3c/g%3e%3c/svg%3e" height="90"/><h1 style="margin:0;margin-left:20px;font-size:2.7em;font-weight:550"> Telefunc</h1></div>
-<div style="font-size:1.3em;margin-top:20px;text-align:center">Remote Functions. Instead of API.</div>
-<br/>
+        <div id="root"><div id="slide-wrapper"><div id="slide-content"><h1>SPA/SSR/SSG</h1>
+<p>SPA, SSG, SSR, HTML streaming.<br/>
+<!-- -->=&gt; first-class support for all — also SPA</p>
 <ul>
-<li>Optional: you case use REST/GraphQL instead.</li>
-<li>Simplicity.</li>
-<li>Inspired design of SvelteKit &amp; Solid Start.</li>
-</ul></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><div>Intro</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Hooks</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Architecture</div><div> <!-- -->○<!-- -->○</div></div><div><div>Use cases</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>DX</div><div> <!-- -->○<!-- -->●<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Business model</div><div> <!-- -->○</div></div><div><div>Future</div><div> <!-- -->○</div></div><div><div>Conclusion</div><div> <!-- -->○</div></div></div></div></div></div>
+<li><code>+ssr</code> <strong>boolean</strong> =&gt; toggle SSR/SPA on page-by-page basis</li>
+<li><code>+prerender</code> <strong>boolean</strong> =&gt; disable/enable page-by-page</li>
+<li>SSG redirects</li>
+<li>🚧 SSG dynamic routes (aka SPA fallback)</li>
+<li><code>+data.client.js</code> =&gt; Data-fetching 100% client-side</li>
+<li><code>react-streaming</code> =&gt; progressive rendering (aka partial hydration)<!-- -->
+<ul>
+<li>React library we created =&gt; fully Vike agnostic</li>
+</ul>
+</li>
+</ul>
+<p>Easily create SPA like the old days.<br/>
+<!-- -->=&gt; surprisingly hard with other frameworks (but shouldn&#x27;t!)</p></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><div>Intro</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Hooks</div><div> <!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Architecture</div><div> <!-- -->○<!-- -->○</div></div><div><div>Use cases</div><div> <!-- -->○<!-- -->○<!-- -->○</div></div><div><div>DX</div><div> <!-- -->●<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○<!-- -->○</div></div><div><div>Business model</div><div> <!-- -->○</div></div><div><div>Future</div><div> <!-- -->○</div></div><div><div>Conclusion</div><div> <!-- -->○</div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"_urlRewrite":null,"pageId":"\\/pages\\/16","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
 import("/assets/entries/pages_client.DKTDeNS_.js");
-import("/assets/entries/entry-client-routing.CehN31os.js");
+import("/assets/entries/entry-client-routing.CAbj51gc.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_16.BJTOl1fD.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_16.BatE3IQi.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-BnzG0HPw.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-C0l-XPzm.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-CbKO0cQm.js" as="script" type="text/javascript">
