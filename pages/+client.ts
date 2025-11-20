@@ -9,13 +9,13 @@ window.onkeydown = ({ code, shiftKey }) => {
   const slideNumber = getSlideNumber(pathname)
   let slideNumberNext = slideNumber
 
-  if (['ArrowLeft'].includes(code)) {
+  if (['ArrowLeft', 'PageDown'].includes(code)) {
     if (shiftKey) {
       slideNumberNext++
     } else {
       slideNumberNext--
     }
-  } else if (['ArrowRight', 'Space'].includes(code)) {
+  } else if (['ArrowRight', 'PageUp', 'Space'].includes(code)) {
     if (shiftKey) {
       slideNumberNext--
     } else {
