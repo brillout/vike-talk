@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <link rel="stylesheet" type="text/css" href="/assets/static/css_index-5ea40173.C8WNBw5l.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/Layout-5e96f578.F3Jq4J_X.css">
+        <link rel="preload" href="/assets/static/Inter-Var.dulBMp8D.ttf" as="font" type="font/ttf" crossorigin>
+        <meta charset="UTF-8" />
+        
+        
+    <title>Vike Talk</title><meta property="og:title" content="Vike Talk" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    
+    
+    
+  
+        
+      </head>
+      <body>
+        
+        <div id="root"><div id="slide-wrapper"><div id="slide-content"><div style="display:flex"><div><div style="display:flex;justify-content:center;align-items:center"><p>React Router</p></div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// article/delete.js</span></span>
+<span data-line=""><span style="color:#6A737D">// Only a single action per file 😕</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> action</span><span style="color:#24292E">({ </span><span style="color:#E36209">request</span><span style="color:#24292E"> }) {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">article_id</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> request.</span><span style="color:#6F42C1">json</span><span style="color:#24292E">()</span></span>
+<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#24292E"> db.article.</span><span style="color:#6F42C1">delete</span><span style="color:#24292E">({ article_id })</span></span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> Response.</span><span style="color:#6F42C1">json</span><span style="color:#24292E">({ success: </span><span style="color:#005CC5">true</span><span style="color:#24292E"> })</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// Article.jsx</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> Article</span><span style="color:#24292E">() {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> async</span><span style="color:#24292E"> () </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> {</span></span>
+<span data-line=""><span style="color:#6A737D">    // Lots of boilerplate 😕</span></span>
+<span data-line=""><span style="color:#D73A49">    const</span><span style="color:#005CC5"> res</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> fetch</span><span style="color:#24292E">(</span><span style="color:#032F62">&quot;/article/delete&quot;</span><span style="color:#24292E">, {</span></span>
+<span data-line=""><span style="color:#24292E">      method: </span><span style="color:#032F62">&quot;POST&quot;</span><span style="color:#24292E">,</span></span>
+<span data-line=""><span style="color:#24292E">      headers: { </span><span style="color:#032F62">&quot;Content-Type&quot;</span><span style="color:#24292E">: </span><span style="color:#032F62">&quot;application/json&quot;</span><span style="color:#24292E"> },</span></span>
+<span data-line=""><span style="color:#24292E">      body: </span><span style="color:#005CC5">JSON</span><span style="color:#24292E">.</span><span style="color:#6F42C1">stringify</span><span style="color:#24292E">({ article_id })</span></span>
+<span data-line=""><span style="color:#24292E">    })</span></span>
+<span data-line=""><span style="color:#D73A49">    const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">success</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> res.</span><span style="color:#6F42C1">json</span><span style="color:#24292E">()</span></span>
+<span data-line=""><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#D73A49">!</span><span style="color:#24292E">success) </span><span style="color:#6F42C1">alert</span><span style="color:#24292E">(</span><span style="color:#032F62">&quot;Deletion failed&quot;</span><span style="color:#24292E">)</span></span>
+<span data-line=""><span style="color:#24292E">  }</span></span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> &lt;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49">=</span><span style="color:#24292E">{onClick}&gt;Delete&lt;/</span><span style="color:#22863A">button</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div><div><div style="display:flex;justify-content:center;align-items:center"><p>Vike + Telefunc</p></div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// Article.telefunc.js</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onArticleDelete</span><span style="color:#24292E">({ </span><span style="color:#E36209">article_id</span><span style="color:#24292E"> }) {</span></span>
+<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#24292E"> db.article.</span><span style="color:#6F42C1">delete</span><span style="color:#24292E">({ article_id })</span></span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> { success: </span><span style="color:#005CC5">true</span><span style="color:#24292E"> }</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// Article.jsx</span></span>
+<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { onArticleDelete } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;./article.telefunc.js&#x27;</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> Article</span><span style="color:#24292E">() {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> async</span><span style="color:#24292E"> () </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> {</span></span>
+<span data-line=""><span style="color:#D73A49">    const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">success</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> onArticleDelete</span><span style="color:#24292E">({ article_id })</span></span>
+<span data-line=""><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#D73A49">!</span><span style="color:#24292E">success) </span><span style="color:#6F42C1">alert</span><span style="color:#24292E">(</span><span style="color:#032F62">&quot;Deletion failed&quot;</span><span style="color:#24292E">)</span></span>
+<span data-line=""><span style="color:#24292E">  }</span></span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> &lt;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49">=</span><span style="color:#24292E">{onClick}&gt;Delete&lt;/</span><span style="color:#22863A">button</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div></div></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><a href="/1">Intro</a><div> <a href="/1">○</a><a href="/2">○</a><a href="/3">○</a><a href="/4">○</a></div></div><div><a href="/5">Hooks</a><div> <a href="/5">○</a><a href="/6">○</a><a href="/7">○</a><a href="/8">○</a><a href="/9">○</a><a href="/10">○</a></div></div><div><a href="/11">Architecture</a><div> <a href="/11">○</a><a href="/12">○</a></div></div><div><a href="/13">Use cases</a><div> <a href="/13">○</a><a href="/14">○</a><a href="/15">○</a></div></div><div><a href="/16">DX</a><div> <a href="/16">○</a><a href="/17">○</a><a href="/18">○</a><a href="/19">●</a><a href="/20">○</a><a href="/21">○</a><a href="/22">○</a><a href="/23">○</a></div></div><div><a href="/24">Business model</a><div> <a href="/24">○</a></div></div><div><a href="/25">Future</a><div> <a href="/25">○</a></div></div><div><a href="/26">Conclusion</a><div> <a href="/26">○</a></div></div></div></div></div></div>
+        
+        <script id="vike_pageContext" type="application/json">{"_urlRewrite":null,"pageId":"\\/pages\\/19","routeParams":{}}</script>
+        <script id="vike_globalContext" type="application/json">{}</script>
+        <script type="module" async>
+import("/assets/entries/client.DKHXZrhd.js");
+import("/assets/entries/entry-client-routing.CoH3SJ34.js");
+</script>
+        <link rel="modulepreload" href="/assets/entries/pages_19.BjQZYaXQ.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-PbYdXkUN.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-COF-xqOT.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DTO5BjIp.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-Jz0hs_1v.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BiLLQ87Z.js" as="script" type="text/javascript">
+      </body>
+    </html>
