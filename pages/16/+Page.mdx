@@ -1,15 +1,18 @@
 # SPA/SSR/SSG
 
-SPA, SSG, SSR, HTML streaming.  
-=> first-class support for all — also SPA
+<div style={{marginTop: -10}} />
 
-- `+ssr` **boolean** => toggle SSR/SPA (on page-by-page basis)
-- `+prerender` **boolean** => disable/enable (on page-by-page basis)
+SSR/SSG:
+- HTML streaming
+- Progressive rendering (aka partial hydration)
+
+SPA/SSG:
+
+- `+prerender` (boolean) => disable/enable (on page-by-page basis)
+- `+ssr` (boolean) => toggle SSR/SPA (on page-by-page basis)
 - SSG redirects
+- `+data.client.js` => 100% client-side data fetching
 - 🚧 SSG dynamic routes (aka SPA fallback)
-- `+data.client.js` => Data-fetching 100% client-side
-- `react-streaming` => progressive rendering (aka partial hydration)
-  - React library we created => fully Vike agnostic
 
 Easily create SPA like the old days.  
 => surprisingly hard with other frameworks (but shouldn't!)
