@@ -4,7 +4,7 @@ import{j as e,i as o,a as r,b as l,c as n,d as s,o as d}from"../chunks/chunk-Bnz
 `,e.jsxs(t.li,{children:["Started ",e.jsx(t.code,{children:"vite-plugin-ssr"})," in 2021",`
 `,e.jsxs(t.ul,{children:[`
 `,e.jsx(t.li,{children:"Vite's early days (before its meteoric rise)"}),`
-`,e.jsx(t.li,{children:"Idea: Powerful low-level hooks, for full control over integration"}),`
+`,e.jsx(t.li,{children:"Idea: Powerful low-level hooks => full control over integration"}),`
 `]}),`
 `]}),`
 `,e.jsxs(t.li,{children:["Renamed to Vike",`

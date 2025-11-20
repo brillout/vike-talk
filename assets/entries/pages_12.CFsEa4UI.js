@@ -8,7 +8,7 @@ import{j as e,i as n,a as o,b as l,c as r,d as s,o as d}from"../chunks/chunk-Bnz
 `,e.jsx(t.p,{children:"Powerful extensions:"}),`
 `,e.jsxs(t.ul,{children:[`
 `,e.jsxs(t.li,{children:["Opinionated => pick extensions and assemble ",e.jsx(t.em,{children:"your"})," dream stack"]}),`
-`,e.jsx(t.li,{children:"Minimal yet deep & full-fledged integration"}),`
+`,e.jsx(t.li,{children:"Minimal yet deep/full-fledged integration"}),`
 `]}),`
 `,e.jsx(t.p,{children:'Extensions are "cheap" (to create) =>'}),`
 `,e.jsxs(t.ul,{children:[`

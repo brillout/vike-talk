@@ -2,8 +2,8 @@ import{j as e,i as r,a as o,b as l,c as n,d as s,o as d}from"../chunks/chunk-Bnz
 `,e.jsxs(t.p,{children:["SPA, SSG, SSR, HTML streaming.",e.jsx(t.br,{}),`
 `,"=> first-class support for all — also SPA"]}),`
 `,e.jsxs(t.ul,{children:[`
-`,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+ssr"})," ",e.jsx(t.strong,{children:"boolean"})," => toggle SSR/SPA on page-by-page basis"]}),`
-`,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+prerender"})," ",e.jsx(t.strong,{children:"boolean"})," => disable/enable page-by-page"]}),`
+`,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+ssr"})," ",e.jsx(t.strong,{children:"boolean"})," => toggle SSR/SPA (on page-by-page basis)"]}),`
+`,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+prerender"})," ",e.jsx(t.strong,{children:"boolean"})," => disable/enable (on page-by-page basis)"]}),`
 `,e.jsx(t.li,{children:"SSG redirects"}),`
 `,e.jsx(t.li,{children:"🚧 SSG dynamic routes (aka SPA fallback)"}),`
 `,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+data.client.js"})," => Data-fetching 100% client-side"]}),`
