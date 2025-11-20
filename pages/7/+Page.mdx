@@ -1,0 +1,14 @@
+```ts
+// pages/+onRenderClient.js
+// Environment: client
+
+import ReactDOMClient from 'react-dom/client'
+
+export function onRenderClient(pageContext) {
+  const { Page } = pageContext
+  ReactDOMClient.hydrateRoot(
+    document.getElementById('root'),
+    <Page/>
+  )
+}
+```
