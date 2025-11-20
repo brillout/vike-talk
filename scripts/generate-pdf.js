@@ -1,9 +1,5 @@
 #!/usr/bin/env node
 
-// TODO/now:
-// - Disable text color gradients when rendering PDF
-// - Don't render the dummy slides "Foo bar"
-
 // NOTE: If slides appear to be missing or have wrong content, run `pnpm run build` first
 // to ensure dist/client/ is up to date with the source MDX files.
 
@@ -112,34 +108,58 @@ async function generatePDF() {
       try {
         const page = await browser.newPage();
 
+        // Check if this is a dummy "Foo bar" slide and skip it
+        await page.goto(url, {
+          waitUntil: 'networkidle0',
+          timeout: 30000
+        });
+
+        const pageContent = await page.content();
+        if (pageContent.includes('Foo bar') && (pageContent.includes('<h1>Slide</h1>') || pageContent.includes('# Slide'))) {
+          console.log(`⊘ Skipped dummy slide ${slideNumber}`);
+          await page.close();
+          continue;
+        }
+
+        // Reset page for actual rendering
+        await page.close();
+        const renderPage = await browser.newPage();
+
         // Debug: log console messages for slides 2 and 3
         if (slideNumber === 2 || slideNumber === 3) {
-          page.on('console', msg => console.log(`  [Browser Console]:`, msg.text()));
-          page.on('pageerror', error => console.log(`  [Page Error]:`, error.message));
+          renderPage.on('console', msg => console.log(`  [Browser Console]:`, msg.text()));
+          renderPage.on('pageerror', error => console.log(`  [Page Error]:`, error.message));
         }
 
         // Set viewport to match presentation size (1366x681)
-        await page.setViewport({
+        await renderPage.setViewport({
           width: 1366,
           height: 681,
           deviceScaleFactor: 2
         });
 
         // Emulate screen media type instead of print to preserve gradients
-        await page.emulateMediaType('screen');
+        await renderPage.emulateMediaType('screen');
 
-        await page.goto(url, {
+        await renderPage.goto(url, {
           waitUntil: 'networkidle0',
           timeout: 30000
         });
 
-        // Inject CSS to ensure gradients and colors print correctly
-        await page.addStyleTag({
+        // Inject CSS to disable gradients and ensure colors print correctly
+        await renderPage.addStyleTag({
           content: `
             * {
               -webkit-print-color-adjust: exact !important;
               print-color-adjust: exact !important;
               color-adjust: exact !important;
+            }
+            /* Disable text gradients for PDF rendering */
+            span[style*="background"] {
+              background: none !important;
+              -webkit-background-clip: unset !important;
+              background-clip: unset !important;
+              -webkit-text-fill-color: unset !important;
             }
           `
         });
@@ -150,11 +170,11 @@ async function generatePDF() {
         // Debug: take screenshot for slides 2 and 3
         if (slideNumber === 2 || slideNumber === 3) {
           const screenshotPath = join(__dirname, `../debug-slide-${slideNumber}.png`);
-          await page.screenshot({ path: screenshotPath, fullPage: false });
+          await renderPage.screenshot({ path: screenshotPath, fullPage: false });
           console.log(`  Debug screenshot saved: debug-slide-${slideNumber}.png`);
         }
 
-        await page.pdf({
+        await renderPage.pdf({
           path: pdfFile,
           width: '1366px',
           height: '681px',
@@ -162,7 +182,7 @@ async function generatePDF() {
           preferCSSPageSize: false
         });
 
-        await page.close();
+        await renderPage.close();
 
         pdfFiles.push(pdfFile);
         console.log(`✓ Generated: slide-${slideNumber}.pdf`);
