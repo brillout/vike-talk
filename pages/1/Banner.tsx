@@ -50,8 +50,6 @@ function BannerCommon({
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          // Don't center completely
-          marginTop: -8,
         }}
       >
         {logo !== false && (
@@ -68,7 +66,7 @@ function BannerCommon({
               style={{
                 height: 60 * logoScale,
                 objectFit: 'contain',
-                marginTop: -8,
+                marginTop: -2,
                 marginRight: 14,
                 ...logoStyle,
               }}
