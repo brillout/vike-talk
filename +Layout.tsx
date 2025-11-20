@@ -39,10 +39,14 @@ function Footer() {
               {' '}
               {Array(numberOfSlides)
                 .fill(undefined)
-                .map(() => {
+                .map((_, index) => {
                   slideNumberFooter++
                   const isCurrentSlide = slideNumberFooter === slideNumber
-                  return <a href={`/${slideNumberFooter}`}>{!isCurrentSlide ? '○' : '●'}</a>
+                  return (
+                    <a key={index} href={`/${slideNumberFooter}`}>
+                      {!isCurrentSlide ? '○' : '●'}
+                    </a>
+                  )
                 })}
             </div>
           </div>
