@@ -34,6 +34,52 @@ async function runBuild() {
   })
 }
 
+// Start Vike preview server
+async function startPreviewServer() {
+  console.log('Starting preview server...')
+
+  return new Promise((resolve, reject) => {
+    const preview = spawn('pnpm', ['exec', 'vike', 'preview'], {
+      cwd: join(__dirname, '..'),
+      stdio: 'pipe',
+    })
+
+    let serverStarted = false
+
+    preview.stdout.on('data', (data) => {
+      const output = data.toString()
+      console.log(output.trim())
+
+      // Look for the server URL in the output
+      if (!serverStarted && (output.includes('http://localhost:') || output.includes('Local:'))) {
+        serverStarted = true
+        // Give it a moment to fully start
+        setTimeout(() => resolve(preview), 1000)
+      }
+    })
+
+    preview.stderr.on('data', (data) => {
+      console.error(data.toString())
+    })
+
+    preview.on('error', reject)
+
+    preview.on('close', (code) => {
+      if (!serverStarted) {
+        reject(new Error(`Preview server failed to start with exit code ${code}`))
+      }
+    })
+
+    // Timeout after 30 seconds
+    setTimeout(() => {
+      if (!serverStarted) {
+        preview.kill()
+        reject(new Error('Preview server failed to start within 30 seconds'))
+      }
+    }, 30000)
+  })
+}
+
 async function generatePDF() {
   console.log('Starting PDF generation...\n')
 
@@ -69,6 +115,17 @@ async function generatePDF() {
 
   const fs = await import('node:fs/promises')
 
+  // Start preview server
+  let previewServer
+  try {
+    previewServer = await startPreviewServer()
+  } catch (error) {
+    console.error('❌ Failed to start preview server:', error.message)
+    return
+  }
+
+  const port = 3000 // Vike preview default port
+
   // Launch Playwright browser
   console.log('Launching browser...')
   const browser = await chromium.launch({
@@ -83,8 +140,7 @@ async function generatePDF() {
 
   try {
     for (const slideNumber of slideNumbers) {
-      const htmlFile = join(distDir, `${slideNumber}.html`)
-      const url = `file://${htmlFile}`
+      const url = `http://localhost:${port}/${slideNumber}`
       const pdfFile = join(__dirname, `../slide-${slideNumber}.pdf`)
 
       console.log(`Generating PDF for slide ${slideNumber}...`)
@@ -166,6 +222,13 @@ async function generatePDF() {
     }
   } finally {
     await browser.close()
+
+    // Stop preview server
+    if (previewServer) {
+      console.log('Stopping preview server...')
+      previewServer.kill()
+      console.log('✓ Preview server stopped')
+    }
   }
 
   if (pdfFiles.length === 0) {
