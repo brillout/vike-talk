@@ -7,9 +7,6 @@ import { dirname } from 'node:path'
 import { spawn } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { chromium } from 'playwright'
-import { createServer } from 'node:http'
-import { createReadStream, statSync } from 'node:fs'
-import { lookup } from 'mime-types'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -37,41 +34,7 @@ async function runBuild() {
   })
 }
 
-// Simple static file server
-function createStaticServer(distDir, port) {
-  const server = createServer((req, res) => {
-    let filePath = join(distDir, req.url === '/' ? 'index.html' : req.url)
 
-    // Security: prevent directory traversal
-    if (!filePath.startsWith(distDir)) {
-      res.writeHead(403)
-      res.end('Forbidden')
-      return
-    }
-
-    if (!existsSync(filePath)) {
-      res.writeHead(404)
-      res.end('Not found')
-      return
-    }
-
-    const stat = statSync(filePath)
-    if (stat.isDirectory()) {
-      filePath = join(filePath, 'index.html')
-    }
-
-    const mimeType = lookup(filePath) || 'application/octet-stream'
-    res.writeHead(200, { 'Content-Type': mimeType })
-    createReadStream(filePath).pipe(res)
-  })
-
-  return new Promise((resolve, reject) => {
-    server.listen(port, (err) => {
-      if (err) reject(err)
-      else resolve(server)
-    })
-  })
-}
 
 async function generatePDF() {
   console.log('Starting PDF generation...\n')
@@ -106,12 +69,6 @@ async function generatePDF() {
     return
   }
 
-  // Start a local server to serve the built files
-  const port = 8765
-  console.log(`Starting local server on port ${port}...`)
-  const server = await createStaticServer(distDir, port)
-  console.log('✓ Server started')
-
   const fs = await import('node:fs/promises')
 
   // Launch Playwright browser
@@ -128,7 +85,8 @@ async function generatePDF() {
 
   try {
     for (const slideNumber of slideNumbers) {
-      const url = `http://localhost:${port}/${slideNumber}.html`
+      const htmlFile = join(distDir, `${slideNumber}.html`)
+      const url = `file://${htmlFile}`
       const pdfFile = join(__dirname, `../slide-${slideNumber}.pdf`)
 
       console.log(`Generating PDF for slide ${slideNumber}...`)
@@ -210,8 +168,6 @@ async function generatePDF() {
     }
   } finally {
     await browser.close()
-    server.close()
-    console.log('✓ Server stopped')
   }
 
   if (pdfFiles.length === 0) {
