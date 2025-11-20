@@ -121,9 +121,23 @@ async function generatePDF() {
           deviceScaleFactor: 2
         });
 
+        // Emulate screen media type instead of print to preserve gradients
+        await page.emulateMediaType('screen');
+
         await page.goto(url, {
           waitUntil: 'networkidle0',
           timeout: 30000
+        });
+
+        // Inject CSS to ensure gradients and colors print correctly
+        await page.addStyleTag({
+          content: `
+            * {
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+              color-adjust: exact !important;
+            }
+          `
         });
 
         // Wait a bit more for fonts and animations to load
