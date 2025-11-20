@@ -3,12 +3,12 @@ import { Center, CodeBlock } from '../../components'
 <div style={{display: 'flex'}}>
   <div>
     <Center>
-      React Router 😨
+      React Router
     </Center>
 
     <CodeBlock>
       ```js
-      // article/delete.ts
+      // article/delete.js
       // Only a single action per file 😕
       export async function action({ request }) {
         const { article_id } = await request.json()
@@ -17,9 +17,10 @@ import { Center, CodeBlock } from '../../components'
       }
       ```
       ```js
-      // article.tsx
+      // Article.jsx
       export default function Article() {
         const onClick = async () => {
+          // Lots of boilerplate 😕
           const res = await fetch("/article/delete", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -35,20 +36,20 @@ import { Center, CodeBlock } from '../../components'
   </div>
   <div>
     <Center>
-      Vike + Telefunc ✨
+      Vike + Telefunc
     </Center>
 
     <CodeBlock>
       ```js
-      // article.telefunc.ts
+      // Article.telefunc.js
       export async function onArticleDelete({ article_id }) {
         await db.article.delete({ article_id })
         return { success: true }
       }
       ```
       ```js
-      // article.tsx
-      import { onArticleDelete } from './article.telefunc.ts'
+      // Article.jsx
+      import { onArticleDelete } from './article.telefunc.js'
       export default function Article() {
         const onClick = async () => {
           const { success } = await onArticleDelete({ article_id })
