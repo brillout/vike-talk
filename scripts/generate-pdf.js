@@ -250,6 +250,17 @@ async function generatePDF() {
 
     console.log(`✓ Merged PDF created: slides-complete.pdf`);
 
+    // Clean up individual PDF files after successful merge
+    console.log('Cleaning up individual PDF files...');
+    for (const pdfFile of pdfFiles) {
+      try {
+        await fs.unlink(pdfFile);
+      } catch (err) {
+        console.warn(`⚠️  Could not delete ${pdfFile}:`, err.message);
+      }
+    }
+    console.log('✓ Individual PDF files removed');
+
   } catch (error) {
     console.log('⚠️  Could not merge PDFs automatically (pdftk not available).');
     console.log('Individual PDF files are available:');
