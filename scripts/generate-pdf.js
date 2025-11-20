@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+// TODO/now:
+// - change it to 1366x681
+// - why are slides 2 and 3 missing?
+
 import { readdir } from 'fs/promises';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
