@@ -160,6 +160,7 @@ async function generatePDF() {
               -webkit-background-clip: unset !important;
               background-clip: unset !important;
               -webkit-text-fill-color: unset !important;
+              color: inherit !important;
             }
           `
         });
