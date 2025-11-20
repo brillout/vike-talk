@@ -1,0 +1,32 @@
+import { CodeBlock } from '../../components'
+
+<CodeBlock style={{fontSize: '15px'}}>
+```jsx
+import { useState } from 'telefunc/react'
+import { onMovieFetch } from './MovieList.telefunc.js'
+
+function Movie({ id }) {
+  // Note how useState() is imported from telefunc/react
+  const [movie, setMovie] = useState(
+    // Async initial data
+    async () => await onMovieFetch(id),
+    // Dependency array like useEffect()
+    [id]
+  )
+  return (
+    <>
+      <p>Title: {movie.title}</p>
+      <p>Release: {movie.release_date}</p>
+      <button onClick={async () => setMovie(await onMovieFetch(id))}>
+        Refetch
+      </button>
+    </>
+  )
+}
+```
+</CodeBlock>
+
+<p style={{fontSize: '20px', marginLeft: 10 }}>
+🧘 Default: data has same lifecycle as state  
+⚙️  Opt-in: advanced caching via TanStack Query
+</p>

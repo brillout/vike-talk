@@ -1,0 +1,60 @@
+import { Center, CodeBlock } from '../../components'
+
+<div style={{display: 'flex'}}>
+  <div>
+    <Center>
+      Next.js
+    </Center>
+
+    <CodeBlock>
+      ```js
+      // Article.jsx
+      // Environment: client
+
+      import { revalidatePath } from 'next/cache'
+
+      export default function Article({ article_id }) {
+        async function onArticleDelete() {
+          // Environment: server
+          'use server'
+          // 🤔 Mixed server and client code inside same file
+          // 🤔 Magic passing of props
+          await db.article.delete({ article_id })
+          // 😨 Complex caching
+          revalidatePath('/articles')
+        }
+        return <button onClick={onArticleDelete}>Delete</button>
+      }
+      ```
+    </CodeBlock>
+  </div>
+  <div>
+    <Center>
+      Vike + Telefunc
+    </Center>
+
+    <CodeBlock>
+      ```js
+      // Article.telefunc.js
+      // Environment: server
+
+      export async function onArticleDelete({ article_id }) {
+        await db.article.delete({ article_id })
+      }
+      ```
+      ```js
+      // Article.jsx
+      // Environment: client
+
+      import { onArticleDelete } from './article.telefunc.js'
+      export default function Article({ article_id }) {
+        const onClick = () => onArticleDelete({ article_id })
+        return <button onClick={onClick}>Delete</button>
+      }
+      ```
+      <p style={{fontSize: '20px', marginLeft: 10 }}>
+      🧘 Cache is opt-in
+      </p>
+    </CodeBlock>
+  </div>
+</div>

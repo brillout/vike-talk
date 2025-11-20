@@ -1,0 +1,17 @@
+# Config inheritance
+
+```yaml
+pages/(marketing)/index/+Page.jsx    # URL: /
+pages/(marketing)/about/+Page.jsx    # URL: /about
+pages/(marketing)/+Layout.jsx        # Layout for the marketing pages
+pages/(marketing)/+ssr.js            # Enable SSR for marketing pages
+pages/(marketing)/+prerender.js      # Enable pre-rendering for marketing pages
+ 
+pages/admin-panel/index/+Page.jsx    # URL: /admin-panel
+pages/admin-panel/users/+Page.jsx    # URL: /admin-panel/users
+pages/admin-panel/+Layout.jsx        # Layout for admin pages
+ 
+pages/product/@id/+Page.jsx
+pages/product/@id/+Layout.jsx        # Layout for the product page
+pages/(marketing)/+ssr.js            # Enable SSR for product page
+```

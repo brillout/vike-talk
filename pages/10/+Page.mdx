@@ -1,0 +1,42 @@
+<style>{`ul { margin: 0; }`}</style>
+
+<div style={{fontSize: '0.9em', marginTop: 20, display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '1em 2em', alignItems: 'start' }}>
+
+<b>Data</b>
+<div>
+- `+data.js`
+- `+onData.js`
+</div>
+
+<b>Data, auth, store init</b>
+<div>
+- `+onCreateGlobalContext.{client,server}.js`
+- `+onCreatePageContext.{client,server}.js`
+</div>
+
+<b>Auth</b>
+<div>
+- `+guard.js`
+</div>
+
+<b>Pre-rendering (SSG)</b>
+<div>
+- `+onPrerenderStart.js`
+</div>
+
+<b>Instrumentation</b>
+<div>
+- `+onHookCall.js`
+- `+onError.js`
+</div>
+
+<b>More</b>
+<div>
+- `+onPageTransition{Start,End}.js`
+- `+onBeforeRoute.js` (full i18n control)
+- `+onHydrationEnd.js`
+- `+on{Before,After}Render{Client,Html}.js`
+- ...
+</div>
+
+</div>
