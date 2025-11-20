@@ -2,14 +2,19 @@ import { default as viteLogo } from './vite.svg'
 import { default as vikeLogo } from './vike.svg'
 import { Center, Hr } from '../../components'
 
+<div style={{display: 'flex'}}>
+
 ## Vite
 
-<Center>
-<img src={viteLogo} style={{height: 100}}/>
-</Center>
+<img src={viteLogo} style={{height: 100, float: 'left'}}/>
 
-Vite: webpack alternative
+<div>
+
+webpack alternative
 - Full control
+
+</div>
+</div>
 
 <Hr/>
 {/* TODO: insecpt why returns empty error
@@ -22,5 +27,5 @@ Vite: webpack alternative
 <img src={vikeLogo} style={{height: 100}}/>
 </Center>
 
-Vike: Next.js/Nuxt alternative
+Next.js/Nuxt alternative
 - Full control
