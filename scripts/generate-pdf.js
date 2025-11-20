@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+// TODO/now: always re-build before rendering to PDF
 // NOTE: If slides appear to be missing or have wrong content, run `pnpm run build` first
 // to ensure dist/client/ is up to date with the source MDX files.
 
