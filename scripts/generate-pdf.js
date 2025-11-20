@@ -7,6 +7,7 @@ import { dirname } from 'node:path'
 import { spawn } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { chromium } from 'playwright'
+import { preview } from 'vite'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -34,50 +35,22 @@ async function runBuild() {
   })
 }
 
-// Start Vike preview server
-async function startPreviewServer() {
+// Start Vite preview server
+async function startPreviewServer(distDir) {
   console.log('Starting preview server...')
 
-  return new Promise((resolve, reject) => {
-    const preview = spawn('pnpm', ['exec', 'vike', 'preview'], {
-      cwd: join(__dirname, '..'),
-      stdio: 'pipe',
-    })
-
-    let serverStarted = false
-
-    preview.stdout.on('data', (data) => {
-      const output = data.toString()
-      console.log(output.trim())
-
-      // Look for the server URL in the output
-      if (!serverStarted && (output.includes('http://localhost:') || output.includes('Local:'))) {
-        serverStarted = true
-        // Give it a moment to fully start
-        setTimeout(() => resolve(preview), 1000)
-      }
-    })
-
-    preview.stderr.on('data', (data) => {
-      console.error(data.toString())
-    })
-
-    preview.on('error', reject)
-
-    preview.on('close', (code) => {
-      if (!serverStarted) {
-        reject(new Error(`Preview server failed to start with exit code ${code}`))
-      }
-    })
-
-    // Timeout after 30 seconds
-    setTimeout(() => {
-      if (!serverStarted) {
-        preview.kill()
-        reject(new Error('Preview server failed to start within 30 seconds'))
-      }
-    }, 30000)
+  const previewServer = await preview({
+    preview: {
+      port: 3000,
+      strictPort: true,
+    },
+    build: {
+      outDir: distDir,
+    },
   })
+
+  console.log('✓ Preview server started on http://localhost:3000')
+  return previewServer
 }
 
 async function generatePDF() {
@@ -118,7 +91,7 @@ async function generatePDF() {
   // Start preview server
   let previewServer
   try {
-    previewServer = await startPreviewServer()
+    previewServer = await startPreviewServer(distDir)
   } catch (error) {
     console.error('❌ Failed to start preview server:', error.message)
     return
@@ -226,7 +199,7 @@ async function generatePDF() {
     // Stop preview server
     if (previewServer) {
       console.log('Stopping preview server...')
-      previewServer.kill()
+      await previewServer.httpServer.close()
       console.log('✓ Preview server stopped')
     }
   }
