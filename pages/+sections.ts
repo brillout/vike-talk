@@ -2,7 +2,7 @@ import type { Sections } from '../+config'
 export const sections: Sections = [
   {
     name: 'Intro',
-    numberOfSlides: 3,
+    numberOfSlides: 4,
   },
   {
     name: 'Hooks',
