@@ -1,5 +1,3 @@
-// TODO: git revert af61d8f5d3cd2df22b25e62c6bd87483b4356e71
-
 import { navigate } from 'vike/client/router'
 import { getSlideNumber } from './utils/getSlideNumber'
 
