@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// NOTE: If slides appear to be missing or have wrong content, run `pnpm run build` first
+// to ensure dist/client/ is up to date with the source MDX files.
+
 import { readdir } from 'fs/promises';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
@@ -105,6 +108,12 @@ async function generatePDF() {
       try {
         const page = await browser.newPage();
 
+        // Debug: log console messages for slides 2 and 3
+        if (slideNumber === 2 || slideNumber === 3) {
+          page.on('console', msg => console.log(`  [Browser Console]:`, msg.text()));
+          page.on('pageerror', error => console.log(`  [Page Error]:`, error.message));
+        }
+
         // Set viewport to match presentation size (1366x681)
         await page.setViewport({
           width: 1366,
@@ -118,7 +127,14 @@ async function generatePDF() {
         });
 
         // Wait a bit more for fonts and animations to load
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Debug: take screenshot for slides 2 and 3
+        if (slideNumber === 2 || slideNumber === 3) {
+          const screenshotPath = join(__dirname, `../debug-slide-${slideNumber}.png`);
+          await page.screenshot({ path: screenshotPath, fullPage: false });
+          console.log(`  Debug screenshot saved: debug-slide-${slideNumber}.png`);
+        }
 
         await page.pdf({
           path: pdfFile,
@@ -179,11 +195,8 @@ async function generatePDF() {
 
     console.log(`✓ Merged PDF created: slides-complete.pdf`);
 
-    // Clean up individual files
-    for (const pdfFile of pdfFiles) {
-      await fs.unlink(pdfFile);
-    }
-    console.log('✓ Cleaned up individual PDF files.');
+    // Keep individual files for debugging
+    console.log('✓ Individual PDF files kept for debugging.');
 
   } catch (error) {
     console.log('⚠️  Could not merge PDFs automatically (pdftk not available).');
