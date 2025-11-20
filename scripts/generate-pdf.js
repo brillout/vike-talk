@@ -1,9 +1,5 @@
 #!/usr/bin/env node
 
-// TODO/now:
-// - Don't hard code the number of pages, look at the number of pages before generating the PDF
-// - Don't rely on slides-combined.html (dynamically generated it if needs be)
-
 import { readdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
