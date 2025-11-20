@@ -2,7 +2,7 @@ import{j as e,i as o,a as l,b as r,c as n,d as s,o as d}from"../chunks/chunk-4uG
 `,e.jsxs(t.ul,{children:[`
 `,e.jsxs(t.li,{children:["Powerful extensions",`
 `,e.jsxs(t.ul,{children:[`
-`,e.jsx(t.li,{children:"Full-stack extensions, like Django / Ruby on Rails"}),`
+`,e.jsx(t.li,{children:"Full-stack extensions — like Django, Ruby on Rails"}),`
 `,e.jsx(t.li,{children:"Full-stack default path"}),`
 `,e.jsx(t.li,{children:"Partial eject => progressive & cherry-picked control"}),`
 `]}),`
