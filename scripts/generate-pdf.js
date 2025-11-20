@@ -1,9 +1,5 @@
 #!/usr/bin/env node
 
-// TODO/now:
-// - change it to 1366x681
-// - why are slides 2 and 3 missing?
-
 import { readdir } from 'fs/promises';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
@@ -109,10 +105,10 @@ async function generatePDF() {
       try {
         const page = await browser.newPage();
 
-        // Set viewport to match presentation size (720p)
+        // Set viewport to match presentation size (1366x681)
         await page.setViewport({
-          width: 1280,
-          height: 720,
+          width: 1366,
+          height: 681,
           deviceScaleFactor: 2
         });
 
@@ -126,8 +122,8 @@ async function generatePDF() {
 
         await page.pdf({
           path: pdfFile,
-          width: '1280px',
-          height: '720px',
+          width: '1366px',
+          height: '681px',
           printBackground: true,
           preferCSSPageSize: false
         });
