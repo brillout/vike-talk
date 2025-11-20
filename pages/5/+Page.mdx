@@ -1,17 +1,10 @@
-```ts
-// pages/+onRenderHtml.js
-// Environment: server
+```jsx
+// pages/hello/+Page.jsx
+// Environment: client and/or server
 
-import ReactDOMServer from 'react-dom/server'
-
-export function onRenderHtml(pageContext) {
-  const { Page } = pageContext
-  const pageHtml = ReactDOMServer.renderToString(<Page/>)
-  return `
-    <html>
-      <body>
-        <div id="root">${pageHtml}</div>
-      </body>
-    </html>`
+export function Page(pageContext) {
+  return <>
+    <h1>Hello c't webdev</h1>
+  </>
 }
 ```

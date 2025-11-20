@@ -1,16 +1,13 @@
-# SPA/SSR/SSG
+# Use case Burda
 
-SPA, SSG, SSR, HTML streaming.  
-=> first-class support for all — also SPA
+Burda GmbH owns [focus.de](https://www.focus.de), [chip.de](https://www.chip.de), [bunte.de](https://www.bunte.de), ...
 
-
-- `+ssr` **boolean** => toggle SSR/SPA on page-by-page basis
-- `+prerender` **boolean** => disable/enable page-by-page
-- SSG redirects
-- 🚧 SSG dynamic routes (aka SPA fallback)
-- `+data.client.js` => Data-fetching 100% client-side
-- `react-streaming` => progressive rendering (aka partial hydration)
-  - React library we created => fully Vike agnostic
-
-Easily create SPA like the old days.  
-=> surprisingly hard with other frameworks (but shouldn't!)
+- Solid (React alternative) + SSR
+- **Before**: fragmented stacks  
+  => cannot impove all websites at once
+- **Now**: Internal company framework powering all websites  
+  => Software Architects controls architecture of all websites  
+  => App code: product developers
+- **Vike core**, without any Vike extension  
+  => full control over architecture + rock-solid foundation  
+- `vike-react` is ~1k LoC => easy to build your own framework
