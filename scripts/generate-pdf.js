@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+// TODO/now
+// - Change resolution to 720p
+// - Maybe use Playwright instead of puppeteer?
+
 import { readdir } from 'fs/promises';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
