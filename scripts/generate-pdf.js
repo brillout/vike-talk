@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+// TODO/now:
+// - Disable text color gradients when rendering PDF
+// - Don't render the dummy slides "Foo bar"
+
 // NOTE: If slides appear to be missing or have wrong content, run `pnpm run build` first
 // to ensure dist/client/ is up to date with the source MDX files.
 
