@@ -26,6 +26,10 @@ body {
     padding-left: var(--padding);
     padding-right: var(--padding);
   }
+
+  a {
+    color: inherit;
+  }
 }
 
 #slide-wrapper {

@@ -34,7 +34,7 @@ function Footer() {
       <div id="footer-content">
         {pageContext.config.sections!.map(({ name, numberOfSlides }) => (
           <div key={name}>
-            <div>{name}</div>
+            <a href={`/${slideNumberFooter + 1}`}>{name}</a>
             <div>
               {' '}
               {Array(numberOfSlides)
@@ -42,7 +42,7 @@ function Footer() {
                 .map(() => {
                   slideNumberFooter++
                   const isCurrentSlide = slideNumberFooter === slideNumber
-                  return !isCurrentSlide ? '○' : '●'
+                  return <a href={`/${slideNumberFooter}`}>{!isCurrentSlide ? '○' : '●'}</a>
                 })}
             </div>
           </div>
