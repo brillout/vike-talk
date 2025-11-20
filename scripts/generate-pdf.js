@@ -154,12 +154,6 @@ async function generatePDF() {
         await page.close();
         const renderPage = await browser.newPage();
 
-        // Debug: log console messages for slides 2 and 3
-        if (slideNumber === 2 || slideNumber === 3) {
-          renderPage.on('console', msg => console.log(`  [Browser Console]:`, msg.text()));
-          renderPage.on('pageerror', error => console.log(`  [Page Error]:`, error.message));
-        }
-
         // Set viewport to match presentation size (1366x681)
         await renderPage.setViewport({
           width: 1366,
@@ -196,13 +190,6 @@ async function generatePDF() {
 
         // Wait a bit more for fonts and animations to load
         await new Promise(resolve => setTimeout(resolve, 2000));
-
-        // Debug: take screenshot for slides 2 and 3
-        if (slideNumber === 2 || slideNumber === 3) {
-          const screenshotPath = join(__dirname, `../debug-slide-${slideNumber}.png`);
-          await renderPage.screenshot({ path: screenshotPath, fullPage: false });
-          console.log(`  Debug screenshot saved: debug-slide-${slideNumber}.png`);
-        }
 
         await renderPage.pdf({
           path: pdfFile,
@@ -262,9 +249,6 @@ async function generatePDF() {
     });
 
     console.log(`✓ Merged PDF created: slides-complete.pdf`);
-
-    // Keep individual files for debugging
-    console.log('✓ Individual PDF files kept for debugging.');
 
   } catch (error) {
     console.log('⚠️  Could not merge PDFs automatically (pdftk not available).');
