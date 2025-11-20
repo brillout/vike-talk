@@ -13,7 +13,6 @@
     "slides:add": "node scripts/manage-slides.js add",
     "slides:list": "node scripts/manage-slides.js list",
     "slides:help": "node scripts/manage-slides.js",
-    "pdf:generate": "node scripts/generate-pdf.js",
     "========= Reset": "",
     "reset": "git clean -Xdf && pnpm install && pnpm run build",
     "========= Only allow pnpm; forbid yarn & npm": "",
