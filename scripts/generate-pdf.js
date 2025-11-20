@@ -34,8 +34,6 @@ async function runBuild() {
   })
 }
 
-
-
 async function generatePDF() {
   console.log('Starting PDF generation...\n')
 
