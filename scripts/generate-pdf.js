@@ -150,57 +150,13 @@ async function generatePDF() {
           console.log(`  Debug screenshot saved: debug-slide-${slideNumber}.png`);
         }
 
-        // Use screenshot-to-PDF approach for slide 1 to preserve gradients
-        if (slideNumber === 1) {
-          const screenshotPath = join(__dirname, `../temp-slide-${slideNumber}.png`);
-          await page.screenshot({
-            path: screenshotPath,
-            fullPage: false,
-            omitBackground: false
-          });
-
-          // Create a new page with the screenshot embedded
-          const pdfPage = await browser.newPage();
-          await pdfPage.setViewport({
-            width: 1366,
-            height: 681,
-            deviceScaleFactor: 1
-          });
-
-          await pdfPage.setContent(`
-            <!DOCTYPE html>
-            <html>
-              <head>
-                <style>
-                  body { margin: 0; padding: 0; }
-                  img { display: block; width: 1366px; height: 681px; }
-                </style>
-              </head>
-              <body>
-                <img src="file://${screenshotPath}" />
-              </body>
-            </html>
-          `);
-
-          await pdfPage.pdf({
-            path: pdfFile,
-            width: '1366px',
-            height: '681px',
-            printBackground: true,
-            preferCSSPageSize: false
-          });
-
-          await pdfPage.close();
-          await fs.unlink(screenshotPath);
-        } else {
-          await page.pdf({
-            path: pdfFile,
-            width: '1366px',
-            height: '681px',
-            printBackground: true,
-            preferCSSPageSize: false
-          });
-        }
+        await page.pdf({
+          path: pdfFile,
+          width: '1366px',
+          height: '681px',
+          printBackground: true,
+          preferCSSPageSize: false
+        });
 
         await page.close();
 
