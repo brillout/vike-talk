@@ -1,0 +1,17 @@
+import{j as e,i as n,a as o,b as l,c as r,d as s,o as d}from"../chunks/chunk-4uGPss9t.js";import"../chunks/chunk-C0l-XPzm.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-CbKO0cQm.js";function a(i){const t={em:"em",h2:"h2",li:"li",p:"p",ul:"ul",...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(t.h2,{children:"Vike"}),`
+`,e.jsx(t.p,{children:"Stable & flexible core:"}),`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsx(t.li,{children:"Unopinionated & agnostic => foundational stability"}),`
+`,e.jsx(t.li,{children:"Low-level hooks => powerful flexibility"}),`
+`]}),`
+`,e.jsx(t.h2,{children:"Extensions"}),`
+`,e.jsx(t.p,{children:"Powerful extensions:"}),`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsxs(t.li,{children:["Opinionated => pick extensions => assemble ",e.jsx(t.em,{children:"your"})," dream stack"]}),`
+`,e.jsx(t.li,{children:"Minimal yet deep/full-fledged integration"}),`
+`]}),`
+`,e.jsx(t.p,{children:'Extensions are "cheap" (to create) =>'}),`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsx(t.li,{children:"Quickly adopts new tech"}),`
+`,e.jsx(t.li,{children:"Experimental extensions"}),`
+`]})]})}function p(i={}){const{wrapper:t}=i.components||{};return t?e.jsx(t,{...i,children:e.jsx(a,{...i})}):a(i)}const u=Object.freeze(Object.defineProperty({__proto__:null,default:p},Symbol.toStringTag,{value:"Module"})),y={hasServerOnlyHook:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!1}},isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},onBeforeRenderEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},dataEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},onRenderClient:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/__internal/integration/onRenderClient",fileExportPathToShowToUser:[]},valueSerialized:{type:"pointer-import",value:d}},onPageTransitionStart:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/+onPageTransitionStart.ts",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:s}},onPageTransitionEnd:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/+onPageTransitionEnd.ts",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:r}},Page:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/12/+Page.mdx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:u}},hydrationCanBeAborted:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/config",fileExportPathToShowToUser:["default","hydrationCanBeAborted"]},valueSerialized:{type:"js-serialized",value:!0}},Layout:{type:"cumulative",definedAtData:[{filePathToShowToUser:"/pages/+Layout.tsx",fileExportPathToShowToUser:[]}],valueSerialized:[{type:"plus-file",exportValues:l}]},title:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/+config.ts",fileExportPathToShowToUser:["default","title"]},valueSerialized:{type:"js-serialized",value:"Vike Talk"}},onAfterRenderClient:{type:"cumulative",definedAtData:[{filePathToShowToUser:"/pages/+onAfterRenderClient.ts",fileExportPathToShowToUser:[]}],valueSerialized:[{type:"plus-file",exportValues:o}]},Loading:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/__internal/integration/Loading",fileExportPathToShowToUser:[]},valueSerialized:{type:"pointer-import",value:n}}};export{y as configValuesSerialized};
