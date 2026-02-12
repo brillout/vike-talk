@@ -1,0 +1,17 @@
+import{j as e,i as o,a as r,b as l,c as n,d as s,o as d}from"../chunks/chunk-B1fQFNJX.js";import"../chunks/chunk-Cr9x4Ksn.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-Bmmll2VX.js";function i(a){const t={br:"br",code:"code",h1:"h1",li:"li",p:"p",strong:"strong",ul:"ul",...a.components};return e.jsxs(e.Fragment,{children:[e.jsx(t.h1,{children:"Open Source Pricing"}),`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsx(t.li,{children:"100% MIT licensed"}),`
+`,e.jsxs(t.li,{children:["100% gratis for small teams",`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsx(t.li,{children:"No license needed => works like a regular open source tool"}),`
+`]}),`
+`]}),`
+`,e.jsxs(t.li,{children:["Only larger companies pay",`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsxs(t.li,{children:["When Vike detects larger team/app",e.jsx(t.br,{}),`
+`,"=> Pesky toaster in dev: ",e.jsx(t.code,{children:"Purchase a license at ..."})]}),`
+`]}),`
+`]}),`
+`]}),`
+`,e.jsxs(t.p,{children:[e.jsx(t.strong,{children:"It's a feature"})," => Vike's interests are aligned with yours."]}),`
+`]})}function p(a={}){const{wrapper:t}=a.components||{};return t?e.jsx(t,{...a,children:e.jsx(i,{...a})}):i(a)}const u=Object.freeze(Object.defineProperty({__proto__:null,default:p},Symbol.toStringTag,{value:"Module"})),S={hasServerOnlyHook:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!1}},isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},onBeforeRenderEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},dataEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},guardEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},onRenderClient:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/__internal/integration/onRenderClient",fileExportPathToShowToUser:[]},valueSerialized:{type:"pointer-import",value:d}},onPageTransitionStart:{type:"standard",definedAtData:{filePathToShowToUser:"/+onPageTransitionStart.ts",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:s}},onPageTransitionEnd:{type:"standard",definedAtData:{filePathToShowToUser:"/+onPageTransitionEnd.ts",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:n}},Page:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/24/+Page.mdx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:u}},hydrationCanBeAborted:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/config",fileExportPathToShowToUser:["default","hydrationCanBeAborted"]},valueSerialized:{type:"js-serialized",value:!0}},Layout:{type:"cumulative",definedAtData:[{filePathToShowToUser:"/+Layout.tsx",fileExportPathToShowToUser:[]}],valueSerialized:[{type:"plus-file",exportValues:l}]},title:{type:"standard",definedAtData:{filePathToShowToUser:"/+config.ts",fileExportPathToShowToUser:["default","title"]},valueSerialized:{type:"js-serialized",value:"Vike Talk"}},onAfterRenderClient:{type:"cumulative",definedAtData:[{filePathToShowToUser:"/+onAfterRenderClient.ts",fileExportPathToShowToUser:[]}],valueSerialized:[{type:"plus-file",exportValues:r}]},Loading:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/__internal/integration/Loading",fileExportPathToShowToUser:[]},valueSerialized:{type:"pointer-import",value:o}}};export{S as configValuesSerialized};
