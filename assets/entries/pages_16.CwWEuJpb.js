@@ -1,0 +1,18 @@
+import{j as e,i as l,a as r,b as n,c as o,d,o as s}from"../chunks/chunk-B-8RYg8Y.js";import"../chunks/chunk-BcZHfOAh.js";/* empty css                      *//* empty css                      */import"../chunks/chunk-HZ_RFHTs.js";function i(a){const t={br:"br",code:"code",h1:"h1",li:"li",p:"p",ul:"ul",...a.components};return e.jsxs(e.Fragment,{children:[e.jsx(t.h1,{children:"SSR/SPA/SSG"}),`
+`,e.jsx("div",{style:{marginTop:-10}}),`
+`,e.jsx(t.p,{children:"First-class SSR:"}),`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsx(t.li,{children:"HTML streaming"}),`
+`,e.jsx(t.li,{children:"Progressive rendering (aka partial hydration)"}),`
+`]}),`
+`,e.jsx(t.p,{children:"First-class SPA/SSG:"}),`
+`,e.jsxs(t.ul,{children:[`
+`,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+prerender"})," (boolean) => disable/enable (page-by-page basis)"]}),`
+`,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+ssr"})," (boolean) => toggle SSR/SPA (page-by-page basis)"]}),`
+`,e.jsxs(t.li,{children:[e.jsx(t.code,{children:"+data.client.js"})," => 100% client-side data fetching"]}),`
+`,e.jsx(t.li,{children:"Redirects"}),`
+`,e.jsx(t.li,{children:"..."}),`
+`]}),`
+`,`
+`,e.jsxs(t.p,{children:["Easily create SPA like the old days",e.jsx(t.br,{}),`
+`,"=> hard with other frameworks (but shouldn't!)"]})]})}function p(a={}){const{wrapper:t}=a.components||{};return t?e.jsx(t,{...a,children:e.jsx(i,{...a})}):i(a)}const u=Object.freeze(Object.defineProperty({__proto__:null,default:p},Symbol.toStringTag,{value:"Module"})),y={hasServerOnlyHook:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!1}},isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},onBeforeRenderEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},dataEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},guardEnv:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:null}},onRenderClient:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/__internal/integration/onRenderClient",fileExportPathToShowToUser:[]},valueSerialized:{type:"pointer-import",value:s}},onPageTransitionStart:{type:"standard",definedAtData:{filePathToShowToUser:"/+onPageTransitionStart.ts",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:d}},onPageTransitionEnd:{type:"standard",definedAtData:{filePathToShowToUser:"/+onPageTransitionEnd.ts",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:o}},Page:{type:"standard",definedAtData:{filePathToShowToUser:"/pages/16/+Page.mdx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:u}},hydrationCanBeAborted:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/config",fileExportPathToShowToUser:["default","hydrationCanBeAborted"]},valueSerialized:{type:"js-serialized",value:!0}},Layout:{type:"cumulative",definedAtData:[{filePathToShowToUser:"/+Layout.tsx",fileExportPathToShowToUser:[]}],valueSerialized:[{type:"plus-file",exportValues:n}]},title:{type:"standard",definedAtData:{filePathToShowToUser:"/+config.ts",fileExportPathToShowToUser:["default","title"]},valueSerialized:{type:"js-serialized",value:"Vike Talk"}},onAfterRenderClient:{type:"cumulative",definedAtData:[{filePathToShowToUser:"/+onAfterRenderClient.ts",fileExportPathToShowToUser:[]}],valueSerialized:[{type:"plus-file",exportValues:r}]},Loading:{type:"standard",definedAtData:{filePathToShowToUser:"vike-react/__internal/integration/Loading",fileExportPathToShowToUser:[]},valueSerialized:{type:"pointer-import",value:l}}};export{y as configValuesSerialized};
