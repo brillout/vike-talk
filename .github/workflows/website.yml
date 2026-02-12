@@ -2,7 +2,7 @@ name: Website
 on:
   push:
     branches:
-      - 2025-ct-webdev
+      - live
 permissions:
   contents: write
 jobs:

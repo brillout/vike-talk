@@ -1,7 +1,7 @@
 ## Current talk
 
 Currently deployed:
-- [talk.vike.dev](https://talk.vike.dev) — [`2025-ct-webdev`](https://github.com/brillout/vike-talk/tree/2025-ct-webdev)
+- [talk.vike.dev](https://talk.vike.dev) — [`live`](https://github.com/brillout/vike-talk/tree/live)
 
 Permanently deployed:
 - [2025-ct-webdev.vike.dev](https://2025-ct-webdev.vike.dev) — [github.com/brillout/2025-ct-webdev](https://github.com/brillout/2025-ct-webdev)
