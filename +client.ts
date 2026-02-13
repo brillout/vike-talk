@@ -1,9 +1,19 @@
 import { navigate } from 'vike/client/router'
 import { getSlideNumber } from './utils/getSlideNumber'
+const Digit = 'Digit'
+let digitBuffer = ''
 
 window.onkeydown = (event) => {
   const { code, shiftKey } = event
-  console.log('code', code)
+
+  if (code.startsWith(Digit)) {
+    if (digitBuffer.length === 2) digitBuffer = ''
+    digitBuffer += code.slice(Digit.length)
+    navigate(`/${digitBuffer}`)
+    return
+  } else {
+    digitBuffer = ''
+  }
 
   // On my [Logitech R400 Presenter](https://www.logitech.com/de-de/shop/p/r400-wireless-presenter) the follow
   // - 'F5' => left button: "Launch slide show"
