@@ -3,7 +3,6 @@
       <head>
         <link rel="stylesheet" type="text/css" href="/assets/static/css_index-5ea40173.C8WNBw5l.css">
         <link rel="stylesheet" type="text/css" href="/assets/static/Layout-5e96f578.F3Jq4J_X.css">
-        <link rel="stylesheet" type="text/css" href="/assets/static/pages_19_Page-dd3285f5.BWcLQyeo.css">
         <link rel="preload" href="/assets/static/Inter-Var.dulBMp8D.ttf" as="font" type="font/ttf" crossorigin>
         <meta charset="UTF-8" />
         
@@ -19,62 +18,30 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper"><div id="slide-content"><div style="display:flex" id="telefunc-demo"><div><div style="font-size:15px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="ts" data-theme="github-light"><code data-language="ts" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// CreateTodo.telefunc.ts</span></span>
-<span data-line=""><span style="color:#6A737D">// Environment: server</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#6A737D">// Telefunc makes onNewTodo() remotely callable</span></span>
-<span data-line=""><span style="color:#6A737D">// from the browser.</span></span>
-<span data-line=""><span style="color:#D73A49">export</span><span style="color:#24292E"> { onNewTodo }</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { getContext } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;telefunc&#x27;</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#6A737D">// Telefunction arguments are automatically validated</span></span>
-<span data-line=""><span style="color:#6A737D">// at runtime, so `text` is guaranteed to be a string.</span></span>
-<span data-line=""><span style="color:#D73A49">async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onNewTodo</span><span style="color:#24292E">(</span><span style="color:#E36209">text</span><span style="color:#D73A49">:</span><span style="color:#005CC5"> string</span><span style="color:#24292E">) {</span></span>
-<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">user</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#6F42C1"> getContext</span><span style="color:#24292E">()</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#6A737D">  // With an ORM</span></span>
-<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#24292E"> Todo.</span><span style="color:#6F42C1">create</span><span style="color:#24292E">({ text, authorId: user.id })</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#6A737D">  // With SQL</span></span>
-<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#6F42C1"> sql</span><span style="color:#24292E">(</span></span>
-<span data-line=""><span style="color:#032F62">    &#x27;INSERT INTO todo_items VALUES (:text, :authorId)&#x27;</span><span style="color:#24292E">,</span></span>
-<span data-line=""><span style="color:#24292E">    { text, authorId: user.id }</span></span>
-<span data-line=""><span style="color:#24292E">  )</span></span>
-<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div><div style="display:flex;justify-content:center;align-items:center"><small>Server</small></div></div><div><div style="font-size:15px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="ts" data-theme="github-light"><code data-language="ts" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// CreateTodo.tsx</span></span>
-<span data-line=""><span style="color:#6A737D">// Environment: client</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#6A737D">// CreateTodo.telefunc.ts isn&#x27;t actually loaded;</span></span>
-<span data-line=""><span style="color:#6A737D">// Telefunc transforms it into a thin HTTP client.</span></span>
-<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { onNewTodo } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;./CreateTodo.telefunc.ts&#x27;</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onClick</span><span style="color:#24292E">(</span><span style="color:#E36209">form</span><span style="color:#24292E">) {</span></span>
-<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> text</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> form.input.value</span></span>
-<span data-line=""><span style="color:#6A737D">  // Behind the scenes, Telefunc makes an HTTP request</span></span>
-<span data-line=""><span style="color:#6A737D">  // to the server.</span></span>
-<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#6F42C1"> onNewTodo</span><span style="color:#24292E">(text)</span></span>
-<span data-line=""><span style="color:#24292E">}</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">function</span><span style="color:#6F42C1"> CreateTodo</span><span style="color:#24292E">() {</span></span>
-<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> (</span></span>
-<span data-line=""><span style="color:#24292E">    &lt;</span><span style="color:#6F42C1">form</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#D73A49">      &lt;</span><span style="color:#24292E">input input</span><span style="color:#D73A49">=</span><span style="color:#032F62">&quot;text&quot;</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">&lt;/</span><span style="color:#6F42C1">input</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#D73A49">      &lt;</span><span style="color:#24292E">button onClick</span><span style="color:#D73A49">=</span><span style="color:#24292E">{onClick}</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">Add To</span><span style="color:#D73A49">-</span><span style="color:#24292E">Do</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">button</span><span style="color:#D73A49">&gt;</span></span>
-<span data-line=""><span style="color:#D73A49">    &lt;/</span><span style="color:#24292E">form</span><span style="color:#D73A49">&gt;</span></span>
-<span data-line=""><span style="color:#24292E">  )</span></span>
-<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div><div style="display:flex;justify-content:center;align-items:center"><small>Browser</small></div></div></div></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><a href="/1">Intro</a><div> <a href="/1">○</a><a href="/2">○</a><a href="/3">○</a><a href="/4">○</a></div></div><div><a href="/5">Hooks</a><div> <a href="/5">○</a><a href="/6">○</a><a href="/7">○</a><a href="/8">○</a><a href="/9">○</a><a href="/10">○</a></div></div><div><a href="/11">Architecture</a><div> <a href="/11">○</a><a href="/12">○</a></div></div><div><a href="/13">Use cases</a><div> <a href="/13">○</a><a href="/14">○</a><a href="/15">○</a></div></div><div><a href="/16">DX</a><div> <a href="/16">○</a><a href="/17">○</a><a href="/18">○</a><a href="/19">●</a><a href="/20">○</a><a href="/21">○</a><a href="/22">○</a><a href="/23">○</a><a href="/24">○</a><a href="/25">○</a></div></div><div><a href="/26">Business model</a><div> <a href="/26">○</a></div></div><div><a href="/27">Vision</a><div> <a href="/27">○</a></div></div><div><a href="/28">Q&amp;A</a><div> <a href="/28">○</a></div></div></div></div></div></div>
+        <div id="root"><div id="slide-wrapper"><div id="slide-content"><h1>Config inheritance</h1>
+<figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="yaml" data-theme="github-light"><code data-language="yaml" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#032F62">pages/(marketing)/index/+Page.jsx</span><span style="color:#6A737D">    # URL: /</span></span>
+<span data-line=""><span style="color:#032F62">pages/(marketing)/about/+Page.jsx</span><span style="color:#6A737D">    # URL: /about</span></span>
+<span data-line=""><span style="color:#032F62">pages/(marketing)/+Layout.jsx</span><span style="color:#6A737D">        # Layout for the marketing pages</span></span>
+<span data-line=""><span style="color:#032F62">pages/(marketing)/+ssr.js</span><span style="color:#6A737D">            # Enable SSR for marketing pages</span></span>
+<span data-line=""><span style="color:#032F62">pages/(marketing)/+prerender.js</span><span style="color:#6A737D">      # Enable pre-rendering for marketing pages</span></span>
+<span data-line=""><span style="color:#24292E"> </span></span>
+<span data-line=""><span style="color:#032F62">pages/admin-panel/index/+Page.jsx</span><span style="color:#6A737D">    # URL: /admin-panel</span></span>
+<span data-line=""><span style="color:#032F62">pages/admin-panel/users/+Page.jsx</span><span style="color:#6A737D">    # URL: /admin-panel/users</span></span>
+<span data-line=""><span style="color:#032F62">pages/admin-panel/+Layout.jsx</span><span style="color:#6A737D">        # Layout for admin pages</span></span>
+<span data-line=""><span style="color:#24292E"> </span></span>
+<span data-line=""><span style="color:#032F62">pages/product/@id/+Page.jsx</span></span>
+<span data-line=""><span style="color:#032F62">pages/product/@id/+Layout.jsx</span><span style="color:#6A737D">        # Layout for the product page</span></span>
+<span data-line=""><span style="color:#032F62">pages/(marketing)/+ssr.js</span><span style="color:#6A737D">            # Enable SSR for product page</span></span></code></pre></figure></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><a href="/1">Intro</a><div> <a href="/1">○</a><a href="/2">○</a><a href="/3">○</a><a href="/4">○</a><a href="/5">○</a></div></div><div><a href="/6">Hooks</a><div> <a href="/6">○</a><a href="/7">○</a><a href="/8">○</a><a href="/9">○</a><a href="/10">○</a><a href="/11">○</a></div></div><div><a href="/12">Misc</a><div> <a href="/12">○</a><a href="/13">○</a><a href="/14">○</a></div></div><div><a href="/15">Use cases</a><div> <a href="/15">○</a><a href="/16">○</a><a href="/17">○</a></div></div><div><a href="/18">DX</a><div> <a href="/18">○</a><a href="/19">●</a><a href="/20">○</a><a href="/21">○</a><a href="/22">○</a><a href="/23">○</a><a href="/24">○</a><a href="/25">○</a><a href="/26">○</a></div></div><div><a href="/27">Business model</a><div> <a href="/27">○</a><a href="/28">○</a></div></div><div><a href="/29">Q&amp;A</a><div> <a href="/29">○</a></div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/19","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
-import("/assets/entries/client.Fjxa5LC_.js");
-import("/assets/entries/entry-client-routing.DJej_TeW.js");
+import("/assets/entries/client.DDqgVj_H.js");
+import("/assets/entries/entry-client-routing.C0s49Oly.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_19.BnlNdhxM.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-SIei08vV.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-Dw7XQQdS.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-vVcbanSJ.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk--tHOKepw.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-DmA2KE2R.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_19.BNJK3Hs5.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DBhVhvcP.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BSq7f9ZA.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-Me_re01_.js" as="script" type="text/javascript">
       </body>
     </html>
