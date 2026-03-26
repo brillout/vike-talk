@@ -1,5 +1,27 @@
 import { navigate } from 'vike/client/router'
 import { getSlideNumber } from './utils/getSlideNumber'
+
+// Keep the screen awake during the presentation
+let wakeLock: WakeLockSentinel | null = null
+async function acquireWakeLock() {
+  if (!('wakeLock' in navigator)) {
+    console.warn('[WakeLock] API not supported in this browser')
+    return
+  }
+  try {
+    wakeLock = await navigator.wakeLock.request('screen')
+    console.log('[WakeLock] Acquired')
+    wakeLock.addEventListener('release', () => console.log('[WakeLock] Released'))
+  } catch (err) {
+    console.error('[WakeLock] Failed to acquire:', err)
+  }
+}
+acquireWakeLock()
+// Re-acquire after the tab becomes visible again (wake lock is released on visibility change)
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') acquireWakeLock()
+})
+
 const Digit = 'Digit'
 let digitBuffer = ''
 
