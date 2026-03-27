@@ -1,0 +1,1 @@
+var e=`/assets/static/vike.DekpsbvE.svg`;export{e as t};

@@ -1,0 +1,1 @@
+import{i as e}from"./chunk-DYMTQrUr.js";var t=e();function n({style:e,...n}){return(0,t.jsx)(`div`,{style:{display:`flex`,justifyContent:`center`,alignItems:`center`,...e},...n})}function r({style:e,...n}){return(0,t.jsx)(`div`,{style:{fontSize:`16px`,marginTop:-15,...e},...n})}export{n,r as t};

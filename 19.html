@@ -1,8 +1,8 @@
 <!DOCTYPE html>
     <html lang="en">
       <head>
-        <link rel="stylesheet" type="text/css" href="/assets/static/css_index-5ea40173.C8WNBw5l.css">
         <link rel="stylesheet" type="text/css" href="/assets/static/Layout-5e96f578.F3Jq4J_X.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/css_index-5ea40173.DLFU8ym7.css">
         <link rel="preload" href="/assets/static/Inter-Var.dulBMp8D.ttf" as="font" type="font/ttf" crossorigin>
         <meta charset="UTF-8" />
         
@@ -18,30 +18,49 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper"><div id="slide-content"><h1>Config inheritance</h1>
-<figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="yaml" data-theme="github-light"><code data-language="yaml" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#032F62">pages/(marketing)/index/+Page.jsx</span><span style="color:#6A737D">    # URL: /</span></span>
-<span data-line=""><span style="color:#032F62">pages/(marketing)/about/+Page.jsx</span><span style="color:#6A737D">    # URL: /about</span></span>
-<span data-line=""><span style="color:#032F62">pages/(marketing)/+Layout.jsx</span><span style="color:#6A737D">        # Layout for the marketing pages</span></span>
-<span data-line=""><span style="color:#032F62">pages/(marketing)/+ssr.js</span><span style="color:#6A737D">            # Enable SSR for marketing pages</span></span>
-<span data-line=""><span style="color:#032F62">pages/(marketing)/+prerender.js</span><span style="color:#6A737D">      # Enable pre-rendering for marketing pages</span></span>
-<span data-line=""><span style="color:#24292E"> </span></span>
-<span data-line=""><span style="color:#032F62">pages/admin-panel/index/+Page.jsx</span><span style="color:#6A737D">    # URL: /admin-panel</span></span>
-<span data-line=""><span style="color:#032F62">pages/admin-panel/users/+Page.jsx</span><span style="color:#6A737D">    # URL: /admin-panel/users</span></span>
-<span data-line=""><span style="color:#032F62">pages/admin-panel/+Layout.jsx</span><span style="color:#6A737D">        # Layout for admin pages</span></span>
-<span data-line=""><span style="color:#24292E"> </span></span>
-<span data-line=""><span style="color:#032F62">pages/product/@id/+Page.jsx</span></span>
-<span data-line=""><span style="color:#032F62">pages/product/@id/+Layout.jsx</span><span style="color:#6A737D">        # Layout for the product page</span></span>
-<span data-line=""><span style="color:#032F62">pages/(marketing)/+ssr.js</span><span style="color:#6A737D">            # Enable SSR for product page</span></span></code></pre></figure></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><a href="/1">Intro</a><div> <a href="/1">○</a><a href="/2">○</a><a href="/3">○</a><a href="/4">○</a><a href="/5">○</a></div></div><div><a href="/6">Hooks</a><div> <a href="/6">○</a><a href="/7">○</a><a href="/8">○</a><a href="/9">○</a><a href="/10">○</a><a href="/11">○</a></div></div><div><a href="/12">Misc</a><div> <a href="/12">○</a><a href="/13">○</a><a href="/14">○</a></div></div><div><a href="/15">Use cases</a><div> <a href="/15">○</a><a href="/16">○</a><a href="/17">○</a></div></div><div><a href="/18">DX</a><div> <a href="/18">○</a><a href="/19">●</a><a href="/20">○</a><a href="/21">○</a><a href="/22">○</a><a href="/23">○</a><a href="/24">○</a><a href="/25">○</a><a href="/26">○</a></div></div><div><a href="/27">Business model</a><div> <a href="/27">○</a><a href="/28">○</a></div></div><div><a href="/29">Q&amp;A</a><div> <a href="/29">○</a></div></div></div></div></div></div>
+        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><h1>First-class SSR/SPA/SSG</h1>
+<p style="font-size:1em;margin-bottom:24px;margin-top:-8px"><p>Toggle<!-- --> <!-- -->
+<span style="background:#b8d4eb;border-radius:4px;padding:1px 5px">SSR</span>/<span style="background:#c0ebb8;border-radius:4px;padding:1px 5px">SPA</span>/<span style="background:#e9b8e8;border-radius:4px;padding:1px 5px">SSG</span>
+<!-- --> <!-- -->on a page-by-page basis, powered by<!-- --> <!-- -->
+<span style="background:#f4f5a6;border-radius:4px;padding:1px 5px">config inheritance</span>.</p></p>
+<div style="display:flex;gap:0"><div style="font-size:16px;margin-top:-15px;flex:1.4"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="yaml" data-theme="github-light"><code data-language="yaml" data-theme="github-light" style="display:grid"><span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#032F62">/pages/product/+config.js</span></span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#6A737D"># SSR pages</span></span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#032F62">/pages/product/@id/+Page.js</span><span style="color:#6A737D">         # URL: /product/42 </span></span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#032F62">/pages/product/@id/buy/+Page.js</span><span style="color:#6A737D">     # URL: /product/42/buy</span></span>
+<span data-line=""> </span>
+<span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#032F62">/pages/admin/+config.js</span></span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#6A737D"># SPA pages (i.e. SSR disabled)</span></span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#032F62">/pages/admin/products/+Page.js</span><span style="color:#6A737D">      # URL: /admin/products</span></span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#032F62">/pages/admin/users/+Page.js</span><span style="color:#6A737D">         # URL: /admin/users </span></span>
+<span data-line=""> </span>
+<span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#032F62">/pages/(marketing)/+config.js</span></span>
+<span class="highlighted" style="background-color:#e9b8e8" data-line=""><span style="color:#6A737D"># SSG pages (i.e. pre-rendering)</span></span>
+<span class="highlighted" style="background-color:#e9b8e8" data-line=""><span style="color:#032F62">/pages/(marketing)/index/+Page.js</span><span style="color:#6A737D">   # URL: / </span></span>
+<span class="highlighted" style="background-color:#e9b8e8" data-line=""><span style="color:#032F62">/pages/(marketing)/about/+Page.js</span><span style="color:#6A737D">   # URL: /about </span></span></code></pre></figure></div><div style="display:flex;flex-direction:column;gap:16px;flex:1.5"><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// /pages/product/+config.js</span></span>
+<span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// » config for product pages: /pages/product/**/+Page.js</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#24292E"> {</span></span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#24292E">  ssr: </span><span style="color:#005CC5">true</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// /pages/admin/+config.js</span></span>
+<span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// » config for admin pages: /pages/admin/**/+Page.js</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#24292E"> {</span></span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#24292E">  ssr: </span><span style="color:#005CC5">false</span><span style="color:#6A737D"> // =&gt; SPA</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// /pages/(marketing)/+config.js</span></span>
+<span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// » config for marketing pages: /pages/(marketing)/**/+Page.js</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#24292E"> {</span></span>
+<span class="highlighted" style="background-color:#e9b8e8" data-line=""><span style="color:#24292E">  prerender: </span><span style="color:#005CC5">true</span><span style="color:#6A737D"> // aka SSG</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/19","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
-import("/assets/entries/client.DDqgVj_H.js");
-import("/assets/entries/entry-client-routing.C0s49Oly.js");
+import("/assets/entries/client.Dy_VeIqf.js");
+import("/assets/entries/entry-client-routing.CgWcP18d.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_19.BNJK3Hs5.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-DBhVhvcP.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-BSq7f9ZA.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-Me_re01_.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_19.B2X-wK7H.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BW46k8h2.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DYMTQrUr.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-FQ6W2f40.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-Dl4su3UY.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DTZz2IVC.js" as="script" type="text/javascript">
       </body>
     </html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
     <html lang="en">
       <head>
-        <link rel="stylesheet" type="text/css" href="/assets/static/css_index-5ea40173.C8WNBw5l.css">
         <link rel="stylesheet" type="text/css" href="/assets/static/Layout-5e96f578.F3Jq4J_X.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/css_index-5ea40173.DLFU8ym7.css">
         <link rel="preload" href="/assets/static/Inter-Var.dulBMp8D.ttf" as="font" type="font/ttf" crossorigin>
         <meta charset="UTF-8" />
         
@@ -18,40 +18,47 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper"><div id="slide-content"><div style="font-size:15px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="jsx" data-theme="github-light"><code data-language="jsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { useState } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;telefunc/react&#x27;</span></span>
-<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { onMovieFetch } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;./MovieList.telefunc.js&#x27;</span></span>
+        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><div style="display:flex"><div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="tsx" data-theme="github-light"><code data-language="tsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// ChatRoom.telefunc.ts</span></span>
+<span class="highlighted" data-line=""><span style="color:#6A737D">// Environment: server</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">function</span><span style="color:#6F42C1"> Movie</span><span style="color:#24292E">({ </span><span style="color:#E36209">id</span><span style="color:#24292E"> }) {</span></span>
-<span data-line=""><span style="color:#6A737D">  // Note how useState() is imported from telefunc/react</span></span>
-<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#24292E"> [</span><span style="color:#005CC5">movie</span><span style="color:#24292E">, </span><span style="color:#005CC5">setMovie</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#6F42C1"> useState</span><span style="color:#24292E">(</span></span>
-<span data-line=""><span style="color:#6A737D">    // Async initial data</span></span>
-<span data-line=""><span style="color:#D73A49">    async</span><span style="color:#24292E"> () </span><span style="color:#D73A49">=&gt;</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> onMovieFetch</span><span style="color:#24292E">(id),</span></span>
-<span data-line=""><span style="color:#6A737D">    // Dependency array like useEffect()</span></span>
-<span data-line=""><span style="color:#24292E">    [id]</span></span>
-<span data-line=""><span style="color:#24292E">  )</span></span>
-<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> (</span></span>
-<span data-line=""><span style="color:#24292E">    &lt;&gt;</span></span>
-<span data-line=""><span style="color:#24292E">      &lt;</span><span style="color:#22863A">p</span><span style="color:#24292E">&gt;Title: {movie.title}&lt;/</span><span style="color:#22863A">p</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#24292E">      &lt;</span><span style="color:#22863A">p</span><span style="color:#24292E">&gt;Release: {movie.release_date}&lt;/</span><span style="color:#22863A">p</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#24292E">      &lt;</span><span style="color:#22863A">button</span><span style="color:#6F42C1"> onClick</span><span style="color:#D73A49">=</span><span style="color:#24292E">{</span><span style="color:#D73A49">async</span><span style="color:#24292E"> () </span><span style="color:#D73A49">=&gt;</span><span style="color:#6F42C1"> setMovie</span><span style="color:#24292E">(</span><span style="color:#D73A49">await</span><span style="color:#6F42C1"> onMovieFetch</span><span style="color:#24292E">(id))}&gt;</span></span>
-<span data-line=""><span style="color:#24292E">        Refetch</span></span>
-<span data-line=""><span style="color:#24292E">      &lt;/</span><span style="color:#22863A">button</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#24292E">    &lt;/&gt;</span></span>
-<span data-line=""><span style="color:#24292E">  )</span></span>
-<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div>
-<p style="font-size:20px;margin-left:10px"><p>🧘 Default: data has same lifecycle as state<br/>
-<!-- -->⚙️  Opt-in: advanced caching via TanStack Query</p></p></div><div id="footer" style="line-height:1.2em"><div id="footer-content"><div><a href="/1">Intro</a><div> <a href="/1">○</a><a href="/2">○</a><a href="/3">○</a><a href="/4">○</a><a href="/5">○</a></div></div><div><a href="/6">Hooks</a><div> <a href="/6">○</a><a href="/7">○</a><a href="/8">○</a><a href="/9">○</a><a href="/10">○</a><a href="/11">○</a></div></div><div><a href="/12">Misc</a><div> <a href="/12">○</a><a href="/13">○</a><a href="/14">○</a></div></div><div><a href="/15">Use cases</a><div> <a href="/15">○</a><a href="/16">○</a><a href="/17">○</a></div></div><div><a href="/18">DX</a><div> <a href="/18">○</a><a href="/19">○</a><a href="/20">○</a><a href="/21">○</a><a href="/22">○</a><a href="/23">○</a><a href="/24">●</a><a href="/25">○</a><a href="/26">○</a></div></div><div><a href="/27">Business model</a><div> <a href="/27">○</a><a href="/28">○</a></div></div><div><a href="/29">Q&amp;A</a><div> <a href="/29">○</a></div></div></div></div></div></div>
+<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { createChannel } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;telefunc&#x27;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onChatInit</span><span style="color:#24292E">(</span><span style="color:#E36209">chatRoomId</span><span style="color:#D73A49">:</span><span style="color:#005CC5"> string</span><span style="color:#24292E">) {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> channel</span><span style="color:#D73A49"> =</span><span style="color:#6F42C1"> createChannel</span><span style="color:#24292E">&lt;</span><span style="color:#005CC5">string</span><span style="color:#24292E">, </span><span style="color:#005CC5">string</span><span style="color:#24292E">&gt;()</span></span>
+<span data-line=""> </span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#24292E">  channel.</span><span style="color:#6F42C1">listen</span><span style="color:#24292E">((</span><span style="color:#E36209">message</span><span style="color:#24292E">) </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> { </span></span>
+<span data-line=""><span style="color:#24292E">    Database.ChatRoom.</span><span style="color:#6F42C1">insert</span><span style="color:#24292E">({ chatRoomId, message })</span></span>
+<span data-line=""><span style="color:#24292E">  })</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#24292E">  Database.ChatRoom.</span><span style="color:#6F42C1">listen</span><span style="color:#24292E">({ chatRoomId}, (</span><span style="color:#E36209">message</span><span style="color:#24292E">) </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> {</span></span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#24292E">    channel.</span><span style="color:#6F42C1">send</span><span style="color:#24292E">(message) </span></span>
+<span data-line=""><span style="color:#24292E">  })</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> { channel: channel.client }</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div><div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="tsx" data-theme="github-light"><code data-language="tsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// ChatRoom.tsx</span></span>
+<span class="highlighted" data-line=""><span style="color:#6A737D">// Environment: client</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { onChatInit } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;./ChatRoom.telefunc&#x27;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">channel</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> onChatInit</span><span style="color:#24292E">()</span></span>
+<span data-line=""> </span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#24292E">channel.</span><span style="color:#6F42C1">listen</span><span style="color:#24292E">((</span><span style="color:#E36209">message</span><span style="color:#24292E">) </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> { </span></span>
+<span data-line=""><span style="color:#24292E">  console.</span><span style="color:#6F42C1">log</span><span style="color:#24292E">(</span><span style="color:#032F62">&#x27;New message:&#x27;</span><span style="color:#24292E">, message)</span></span>
+<span data-line=""><span style="color:#24292E">})</span></span>
+<span data-line=""> </span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#24292E">channel.</span><span style="color:#6F42C1">send</span><span style="color:#24292E">(</span><span style="color:#032F62">&#x27;Hello everyone 👋&#x27;</span><span style="color:#24292E">) </span></span></code></pre></figure></div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/24","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
-import("/assets/entries/client.DDqgVj_H.js");
-import("/assets/entries/entry-client-routing.C0s49Oly.js");
+import("/assets/entries/client.Dy_VeIqf.js");
+import("/assets/entries/entry-client-routing.CgWcP18d.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_24.DbjQg0wA.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-DBhVhvcP.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-BSq7f9ZA.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-Me_re01_.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-D3KKhbov.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_24.BfffSzLB.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BW46k8h2.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DYMTQrUr.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-FQ6W2f40.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-Dl4su3UY.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DTZz2IVC.js" as="script" type="text/javascript">
       </body>
     </html>
