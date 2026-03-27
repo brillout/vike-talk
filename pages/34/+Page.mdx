@@ -1,0 +1,34 @@
+import { CodeBlock } from '../../components'
+
+<div style={{display: 'flex'}}>
+  <div>
+    <CodeBlock>
+```tsx
+// AIChat.telefunc.ts
+// Environment: server // [!code highlight]
+
+export async function* onAIChat(prompt: string) {
+  const stream = await ai.streamText(prompt)
+  for await (const token of stream) {
+    yield token // [!code highlight]
+  }
+}
+```
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock>
+```tsx
+// AIChat.tsx
+// Environment: client // [!code highlight]
+
+import { onAIChat } from './AIChat.telefunc'
+
+const gen = onAIChat('Tell me a joke')
+for await (const token of gen) { // [!code highlight]
+  console.log(token) // Each token arrives as it's yielded
+}
+```
+    </CodeBlock>
+  </div>
+</div>

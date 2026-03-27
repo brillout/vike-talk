@@ -1,0 +1,62 @@
+import { Center, CodeBlock } from '../../components'
+
+<div style={{display: 'flex'}}>
+  <div>
+    <CodeBlock>
+```tsx
+// FileUpload.telefunc.ts
+// Environment: server // [!code highlight]
+
+import fs from 'node:fs'
+
+export async function onFileUpload(
+  file: File, // [!code highlight:#b8d4eb]
+  onProgress: (percent: number) => void
+) {
+  const total = file.size
+  let loaded = 0
+  const dest = fs.createWriteStream(
+    `./uploads/${file.name}`
+  )
+  for await (const chunk of file.stream()) {
+    dest.write(chunk)
+    loaded += chunk.byteLength
+    onProgress(Math.round(loaded / total * 100)) // [!code highlight:#c0ebb8]
+  }
+  dest.end()
+}
+```
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock>
+```tsx
+// FileUpload.tsx
+// Environment: client // [!code highlight]
+
+import { onFileUpload } from './FileUpload.telefunc.ts'
+
+function FileUpload() {
+  const [progress, setProgress] = useState(0)
+
+  async function handleUpload(e) {
+    const file = e.target.files[0]
+    const onProgress = (percent) => { // [!code highlight:#c0ebb8]
+      // This callback runs in the browser,
+      // called by the server over WebSocket.
+      setProgress(percent)
+    }
+    await onFileUpload(file) // [!code highlight:#b8d4eb]
+  }
+
+  return (
+    <div>
+      <input type="file" onChange={handleUpload} />
+      <div style={{ width: `${progress}%` }} />
+    </div>
+  )
+}
+```
+    </CodeBlock>
+  </div>
+</div>

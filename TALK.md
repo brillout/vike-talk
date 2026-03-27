@@ -1,1 +1,79 @@
-TODO
+- Entreprise need stability
+  - E.g. military, banks
+  - But also for small projects
+
+Full-stack frameworks are too opinionated — and not opinionated enough
+
+- VPS
+- VPS => Vike
+- Hooks
+- Deploy anywhere
+- REST/RPC/GraphQL
+- Decoupled
+- Use cases
+- Stable primitives
+  - Vike isn't our framework. It's yours.
+    - Choose new technology when *you* want, not because the framework
+- Stable framework
+  - Yet flexible & can adopt the future
+  - the last framework you'll need
+
+
+- Open Source Sustainability
+
+
+
+====================================
+
+
+- 100% "free" => skewed interests
+
+Unstable foundation => but stability is crucial for large projects:
+- Shouldn't be forced complex refactors
+- Should adopt new technology at their own pace
+- Should be able to adopt new technology progressively
+
+
+===============================
+
+
+- JavaScript Ecosystem
+  - Cutting-edge, competitive, innovative, wonderful DX. But too much choice.
+  - Given that situation, what is a good framework?
+  - It's tempting to build an opinionated framework and take decisions on behalf of users.
+    - Many frameworks tried, such as Redwood, but so far all failed and were laregely rejected by the JavaScript community.
+    - It's working in other commmunities e.g. RoR and Django, but not in JavaScript. Interesting isn't it? I believe it's because the JavaScript community that is delightfully peculiar. It's the community that wants freedom.
+  - At Vike we understand and share the value of Freedom.
+
+- Some vite-plugin-ssr users 5 years ago are still using exact same "boring stack" but that works for them
+  - While many progressively updated their stack to adopt the cutting-edge
+  => Best of both worlds
+
+- Vike: stable foundation with stable and powerful primitives
+  - Extensions: embraces the fast-moving JavaScript ecosystem
+
+- New slide: "Many frameworks..." => why another framework?
+  - I agree there are too many frameworks out
+  - That's actually one reason we built Vike: we're building the "last framework"
+    - Frameworks (e.g. Astro) only cover some one use cases => you have to switch framework dependening on the use case => no-go
+      - You often don't know what kind of framework you need when you start => having to switch framework is bad
+      - Vike is a framework that grows with you
+    - Vike is highly adaptable to the future of JavaScript
+    - It means: a framework that is adaptable
+    - Vike could re-create any framework out there by modifying/adding new primitives
+  - Vike is the last framework you'll use, or at least for a very long time
+
+- Open Source Pricing
+  - Worrying trend: framework being acquired
+    - May seem like good news for users, but it actually often means a slow death
+      - If the mega corps changes priority => framework is dead
+        - E.g. Google killed *many* products
+        - For mega corps, a framework isn't , acquiring a framework is usually just a marketing or power move
+        - Nothing su => fragile foundation
+      - Deeper and far reaching reason: the framework creator isn't independent anymore and doesn't have skin in the game anymore => passion fades away and eventually dies out => passion needs challenge, without challenge there is no passion
+  - For companies, the wonderful thing about Open Source is *reliability*: code is open => much more robust foundation because it can be forked => that's one reason we make ensure Vike stays forkable (100% open source)
+  - I want to laser focus on the buiding the best framework possible, I don't want to beg and chase for money.
+    - Instead, the deal is simple: we ask companies who clearly can afforted to pay 5k.
+    - 5k is nothing for large companies, but it means the world to us OSS maintainers
+
+- Contradiction between adaptable and DX?

@@ -1,0 +1,23 @@
+```js
+// [!code word:+onCreateGlobalContext.server:1]
+// pages/+onCreateGlobalContext.server.js
+// Environment: server
+export async function onCreateGlobalContext() {
+  const dataFromAPI = await fetchDataFromAPI()
+  const someGlobalData = select(dataFromAPI)
+  globalContext.someGlobalData = someGlobalData
+}
+```
+
+```js
+// pages/+config.js
+export default {
+  passToClient: 'someGlobalData' // [!code highlight]
+}
+```
+
+```js
+// Anywhere (client & server)
+import { getGlobalContext } from 'vike'
+const { someGlobalData } = await getGlobalContext() // [!code highlight]
+```

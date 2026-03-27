@@ -1,0 +1,46 @@
+import { CodeBlock } from '../../components'
+
+<div style={{display: 'flex'}}>
+  <div>
+    <CodeBlock>
+```tsx
+// ChatRoom.telefunc.ts
+// Environment: server // [!code highlight]
+
+import { createChannel } from 'telefunc'
+
+export async function onChatInit(chatRoomId: string) {
+  const channel = createChannel<string, string>()
+
+  channel.listen((message) => { // [!code highlight:#c0ebb8]
+    Database.ChatRoom.insert({ chatRoomId, message })
+  })
+
+  Database.ChatRoom.listen({ chatRoomId}, (message) => {
+    channel.send(message) // [!code highlight:#b8d4eb]
+  })
+
+  return { channel: channel.client }
+}
+```
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock>
+```tsx
+// ChatRoom.tsx
+// Environment: client // [!code highlight]
+
+import { onChatInit } from './ChatRoom.telefunc'
+
+const { channel } = await onChatInit()
+
+channel.listen((message) => { // [!code highlight:#b8d4eb]
+  console.log('New message:', message)
+})
+
+channel.send('Hello everyone 👋') // [!code highlight:#c0ebb8]
+```
+    </CodeBlock>
+  </div>
+</div>

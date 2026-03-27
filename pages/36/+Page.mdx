@@ -1,0 +1,17 @@
+```tsx
+// ChatRoom.tsx
+// Environment: client
+
+import { onChatInit } from './ChatRoom.telefunc'
+import { useLiveArray } from 'telefunc/react' // [!code highlight]
+
+function Chat({ chatRoomId }) {
+  const messages = useLiveArray(() => onChatInit(chatRoomId)) // [!code highlight]
+  if (messages.error) return <div>{error.message}</div>
+  return <ul>
+    { messages.map((msg) =>
+      <li>{msg}</li>)
+    }
+  </ul>
+}
+```
