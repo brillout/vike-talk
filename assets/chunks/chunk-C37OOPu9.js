@@ -1,0 +1,1 @@
+import{i as e,n as t,r as n,t as r}from"./chunk-Cb7ISX0l.js";function i(e){return parseInt(e.slice(1),10)}e();async function a(e,i){n(e,`navigate`),r();let{keepScrollPosition:a,overwriteLastHistoryEntry:o,pageContext:s}=i??{};await t({scrollTarget:{preserveScroll:a??!1},urlOriginal:e,overwriteLastHistoryEntry:o,pageContextInitClient:s})}export{i as n,a as t};

@@ -18,16 +18,16 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// Doesn&#x27;t depend on Node.js (e.g. can be used in Cloudflare Workers)</span></span>
-<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { renderPage } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;vike/server&#x27;</span></span>
+        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// Doesn&#x27;t depend on Node.js (e.g. can be used in Cloudflare Workers)</span></span>
+<span class="highlighted" data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { renderPage } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;vike/server&#x27;</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#6A737D">// Any server: Express.js, Cloudflare Worker, AWS Lambda Function, Fastify, Hono, Nitro, ...</span></span>
-<span data-line=""><span style="color:#24292E">server.</span><span style="color:#6F42C1">addMiddleware</span><span style="color:#24292E">({</span></span>
+<span class="highlighted" data-line=""><span style="color:#24292E">server.</span><span style="color:#6F42C1">addMiddleware</span><span style="color:#24292E">({ </span></span>
 <span data-line=""><span style="color:#24292E">  method: </span><span style="color:#032F62">&#x27;GET&#x27;</span><span style="color:#24292E">,</span></span>
 <span data-line=""><span style="color:#24292E">  route: </span><span style="color:#032F62">&#x27;*&#x27;</span><span style="color:#24292E">, </span><span style="color:#6A737D">// catch-all</span></span>
 <span data-line=""><span style="color:#D73A49">  async</span><span style="color:#6F42C1"> handler</span><span style="color:#24292E">(</span><span style="color:#E36209">request</span><span style="color:#24292E">) {</span></span>
 <span data-line=""><span style="color:#D73A49">    const</span><span style="color:#005CC5"> pageContextInit</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> { urlOriginal: request.url }</span></span>
-<span data-line=""><span style="color:#D73A49">    const</span><span style="color:#005CC5"> pageContext</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> renderPage</span><span style="color:#24292E">(pageContextInit)</span></span>
+<span class="highlighted" data-line=""><span style="color:#D73A49">    const</span><span style="color:#005CC5"> pageContext</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> renderPage</span><span style="color:#24292E">(pageContextInit) </span></span>
 <span data-line=""><span style="color:#6A737D">    // `body` is the HTML of the page with a route matching pageContextInit.urlOriginal</span></span>
 <span data-line=""><span style="color:#D73A49">    const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">body</span><span style="color:#24292E">, </span><span style="color:#005CC5">statusCode</span><span style="color:#24292E">, </span><span style="color:#005CC5">headers</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pageContext.httpResponse</span></span>
 <span data-line=""><span style="color:#D73A49">    const</span><span style="color:#005CC5"> response</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> { body, statusCode, headers }</span></span>
@@ -38,13 +38,13 @@
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/10","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
-import("/assets/entries/client.DaoDJwtZ.js");
-import("/assets/entries/entry-client-routing.11pldBYR.js");
+import("/assets/entries/client.DXf4beX8.js");
+import("/assets/entries/entry-client-routing.DrJlAenj.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_10.C2nXtRmB.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_10.DSssH6Rw.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-BW46k8h2.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-DL8fgMB4.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-CwI2ATaF.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-Doz_KmMM.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BEgSmbJf.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-Cb7ISX0l.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-C37OOPu9.js" as="script" type="text/javascript">
       </body>
     </html>
