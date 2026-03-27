@@ -30,4 +30,4 @@ declare global {
   }
 }
 
-type Sections = { name: string; numberOfSlides: number }[]
+type Sections = { name: string; numberOfSlides: number }[] | null
