@@ -1,0 +1,59 @@
+import { CodeBlock } from '../../components'
+import './Page.css'
+
+<div style={{display: 'flex'}} id="telefunc-demo">
+  <div>
+    <CodeBlock style={{fontSize: '15px'}}>
+      ```ts
+      // [!code word:telefunc:1]
+      // CreateTodo.telefunc.ts
+      // Environment: server // [!code highlight]
+
+      export { onNewTodo } // [!code highlight]
+
+      import { getContext } from 'telefunc'
+
+      // Telefunction arguments are automatically validated
+      // at runtime, so `text` is guaranteed to be a string.
+      async function onNewTodo(text: string) {
+        const { user } = getContext()
+
+        // With an ORM
+        await Todo.create({ text, authorId: user.id })
+
+        // With SQL
+        await sql(
+          'INSERT INTO todo_items VALUES (:text, :authorId)',
+          { text, authorId: user.id }
+        )
+      }
+      ```
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock style={{fontSize: '15px'}}>
+      ```ts
+      // CreateTodo.tsx
+      // Environment: client // [!code highlight]
+
+      import { onNewTodo } from './CreateTodo.telefunc.ts' // [!code highlight]
+
+      async function onClick(form) {
+        const text = form.input.value
+        // Behind the scenes, Telefunc makes an HTTP request
+        // to the server.
+        await onNewTodo(text)
+      }
+
+      function CreateTodo() {
+        return (
+          <form>
+            <input input="text"></input>
+            <button onClick={onClick}>Add To-Do</button>
+          </form>
+        )
+      }
+      ```
+    </CodeBlock>
+  </div>
+</div>
