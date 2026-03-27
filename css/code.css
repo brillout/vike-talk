@@ -50,6 +50,14 @@ pre > code {
   word-break: reset;
 }
 
+/* padding */
+pre > code {
+  padding: 16px 0 !important;
+}
+pre [data-line] {
+  padding: 0 16px !important;
+}
+
 /*
  * Line breaks in `<code>`:
  *  - Avoid them on desktop
@@ -75,4 +83,9 @@ figure {
 
 pre {
   margin: 10px;
+}
+
+.highlighted,
+.highlighted-word {
+  background: rgba(0, 0, 0, 0.1);
 }
