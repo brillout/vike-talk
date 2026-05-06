@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <link rel="stylesheet" type="text/css" href="/assets/static/Layout-5e96f578.F3Jq4J_X.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/css_index-5ea40173.DLFU8ym7.css">
+        <link rel="preload" href="/assets/static/Inter-Var.dulBMp8D.ttf" as="font" type="font/ttf" crossorigin>
+        <meta charset="UTF-8" />
+        
+        
+    <title>Vike Talk</title><meta property="og:title" content="Vike Talk" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    
+    
+    
+  
+        
+      </head>
+      <body>
+        
+        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><div style="display:flex"><div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="tsx" data-theme="github-light"><code data-language="tsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// AIChat.telefunc.ts</span></span>
+<span class="highlighted" data-line=""><span style="color:#6A737D">// Environment: server</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> async</span><span style="color:#D73A49"> function*</span><span style="color:#6F42C1"> onAIChat</span><span style="color:#24292E">(</span><span style="color:#E36209">prompt</span><span style="color:#D73A49">:</span><span style="color:#005CC5"> string</span><span style="color:#24292E">) {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> stream</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> ai.</span><span style="color:#6F42C1">streamText</span><span style="color:#24292E">(prompt)</span></span>
+<span data-line=""><span style="color:#D73A49">  for</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> (</span><span style="color:#D73A49">const</span><span style="color:#005CC5"> token</span><span style="color:#D73A49"> of</span><span style="color:#24292E"> stream) {</span></span>
+<span class="highlighted" data-line=""><span style="color:#D73A49">    yield</span><span style="color:#24292E"> token </span></span>
+<span data-line=""><span style="color:#24292E">  }</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div><div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="tsx" data-theme="github-light"><code data-language="tsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// AIChat.tsx</span></span>
+<span class="highlighted" data-line=""><span style="color:#6A737D">// Environment: client</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { onAIChat } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;./AIChat.telefunc&#x27;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">const</span><span style="color:#005CC5"> gen</span><span style="color:#D73A49"> =</span><span style="color:#6F42C1"> onAIChat</span><span style="color:#24292E">(</span><span style="color:#032F62">&#x27;Tell me a joke&#x27;</span><span style="color:#24292E">)</span></span>
+<span class="highlighted" data-line=""><span style="color:#D73A49">for</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> (</span><span style="color:#D73A49">const</span><span style="color:#005CC5"> token</span><span style="color:#D73A49"> of</span><span style="color:#24292E"> gen) { </span></span>
+<span data-line=""><span style="color:#24292E">  console.</span><span style="color:#6F42C1">log</span><span style="color:#24292E">(token) </span><span style="color:#6A737D">// Each token arrives as it&#x27;s yielded</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div></div></div></div></div>
+        
+        <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/34","routeParams":{}}</script>
+        <script id="vike_globalContext" type="application/json">{}</script>
+        <script type="module" async>
+import("/assets/entries/client.BrcEQxN-.js");
+import("/assets/entries/entry-client-routing.B3Vpf1lk.js");
+</script>
+        <link rel="modulepreload" href="/assets/entries/pages_34.DKY7ScUl.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-Bk03VUnZ.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BF0ERNfD.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DkS-YFHP.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-C27z7x0T.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-htCcMNeH.js" as="script" type="text/javascript">
+      </body>
+    </html>

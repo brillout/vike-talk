@@ -18,63 +18,24 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><div style="display:flex"><div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="tsx" data-theme="github-light"><code data-language="tsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// FileUpload.telefunc.ts</span></span>
-<span class="highlighted" data-line=""><span style="color:#6A737D">// Environment: server</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> fs </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;node:fs&#x27;</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onFileUpload</span><span style="color:#24292E">(</span></span>
-<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#E36209">  file</span><span style="color:#D73A49">:</span><span style="color:#6F42C1"> File</span><span style="color:#24292E">, </span></span>
-<span data-line=""><span style="color:#6F42C1">  onProgress</span><span style="color:#D73A49">:</span><span style="color:#24292E"> (</span><span style="color:#E36209">percent</span><span style="color:#D73A49">:</span><span style="color:#005CC5"> number</span><span style="color:#24292E">) </span><span style="color:#D73A49">=&gt;</span><span style="color:#005CC5"> void</span></span>
-<span data-line=""><span style="color:#24292E">) {</span></span>
-<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> total</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> file.size</span></span>
-<span data-line=""><span style="color:#D73A49">  let</span><span style="color:#24292E"> loaded </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 0</span></span>
-<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> dest</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> fs.</span><span style="color:#6F42C1">createWriteStream</span><span style="color:#24292E">(</span></span>
-<span data-line=""><span style="color:#032F62">    `./uploads/${</span><span style="color:#24292E">file</span><span style="color:#032F62">.</span><span style="color:#24292E">name</span><span style="color:#032F62">}`</span></span>
-<span data-line=""><span style="color:#24292E">  )</span></span>
-<span data-line=""><span style="color:#D73A49">  for</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> (</span><span style="color:#D73A49">const</span><span style="color:#005CC5"> chunk</span><span style="color:#D73A49"> of</span><span style="color:#24292E"> file.</span><span style="color:#6F42C1">stream</span><span style="color:#24292E">()) {</span></span>
-<span data-line=""><span style="color:#24292E">    dest.</span><span style="color:#6F42C1">write</span><span style="color:#24292E">(chunk)</span></span>
-<span data-line=""><span style="color:#24292E">    loaded </span><span style="color:#D73A49">+=</span><span style="color:#24292E"> chunk.byteLength</span></span>
-<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#6F42C1">    onProgress</span><span style="color:#24292E">(Math.</span><span style="color:#6F42C1">round</span><span style="color:#24292E">(loaded </span><span style="color:#D73A49">/</span><span style="color:#24292E"> total </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> 100</span><span style="color:#24292E">)) </span></span>
-<span data-line=""><span style="color:#24292E">  }</span></span>
-<span data-line=""><span style="color:#24292E">  dest.</span><span style="color:#6F42C1">end</span><span style="color:#24292E">()</span></span>
-<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div><div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="tsx" data-theme="github-light"><code data-language="tsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// FileUpload.tsx</span></span>
-<span class="highlighted" data-line=""><span style="color:#6A737D">// Environment: client</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { onFileUpload } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;./FileUpload.telefunc.ts&#x27;</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">function</span><span style="color:#6F42C1"> FileUpload</span><span style="color:#24292E">() {</span></span>
-<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#24292E"> [</span><span style="color:#005CC5">progress</span><span style="color:#24292E">, </span><span style="color:#005CC5">setProgress</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#6F42C1"> useState</span><span style="color:#24292E">(</span><span style="color:#005CC5">0</span><span style="color:#24292E">)</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">  async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> handleUpload</span><span style="color:#24292E">(</span><span style="color:#E36209">e</span><span style="color:#24292E">) {</span></span>
-<span data-line=""><span style="color:#D73A49">    const</span><span style="color:#005CC5"> file</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> e.target.files[</span><span style="color:#005CC5">0</span><span style="color:#24292E">]</span></span>
-<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#D73A49">    const</span><span style="color:#6F42C1"> onProgress</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> (</span><span style="color:#E36209">percent</span><span style="color:#24292E">) </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> { </span></span>
-<span data-line=""><span style="color:#6A737D">      // This callback runs in the browser,</span></span>
-<span data-line=""><span style="color:#6A737D">      // called by the server over WebSocket.</span></span>
-<span data-line=""><span style="color:#6F42C1">      setProgress</span><span style="color:#24292E">(percent)</span></span>
-<span data-line=""><span style="color:#24292E">    }</span></span>
-<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#D73A49">    await</span><span style="color:#6F42C1"> onFileUpload</span><span style="color:#24292E">(file) </span></span>
-<span data-line=""><span style="color:#24292E">  }</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> (</span></span>
-<span data-line=""><span style="color:#24292E">    &lt;</span><span style="color:#22863A">div</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#24292E">      &lt;</span><span style="color:#22863A">input</span><span style="color:#6F42C1"> type</span><span style="color:#D73A49">=</span><span style="color:#032F62">&quot;file&quot;</span><span style="color:#6F42C1"> onChange</span><span style="color:#D73A49">=</span><span style="color:#24292E">{handleUpload} /&gt;</span></span>
-<span data-line=""><span style="color:#24292E">      &lt;</span><span style="color:#22863A">div</span><span style="color:#6F42C1"> style</span><span style="color:#D73A49">=</span><span style="color:#24292E">{{ width: </span><span style="color:#032F62">`${</span><span style="color:#24292E">progress</span><span style="color:#032F62">}%`</span><span style="color:#24292E"> }} /&gt;</span></span>
-<span data-line=""><span style="color:#24292E">    &lt;/</span><span style="color:#22863A">div</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#24292E">  )</span></span>
-<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div></div></div></div></div>
+        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><h1>vike-react-rsc</h1>
+<p>React integration with Server Components.</p>
+<p>You&#x27;ve the choice between:</p>
+<ul>
+<li><code>vike-react</code></li>
+<li><code>vike-react-rsc</code></li>
+</ul></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/22","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
-import("/assets/entries/client.DXf4beX8.js");
-import("/assets/entries/entry-client-routing.DrJlAenj.js");
+import("/assets/entries/client.BrcEQxN-.js");
+import("/assets/entries/entry-client-routing.B3Vpf1lk.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_22.BQpB7H3O.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-BW46k8h2.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-BEgSmbJf.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-Cb7ISX0l.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-C37OOPu9.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-4zgzNHI4.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_22.1KlKYsnR.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-Bk03VUnZ.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BF0ERNfD.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DkS-YFHP.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-C27z7x0T.js" as="script" type="text/javascript">
       </body>
     </html>
