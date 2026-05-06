@@ -10,6 +10,7 @@
     "========= Slide Management": "",
     "slides:insert": "node scripts/manage-slides.js insert",
     "slides:remove": "node scripts/manage-slides.js remove",
+    "slides:move": "node scripts/manage-slides.js move",
     "slides:add": "node scripts/manage-slides.js add",
     "slides:list": "node scripts/manage-slides.js list",
     "slides:help": "node scripts/manage-slides.js",

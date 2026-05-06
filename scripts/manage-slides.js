@@ -167,6 +167,53 @@ function removeSlide(slideNumber) {
 }
 
 /**
+ * Move a slide from one position to another, shifting affected slides
+ */
+function moveSlide(fromPosition, toPosition) {
+  const fromPath = path.join(pagesDir, fromPosition.toString())
+
+  if (!fs.existsSync(fromPath)) {
+    throw new Error(`Slide ${fromPosition} does not exist`)
+  }
+
+  const maxSlide = getMaxSlideNumber()
+
+  if (toPosition < 1 || toPosition > maxSlide) {
+    throw new Error(`Target position must be between 1 and ${maxSlide}`)
+  }
+
+  if (fromPosition === toPosition) {
+    console.log(`Slide ${fromPosition} is already at position ${toPosition}`)
+    return
+  }
+
+  // Park the slide under a temp name so the position is free during shifting
+  const tempPath = path.join(pagesDir, '_move_tmp')
+  if (fs.existsSync(tempPath)) {
+    throw new Error(`Temporary path "_move_tmp" already exists. Aborting.`)
+  }
+  fs.renameSync(fromPath, tempPath)
+
+  if (fromPosition < toPosition) {
+    // Shift slides (fromPosition+1 .. toPosition) down by 1
+    for (let i = fromPosition + 1; i <= toPosition; i++) {
+      renameSlide(i, i - 1)
+    }
+  } else {
+    // Shift slides (toPosition .. fromPosition-1) up by 1, in reverse order
+    for (let i = fromPosition - 1; i >= toPosition; i--) {
+      renameSlide(i, i + 1)
+    }
+  }
+
+  fs.renameSync(tempPath, path.join(pagesDir, toPosition.toString()))
+  console.log(`Moved slide ${fromPosition} → ${toPosition}`)
+
+  console.log(`\n✅ Successfully moved slide from ${fromPosition} to ${toPosition}`)
+  console.log(`📊 Total slides: ${getMaxSlideNumber()}`)
+}
+
+/**
  * List all existing slides
  */
 function listSlides() {
@@ -202,12 +249,14 @@ Commands:
   add [title] [content]         Add a new slide at the end
   insert <position> [title] [content]  Insert a slide at position, shifting subsequent slides
   remove <position>             Remove a slide and renumber subsequent slides
+  move <from> <to>              Move a slide to a new position, shifting others
 
 Examples:
   node scripts/manage-slides.js list
   node scripts/manage-slides.js add "My New Slide" "This is the content"
   node scripts/manage-slides.js insert 5 "Inserted Slide" "This goes between slide 4 and 5"
   node scripts/manage-slides.js remove 3
+  node scripts/manage-slides.js move 7 2
 
 Notes:
   - Position numbers start from 1
@@ -256,6 +305,15 @@ function main() {
           throw new Error('Position must be a number')
         }
         removeSlide(removePosition)
+        break
+
+      case 'move':
+        const fromPosition = parseInt(args[1], 10)
+        const toPosition = parseInt(args[2], 10)
+        if (isNaN(fromPosition) || isNaN(toPosition)) {
+          throw new Error('Both <from> and <to> positions must be numbers')
+        }
+        moveSlide(fromPosition, toPosition)
         break
 
       default:
