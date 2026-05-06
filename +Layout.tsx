@@ -5,6 +5,8 @@ import './css/index.css'
 import './Layout.css'
 import './components/Reveal.css'
 import React from 'react'
+import { MDXProvider } from '@mdx-js/react'
+import * as mdxComponents from './components'
 import { getSlideNumber } from './utils/getSlideNumber'
 
 function Layout({ children }: { children: React.ReactNode }) {
@@ -17,12 +19,14 @@ function Layout({ children }: { children: React.ReactNode }) {
   const noFooter = fullscreen || !sections
   const className = noFooter ? 'fullscreen' : undefined
   return (
-    <div id="slide-wrapper" className={className}>
-      <div id="slide-content" style={style}>
-        {children}
+    <MDXProvider components={mdxComponents}>
+      <div id="slide-wrapper" className={className}>
+        <div id="slide-content" style={style}>
+          {children}
+        </div>
+        {!noFooter && <Footer />}
       </div>
-      {!noFooter && <Footer />}
-    </div>
+    </MDXProvider>
   )
 }
 

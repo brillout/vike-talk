@@ -25,7 +25,7 @@ const remarkPlugins = [remarkGfm]
 const config: UserConfig = {
   root,
   plugins: [
-    mdx({ rehypePlugins, remarkPlugins }),
+    mdx({ rehypePlugins, remarkPlugins, providerImportSource: '@mdx-js/react' }),
     // @vitejs/plugin-react-swc needs to be added *after* the mdx plugins
     react(),
     vike(),
