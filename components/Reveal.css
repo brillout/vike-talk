@@ -6,3 +6,7 @@
 #slide-content .reveal[data-revealed='true'] {
   opacity: 1;
 }
+
+#slide-content li:has(> .reveal:not([data-revealed='true'])) {
+  list-style: none;
+}
