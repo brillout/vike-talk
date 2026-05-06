@@ -1,0 +1,8 @@
+#slide-content .reveal {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+#slide-content .reveal[data-revealed='true'] {
+  opacity: 1;
+}

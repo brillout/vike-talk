@@ -1,5 +1,6 @@
 import { navigate } from 'vike/client/router'
 import { getSlideNumber } from './utils/getSlideNumber'
+import { nextStep, prevStep } from './utils/reveal'
 
 // Keep the screen awake during the presentation
 let wakeLock: WakeLockSentinel | null = null
@@ -50,20 +51,20 @@ window.onkeydown = (event) => {
   const { pathname } = window.location
   const slideNumber = getSlideNumber(pathname)
   let slideNumberNext = slideNumber
+  let forward: boolean
   if (['ArrowLeft', 'PageUp'].includes(code)) {
-    if (shiftKey) {
-      slideNumberNext++
-    } else {
-      slideNumberNext--
-    }
+    forward = shiftKey
   } else if (['ArrowRight', 'PageDown', 'Space'].includes(code)) {
-    if (shiftKey) {
-      slideNumberNext--
-    } else {
-      slideNumberNext++
-    }
+    forward = !shiftKey
   } else {
     return
+  }
+  if (forward) {
+    if (nextStep()) return
+    slideNumberNext++
+  } else {
+    if (prevStep()) return
+    slideNumberNext--
   }
   if (slideNumberNext !== slideNumber && slideNumberNext !== 0) {
     navigate(`/${slideNumberNext}`)

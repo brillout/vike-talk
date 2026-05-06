@@ -3,6 +3,7 @@ export { Layout }
 import { usePageContext } from 'vike-react/usePageContext'
 import './css/index.css'
 import './Layout.css'
+import './components/Reveal.css'
 import React from 'react'
 import { getSlideNumber } from './utils/getSlideNumber'
 
