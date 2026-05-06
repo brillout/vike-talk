@@ -1,39 +1,24 @@
 ## Current talk
 
-Currently deployed:
-- [talk.vike.dev](https://talk.vike.dev) — [`live`](https://github.com/brillout/vike-talk/tree/live)
+Currently deployed: [talk.vike.dev](https://talk.vike.dev) — [`live`](https://github.com/brillout/vike-talk/tree/live).
 
-Permanently deployed:
-- [2025-ct-webdev.vike.dev](https://2025-ct-webdev.vike.dev) — [github.com/brillout/2025-ct-webdev](https://github.com/brillout/2025-ct-webdev)
-- [2025-react-berlin.vike.dev](https://2025-react-berlin.vike.dev) — [React Berlin 2025](https://guild.host/events/react-berlin-meetup-6a789v) / [github.com/brillout/2025-react-berlin](https://github.com/brillout/2025-react-berlin)
+Previous talks: see [branches](https://github.com/brillout/vike-talk/branches).
 
 > [!NOTE]
-> Deployment:
-> - To change the branch deployed to `talk.vike.dev`, update `on.push.branches` at [`.github/workflows/website.yml`](https://github.com/brillout/vike-talk/blob/main/.github/workflows/website.yml).
-> - To permanently deploy a branch:
->   1. Create a copy of this repository and name it `brillout/yyyy-conf-name` (GitHub doesn't allow same-repo forks)
->   1. `git remote add yyyy-conf-name git@github.com:brillout/yyyy-conf-name.git`
->   1. `git checkout yyyy-conf-name`
->   1. Set `on.push.branches` to `main` at [`.github/workflows/website.yml`](https://github.com/brillout/vike-talk/blob/main/.github/workflows/website.yml).
->   1. `git push yyyy-conf-name HEAD:main`
->   1. Enable GitHub Pages:
->      1. Select `gh-pages` branch
->      1. Custom domain `yyyy-conf-name.vike.dev`
->      1. Update DNS setting of `yyyy-conf-name.vike.dev`
-
-## Talks
-
-- [`2025-ct-webdev`](https://github.com/brillout/vike-talk/tree/2025-ct-webdev) — [c't `<webdev>` 2025](https://ct-webdev.com/agenda-2025/)
-- [`2025-vite-conf`](https://github.com/brillout/vike-talk/tree/2025-vite-conf) — [ViteConf 2025](https://viteconf.amsterdam/workshops/)
-- [`2025-react-berlin`](https://github.com/brillout/vike-talk/tree/2025-react-berlin) — [React Berlin 2025](https://guild.host/events/react-berlin-meetup-6a789v)
-- [`2024-vite-conf`](https://github.com/brillout/vike-talk/tree/2024-vite-conf) — [ViteConf 2024](https://www.youtube.com/watch?v=jzjtDC31ZnI)
+> To permanently deploy a branch:
+> 1. Create a copy of this repository and name it `brillout/yyyy-conf-name` (GitHub doesn't allow same-repo forks)
+> 1. `git remote add yyyy-conf-name git@github.com:brillout/yyyy-conf-name.git`
+> 1. `git checkout yyyy-conf-name`
+> 1. Set `on.push.branches` to `main` at [`.github/workflows/website.yml`](https://github.com/brillout/vike-talk/blob/main/.github/workflows/website.yml).
+> 1. `git push yyyy-conf-name HEAD:main`
+> 1. Enable GitHub Pages:
+>    1. Select `gh-pages` branch
+>    1. Custom domain `yyyy-conf-name.vike.dev`
+>    1. Update DNS setting of `yyyy-conf-name.vike.dev`
 
 ## Slide Management
 
-```bash
-# Insert a slide at position 5 (shifts all subsequent slides)
-pnpm run slides:insert 5
-```
+See `package.json` scripts.
 
 ## OBS editing
 
