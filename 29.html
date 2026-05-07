@@ -19,29 +19,48 @@
       </head>
       <body>
         
-        <div id="root"><link rel="preload" as="image" href="/assets/static/vike.DekpsbvE.svg"/><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><div style="display:flex;justify-content:center;align-items:center;margin-left:-50px;margin-bottom:5px"><img src="/assets/static/vike.DekpsbvE.svg" style="height:85px;margin-top:-20px;margin-right:24px"/><div><h1>Vike</h1></div></div>
-<h3>Team</h3>
-<ul>
-<li>Rom <span style="color:#aaa;margin-left:4px;font-size:0.85em"><span style="margin-right:4px">🇪🇺 🇩🇪</span>Germany, Munich</span></li>
-<li>Joël <span style="color:#aaa;margin-left:4px;font-size:0.85em"><span style="margin-right:4px">🇪🇺 🇫🇷</span>France, Belfort</span></li>
-<li>Dani <span style="color:#aaa;margin-left:4px;font-size:0.85em"><span style="margin-right:4px">🇪🇺 🇭🇺</span>Hungary, Lake Balaton</span></li>
-<li>Richard <span style="color:#aaa;margin-left:4px;font-size:0.85em"><span style="margin-right:4px">🇪🇺 🇩🇪</span>Germany, Chemnitz</span></li>
-<li>Muhammad <span style="color:#aaa;margin-left:4px;font-size:0.85em"><span style="margin-right:4px">🇮🇩</span>Indonesia, Aceh</span></li>
-</ul>
-<div style="margin-top:40px"></div>
-<div style="display:flex;justify-content:center;align-items:center"><h1>Questions?</h1></div></div></div></div>
+        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><h1>First-class SSR/SPA/SSG</h1>
+<p style="font-size:1em;margin-bottom:24px;margin-top:-8px"><p>Toggle<!-- --> <!-- -->
+<span style="background:#b8d4eb;border-radius:4px;padding:1px 5px">SSR</span>/<span style="background:#c0ebb8;border-radius:4px;padding:1px 5px">SPA</span>/<span style="background:#e9b8e8;border-radius:4px;padding:1px 5px">SSG</span>
+<!-- --> <!-- -->on a page-by-page basis, powered by<!-- --> <!-- -->
+<span style="background:#f4f5a6;border-radius:4px;padding:1px 5px">config inheritance</span>.</p></p>
+<div style="display:flex;gap:0"><div style="font-size:16px;margin-top:-15px;flex:1.4"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="yaml" data-theme="github-light"><code data-language="yaml" data-theme="github-light" style="display:grid"><span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#032F62">/pages/product/+config.js</span></span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#6A737D"># SSR pages</span></span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#032F62">/pages/product/@id/+Page.js</span><span style="color:#6A737D">         # URL: /product/42 </span></span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#032F62">/pages/product/@id/buy/+Page.js</span><span style="color:#6A737D">     # URL: /product/42/buy</span></span>
+<span data-line=""> </span>
+<span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#032F62">/pages/admin/+config.js</span></span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#6A737D"># SPA pages (i.e. SSR disabled)</span></span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#032F62">/pages/admin/products/+Page.js</span><span style="color:#6A737D">      # URL: /admin/products</span></span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#032F62">/pages/admin/users/+Page.js</span><span style="color:#6A737D">         # URL: /admin/users </span></span>
+<span data-line=""> </span>
+<span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#032F62">/pages/(marketing)/+config.js</span></span>
+<span class="highlighted" style="background-color:#e9b8e8" data-line=""><span style="color:#6A737D"># SSG pages (i.e. pre-rendering)</span></span>
+<span class="highlighted" style="background-color:#e9b8e8" data-line=""><span style="color:#032F62">/pages/(marketing)/index/+Page.js</span><span style="color:#6A737D">   # URL: / </span></span>
+<span class="highlighted" style="background-color:#e9b8e8" data-line=""><span style="color:#032F62">/pages/(marketing)/about/+Page.js</span><span style="color:#6A737D">   # URL: /about </span></span></code></pre></figure></div><div style="display:flex;flex-direction:column;gap:16px;flex:1.5"><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// /pages/product/+config.js</span></span>
+<span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// » config for product pages: /pages/product/**/+Page.js</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#24292E"> {</span></span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#24292E">  ssr: </span><span style="color:#005CC5">true</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// /pages/admin/+config.js</span></span>
+<span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// » config for admin pages: /pages/admin/**/+Page.js</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#24292E"> {</span></span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#24292E">  ssr: </span><span style="color:#005CC5">false</span><span style="color:#6A737D"> // =&gt; SPA</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="js" data-theme="github-light"><code data-language="js" data-theme="github-light" style="display:grid"><span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// /pages/(marketing)/+config.js</span></span>
+<span class="highlighted" style="background-color:#f4f5a6" data-line=""><span style="color:#6A737D">// » config for marketing pages: /pages/(marketing)/**/+Page.js</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> default</span><span style="color:#24292E"> {</span></span>
+<span class="highlighted" style="background-color:#e9b8e8" data-line=""><span style="color:#24292E">  prerender: </span><span style="color:#005CC5">true</span><span style="color:#6A737D"> // aka SSG</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/29","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
-import("/assets/entries/client.Dwiv5vCH.js");
-import("/assets/entries/entry-client-routing.Da5lM-uP.js");
+import("/assets/entries/client.DKNoE-0F.js");
+import("/assets/entries/entry-client-routing.D6zeUKPG.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_29.B2ChSK6j.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_29.COLrl_Zk.js" as="script" type="text/javascript">
         <link rel="modulepreload" href="/assets/chunks/chunk-Bk03VUnZ.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-DL88vIkR.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-BAn-IeyY.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-Dn6E3KcH.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-CFrFMWIY.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-WpTrjX_k.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-jk7TZeMD.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DGneRaVT.js" as="script" type="text/javascript">
       </body>
     </html>
