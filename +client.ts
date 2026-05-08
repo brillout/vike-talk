@@ -73,7 +73,10 @@ window.onkeydown = (event) => {
     slideNumberNext--
   }
   if (slideNumberNext !== slideNumber && slideNumberNext !== 0) {
-    navigate(forward ? `/${slideNumberNext}` : `/${slideNumberNext}#last`)
+    // Backward stepping continues the reveal sequence — land on previous slide's last reveal.
+    // Modifier-skip lands fresh on step 0 instead.
+    const url = forward || skipReveal ? `/${slideNumberNext}` : `/${slideNumberNext}#last`
+    navigate(url)
   }
 }
 
