@@ -4,11 +4,20 @@ export function Reveal({
   children,
   hideAfter,
   as,
+  style,
+  className,
 }: {
   children: React.ReactNode
   hideAfter?: boolean
   as?: 'span' | 'div'
+  style?: React.CSSProperties
+  className?: string
 }) {
   const Tag: React.ElementType = as ?? 'span'
-  return <Tag className={hideAfter ? 'reveal-hide' : 'reveal'}>{children}</Tag>
+  const base = hideAfter ? 'reveal-hide' : 'reveal'
+  return (
+    <Tag className={className ? `${base} ${className}` : base} style={style}>
+      {children}
+    </Tag>
+  )
 }
