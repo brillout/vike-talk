@@ -27,7 +27,7 @@ const Digit = 'Digit'
 let digitBuffer = ''
 
 window.onkeydown = (event) => {
-  const { code, shiftKey } = event
+  const { code, shiftKey, altKey, ctrlKey, metaKey } = event
 
   if (code.startsWith(Digit)) {
     if (digitBuffer.length === 2) digitBuffer = ''
@@ -50,16 +50,22 @@ window.onkeydown = (event) => {
 
   const { pathname } = window.location
   const slideNumber = getSlideNumber(pathname)
-  let slideNumberNext = slideNumber
   let forward: boolean
   if (['ArrowLeft', 'PageUp'].includes(code)) {
-    forward = shiftKey
+    forward = false
   } else if (['ArrowRight', 'PageDown', 'Space'].includes(code)) {
-    forward = !shiftKey
+    forward = true
   } else {
     return
   }
-  if (forward) {
+
+  // Any modifier (shift/alt/ctrl/meta) skips reveal steps and jumps slide-to-slide.
+  const skipReveal = shiftKey || altKey || ctrlKey || metaKey
+
+  let slideNumberNext = slideNumber
+  if (skipReveal) {
+    slideNumberNext += forward ? 1 : -1
+  } else if (forward) {
     if (nextStep()) return
     slideNumberNext++
   } else {
