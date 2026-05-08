@@ -1,5 +1,5 @@
 import mdx from '@mdx-js/rollup'
-import react from '@vitejs/plugin-react-swc'
+import react from '@vitejs/plugin-react'
 import vike from 'vike/plugin'
 import { UserConfig } from 'vite'
 import rehypePrettyCode from 'rehype-pretty-code'
@@ -26,7 +26,7 @@ const config: UserConfig = {
   root,
   plugins: [
     mdx({ rehypePlugins, remarkPlugins, providerImportSource: '@mdx-js/react' }),
-    // @vitejs/plugin-react-swc needs to be added *after* the mdx plugins
+    // @vitejs/plugin-react needs to be added *after* the mdx plugins
     react(),
     vike(),
   ],
