@@ -19,28 +19,38 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><h1>Architecture</h1>
-<ul>
-<li>Agnostic foundation</li>
-<li>Composed of stable primitives:<!-- -->
-<div style="opacity:0.3"><p>SPA/SSR/SSG, HTML Streaming, Filesystem Routing,<br/>
-<!-- -->Client Routing,  Data fetching, Hooks,<br/>
-<!-- -->Config inheritance, Error handling,<br/>
-<code>pageContext</code>, <code>globalContext</code>, URL handling,<br/>
-<!-- -->CSP,  Layouts, Route Guards, ...</p></div>
-</li>
-</ul></div></div></div>
+        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><style>ul { margin: 0; }</style>
+<div style="font-size:0.9em;margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:1em 2em;align-items:start"><b>Data</b><div><ul>
+<li><code>+data.js</code></li>
+<li><code>+onData.js</code></li>
+</ul></div><b>Data, auth, store init</b><div><ul>
+<li><code>+onCreateGlobalContext.{client,server}.js</code></li>
+<li><code>+onCreatePageContext.{client,server}.js</code></li>
+</ul></div><b>Auth</b><div><ul>
+<li><code>+guard.js</code></li>
+</ul></div><b>Pre-rendering (SSG)</b><div><ul>
+<li><code>+onPrerenderStart.js</code></li>
+</ul></div><b>Instrumentation</b><div><ul>
+<li><code>+onHookCall.js</code></li>
+<li><code>+onError.js</code></li>
+</ul></div><b>More</b><div><ul>
+<li><code>+onPageTransition{Start,End}.js</code></li>
+<li><code>+onBeforeRoute.js</code> (full i18n control)</li>
+<li><code>+onHydrationEnd.js</code></li>
+<li><code>+on{Before,After}Render{Client,Html}.js</code></li>
+<li>...</li>
+</ul></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/13","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
-import("/assets/entries/client.Cz58Qv4P.js");
-import("/assets/entries/entry-client-routing.C1ZGXbMX.js");
+import("/assets/entries/client.C9W20Ugn.js");
+import("/assets/entries/entry-client-routing.D7nbFXPL.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_13.C9Dim4XH.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-CORbKrGU.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-CnGenaXU.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-ClVIwpwN.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-CFideir1.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_13.BM1bIyZh.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-ZKUI7MQM.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BT4xiuH0.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-PxgWqlzx.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-Dtmmp599.js" as="script" type="text/javascript">
       </body>
     </html>
