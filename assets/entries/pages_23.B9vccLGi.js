@@ -1,0 +1,18 @@
+import{n as e}from"../chunks/chunk-ZKUI7MQM.js";import{a as t,c as n,i as r,n as i,o as a,r as o,s,t as c}from"../chunks/chunk-BBSdkA-f.js";var l=e({default:()=>f}),u=t();function d(e){let t={em:`em`,h2:`h2`,li:`li`,p:`p`,ul:`ul`,...r(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(t.h2,{children:`Vike`}),`
+`,(0,u.jsx)(t.p,{children:`Stable & flexible:`}),`
+`,(0,u.jsxs)(t.ul,{children:[`
+`,(0,u.jsx)(t.li,{children:`Unopinionated & agnostic => foundational stability`}),`
+`,(0,u.jsx)(t.li,{children:`Powerful hooks => unmatched flexibility`}),`
+`]}),`
+`,(0,u.jsx)(t.h2,{children:`Extensions`}),`
+`,(0,u.jsx)(t.p,{children:`Powerful extensions:`}),`
+`,(0,u.jsxs)(t.ul,{children:[`
+`,(0,u.jsx)(t.li,{children:`Opinionated`}),`
+`,(0,u.jsxs)(t.li,{children:[`Pick extensions => assemble the stack `,(0,u.jsx)(t.em,{children:`you`}),` want`]}),`
+`]}),`
+`,(0,u.jsx)(t.p,{children:`Extensions are "cheap" (to create) => many extensions`}),`
+`,(0,u.jsxs)(t.ul,{children:[`
+`,(0,u.jsx)(t.li,{children:`Stable extensions => unmatched long-term supported`}),`
+`,(0,u.jsx)(t.li,{children:`Experimental extensions => quickly adopt cutting-edge`}),`
+`]}),`
+`,(0,u.jsx)(t.p,{children:`Stable or cutting-edge? Your choice.`})]})}function f(e={}){let{wrapper:t}={...r(),...e.components};return t?(0,u.jsx)(t,{...e,children:(0,u.jsx)(d,{...e})}):d(e)}var p={hasServerOnlyHook:{type:`computed`,definedAtData:null,valueSerialized:{type:`js-serialized`,value:!1}},isClientRuntimeLoaded:{type:`computed`,definedAtData:null,valueSerialized:{type:`js-serialized`,value:!0}},onBeforeRenderEnv:{type:`computed`,definedAtData:null,valueSerialized:{type:`js-serialized`,value:null}},dataEnv:{type:`computed`,definedAtData:null,valueSerialized:{type:`js-serialized`,value:null}},guardEnv:{type:`computed`,definedAtData:null,valueSerialized:{type:`js-serialized`,value:null}},onRenderClient:{type:`standard`,definedAtData:{filePathToShowToUser:`vike-react/__internal/integration/onRenderClient`,fileExportPathToShowToUser:[]},valueSerialized:{type:`pointer-import`,value:n}},onPageTransitionStart:{type:`standard`,definedAtData:{filePathToShowToUser:`/+onPageTransitionStart.ts`,fileExportPathToShowToUser:[]},valueSerialized:{type:`plus-file`,exportValues:s}},onPageTransitionEnd:{type:`standard`,definedAtData:{filePathToShowToUser:`/+onPageTransitionEnd.ts`,fileExportPathToShowToUser:[]},valueSerialized:{type:`plus-file`,exportValues:a}},Page:{type:`standard`,definedAtData:{filePathToShowToUser:`/pages/23/+Page.mdx`,fileExportPathToShowToUser:[]},valueSerialized:{type:`plus-file`,exportValues:l}},hydrationCanBeAborted:{type:`standard`,definedAtData:{filePathToShowToUser:`vike-react/config`,fileExportPathToShowToUser:[`default`,`hydrationCanBeAborted`]},valueSerialized:{type:`js-serialized`,value:!0}},Layout:{type:`cumulative`,definedAtData:[{filePathToShowToUser:`/+Layout.tsx`,fileExportPathToShowToUser:[]}],valueSerialized:[{type:`plus-file`,exportValues:o}]},title:{type:`standard`,definedAtData:{filePathToShowToUser:`/+config.ts`,fileExportPathToShowToUser:[`default`,`title`]},valueSerialized:{type:`js-serialized`,value:`Vike Talk`}},onAfterRenderClient:{type:`cumulative`,definedAtData:[{filePathToShowToUser:`/+onAfterRenderClient.ts`,fileExportPathToShowToUser:[]}],valueSerialized:[{type:`plus-file`,exportValues:i}]},Loading:{type:`standard`,definedAtData:{filePathToShowToUser:`vike-react/__internal/integration/Loading`,fileExportPathToShowToUser:[]},valueSerialized:{type:`pointer-import`,value:c}}};export{p as configValuesSerialized};
