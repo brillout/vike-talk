@@ -3,7 +3,9 @@ export { getCurrentStep, getTotalSteps, indexAndApply, nextStep, prevStep }
 const SELECTOR = '#slide-content .reveal'
 
 function getCurrentStep(): number {
-  const n = parseInt(window.location.hash.slice(1), 10)
+  const hash = window.location.hash.slice(1)
+  if (hash === 'last') return getTotalSteps()
+  const n = parseInt(hash, 10)
   return isNaN(n) ? 0 : n
 }
 

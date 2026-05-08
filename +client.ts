@@ -67,7 +67,7 @@ window.onkeydown = (event) => {
     slideNumberNext--
   }
   if (slideNumberNext !== slideNumber && slideNumberNext !== 0) {
-    navigate(`/${slideNumberNext}`)
+    navigate(forward ? `/${slideNumberNext}` : `/${slideNumberNext}#last`)
   }
 }
 
