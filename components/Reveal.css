@@ -3,10 +3,6 @@
   transition: opacity 0.2s ease-out;
 }
 
-#slide-content
-  :is(
-    .reveal[data-revealed='true']:not(li > .reveal),
-    li:has(> .reveal[data-revealed='true'])
-  ) {
+#slide-content :is(.reveal[data-revealed='true']:not(li > .reveal), li:has(> .reveal[data-revealed='true'])) {
   opacity: 1;
 }
