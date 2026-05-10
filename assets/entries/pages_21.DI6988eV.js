@@ -1,0 +1,31 @@
+import{n as e}from"../chunks/chunk-BQ8GaVkM.js";import{a as t,c as n,l as r,n as i,o as a,r as o,s,t as c}from"../chunks/chunk-CxbdO3Kl.js";var l=e({default:()=>f}),u=a();function d(e){let n={h1:`h1`,li:`li`,p:`p`,ul:`ul`,...t(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(n.h1,{children:`Extensions`}),`
+`,(0,u.jsxs)(`div`,{style:{display:`flex`,gap:16,flex:1.5,marginTop:-30,fontSize:`0.9em`},children:[(0,u.jsx)(`div`,{children:(0,u.jsxs)(n.ul,{children:[`
+`,(0,u.jsx)(n.li,{children:`vike-react`}),`
+`,(0,u.jsx)(n.li,{children:`vike-react-rsc`}),`
+`,(0,u.jsx)(n.li,{children:`vike-react-query`}),`
+`,(0,u.jsx)(n.li,{children:`vike-react-apollo`}),`
+`,(0,u.jsx)(n.li,{children:`vike-react-redux`}),`
+`,(0,u.jsx)(n.li,{children:`vike-react-zustand`}),`
+`,(0,u.jsx)(n.li,{children:`vike-react-sentry`}),`
+`,(0,u.jsx)(n.li,{children:`vike-react-chakra`}),`
+`,(0,u.jsx)(n.li,{children:`vike-react-antd`}),`
+`,(0,u.jsx)(n.li,{children:`vike-react-styled-components`}),`
+`,(0,u.jsx)(n.li,{children:`vike-react-styled-jsx`}),`
+`,(0,u.jsx)(n.li,{children:`vike-vue`}),`
+`,(0,u.jsx)(n.li,{children:`vike-vue-query`}),`
+`]})}),(0,u.jsx)(`div`,{children:(0,u.jsxs)(n.ul,{children:[`
+`,(0,u.jsx)(n.li,{children:`vike-vue-pinia`}),`
+`,(0,u.jsx)(n.li,{children:`vike-vue-pinia-colada`}),`
+`,(0,u.jsx)(n.li,{children:`vike-vue-vuetify`}),`
+`,(0,u.jsx)(n.li,{children:`vike-vue-naive-ui`}),`
+`,(0,u.jsx)(n.li,{children:`vike-solid`}),`
+`,(0,u.jsx)(n.li,{children:`vike-solid-query`}),`
+`,(0,u.jsx)(n.li,{children:`vike-svelte`}),`
+`,(0,u.jsx)(n.li,{children:`vike-angular`}),`
+`,(0,u.jsx)(n.li,{children:`vike-hono`}),`
+`,(0,u.jsx)(n.li,{children:`vike-h3`}),`
+`,(0,u.jsx)(n.li,{children:`vike-elysia`}),`
+`,(0,u.jsx)(n.li,{children:`vike-express`}),`
+`,(0,u.jsx)(n.li,{children:`vike-fastify`}),`
+`]})})]}),`
+`,(0,u.jsx)(n.p,{children:`Etc.`})]})}function f(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,u.jsx)(n,{...e,children:(0,u.jsx)(d,{...e})}):d(e)}var p={hasServerOnlyHook:{type:`computed`,definedAtData:null,valueSerialized:{type:`js-serialized`,value:!1}},isClientRuntimeLoaded:{type:`computed`,definedAtData:null,valueSerialized:{type:`js-serialized`,value:!0}},onBeforeRenderEnv:{type:`computed`,definedAtData:null,valueSerialized:{type:`js-serialized`,value:null}},dataEnv:{type:`computed`,definedAtData:null,valueSerialized:{type:`js-serialized`,value:null}},guardEnv:{type:`computed`,definedAtData:null,valueSerialized:{type:`js-serialized`,value:null}},onRenderClient:{type:`standard`,definedAtData:{filePathToShowToUser:`vike-react/__internal/integration/onRenderClient`,fileExportPathToShowToUser:[]},valueSerialized:{type:`pointer-import`,value:r}},onPageTransitionStart:{type:`standard`,definedAtData:{filePathToShowToUser:`/+onPageTransitionStart.ts`,fileExportPathToShowToUser:[]},valueSerialized:{type:`plus-file`,exportValues:n}},onPageTransitionEnd:{type:`standard`,definedAtData:{filePathToShowToUser:`/+onPageTransitionEnd.ts`,fileExportPathToShowToUser:[]},valueSerialized:{type:`plus-file`,exportValues:s}},Page:{type:`standard`,definedAtData:{filePathToShowToUser:`/pages/21/+Page.mdx`,fileExportPathToShowToUser:[]},valueSerialized:{type:`plus-file`,exportValues:l}},hydrationCanBeAborted:{type:`standard`,definedAtData:{filePathToShowToUser:`vike-react/config`,fileExportPathToShowToUser:[`default`,`hydrationCanBeAborted`]},valueSerialized:{type:`js-serialized`,value:!0}},Layout:{type:`cumulative`,definedAtData:[{filePathToShowToUser:`/+Layout.tsx`,fileExportPathToShowToUser:[]}],valueSerialized:[{type:`plus-file`,exportValues:o}]},title:{type:`standard`,definedAtData:{filePathToShowToUser:`/+config.ts`,fileExportPathToShowToUser:[`default`,`title`]},valueSerialized:{type:`js-serialized`,value:`Vike Talk`}},onAfterRenderClient:{type:`cumulative`,definedAtData:[{filePathToShowToUser:`/+onAfterRenderClient.ts`,fileExportPathToShowToUser:[]}],valueSerialized:[{type:`plus-file`,exportValues:i}]},Loading:{type:`standard`,definedAtData:{filePathToShowToUser:`vike-react/__internal/integration/Loading`,fileExportPathToShowToUser:[]},valueSerialized:{type:`pointer-import`,value:c}}};export{p as configValuesSerialized};
