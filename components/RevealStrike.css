@@ -1,0 +1,17 @@
+.reveal-strike {
+  position: relative;
+}
+.reveal-strike::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+#slide-content ul:has(> li > .reveal[data-revealed='true']) .reveal-strike::after {
+  opacity: 1;
+}
