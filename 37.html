@@ -3,6 +3,7 @@
       <head>
         <link rel="stylesheet" type="text/css" href="/assets/static/Layout-5e96f578.F3Jq4J_X.css">
         <link rel="stylesheet" type="text/css" href="/assets/static/components_Reveal-5e90832d.ybfg0sHh.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/components_RevealStrike-87a59600.DOjSeQiy.css">
         <link rel="stylesheet" type="text/css" href="/assets/static/css_index-5ea40173.DLFU8ym7.css">
         <link rel="preload" href="/assets/static/Inter-Var.dulBMp8D.ttf" as="font" type="font/ttf" crossorigin>
         <meta charset="UTF-8" />
@@ -19,32 +20,46 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="tsx" data-theme="github-light"><code data-language="tsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// ChatRoom.tsx</span></span>
-<span data-line=""><span style="color:#6A737D">// Environment: client</span></span>
+        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><div style="display:flex"><div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="tsx" data-theme="github-light"><code data-language="tsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// ChatRoom.telefunc.ts</span></span>
+<span class="highlighted" data-line=""><span style="color:#6A737D">// Environment: server</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { createChannel } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;telefunc&#x27;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onChatInit</span><span style="color:#24292E">(</span><span style="color:#E36209">chatRoomId</span><span style="color:#D73A49">:</span><span style="color:#005CC5"> string</span><span style="color:#24292E">) {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> channel</span><span style="color:#D73A49"> =</span><span style="color:#6F42C1"> createChannel</span><span style="color:#24292E">&lt;</span><span style="color:#005CC5">string</span><span style="color:#24292E">, </span><span style="color:#005CC5">string</span><span style="color:#24292E">&gt;()</span></span>
+<span data-line=""> </span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#24292E">  channel.</span><span style="color:#6F42C1">listen</span><span style="color:#24292E">((</span><span style="color:#E36209">message</span><span style="color:#24292E">) </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> { </span></span>
+<span data-line=""><span style="color:#24292E">    Database.ChatRoom.</span><span style="color:#6F42C1">insert</span><span style="color:#24292E">({ chatRoomId, message })</span></span>
+<span data-line=""><span style="color:#24292E">  })</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#24292E">  Database.ChatRoom.</span><span style="color:#6F42C1">listen</span><span style="color:#24292E">({ chatRoomId}, (</span><span style="color:#E36209">message</span><span style="color:#24292E">) </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> {</span></span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#24292E">    channel.</span><span style="color:#6F42C1">send</span><span style="color:#24292E">(message) </span></span>
+<span data-line=""><span style="color:#24292E">  })</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> { channel: channel.client }</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div><div><div style="font-size:16px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="tsx" data-theme="github-light"><code data-language="tsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// ChatRoom.tsx</span></span>
+<span class="highlighted" data-line=""><span style="color:#6A737D">// Environment: client</span></span>
 <span data-line=""> </span>
 <span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { onChatInit } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;./ChatRoom.telefunc&#x27;</span></span>
-<span class="highlighted" data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { useLiveArray } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;telefunc/react&#x27;</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">function</span><span style="color:#6F42C1"> Chat</span><span style="color:#24292E">({ </span><span style="color:#E36209">chatRoomId</span><span style="color:#24292E"> }) {</span></span>
-<span class="highlighted" data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> messages</span><span style="color:#D73A49"> =</span><span style="color:#6F42C1"> useLiveArray</span><span style="color:#24292E">(() </span><span style="color:#D73A49">=&gt;</span><span style="color:#6F42C1"> onChatInit</span><span style="color:#24292E">(chatRoomId)) </span></span>
-<span data-line=""><span style="color:#D73A49">  if</span><span style="color:#24292E"> (messages.error) </span><span style="color:#D73A49">return</span><span style="color:#24292E"> &lt;</span><span style="color:#22863A">div</span><span style="color:#24292E">&gt;{error.message}&lt;/</span><span style="color:#22863A">div</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> &lt;</span><span style="color:#22863A">ul</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#24292E">    { messages.</span><span style="color:#6F42C1">map</span><span style="color:#24292E">((</span><span style="color:#E36209">msg</span><span style="color:#24292E">) </span><span style="color:#D73A49">=&gt;</span></span>
-<span data-line=""><span style="color:#24292E">      &lt;</span><span style="color:#22863A">li</span><span style="color:#24292E">&gt;{msg}&lt;/</span><span style="color:#22863A">li</span><span style="color:#24292E">&gt;)</span></span>
-<span data-line=""><span style="color:#24292E">    }</span></span>
-<span data-line=""><span style="color:#24292E">  &lt;/</span><span style="color:#22863A">ul</span><span style="color:#24292E">&gt;</span></span>
-<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div></div>
+<span data-line=""><span style="color:#D73A49">const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">channel</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> await</span><span style="color:#6F42C1"> onChatInit</span><span style="color:#24292E">()</span></span>
+<span data-line=""> </span>
+<span class="highlighted" style="background-color:#b8d4eb" data-line=""><span style="color:#24292E">channel.</span><span style="color:#6F42C1">listen</span><span style="color:#24292E">((</span><span style="color:#E36209">message</span><span style="color:#24292E">) </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> { </span></span>
+<span data-line=""><span style="color:#24292E">  console.</span><span style="color:#6F42C1">log</span><span style="color:#24292E">(</span><span style="color:#032F62">&#x27;New message:&#x27;</span><span style="color:#24292E">, message)</span></span>
+<span data-line=""><span style="color:#24292E">})</span></span>
+<span data-line=""> </span>
+<span class="highlighted" style="background-color:#c0ebb8" data-line=""><span style="color:#24292E">channel.</span><span style="color:#6F42C1">send</span><span style="color:#24292E">(</span><span style="color:#032F62">&#x27;Hello everyone 👋&#x27;</span><span style="color:#24292E">) </span></span></code></pre></figure></div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/37","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
-import("/assets/entries/client.Y3aOuOkV.js");
-import("/assets/entries/entry-client-routing.CO74XJ7U.js");
+import("/assets/entries/client.CTWXd_5k.js");
+import("/assets/entries/entry-client-routing.BY2YZTBG.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_37.Jwd6jVxN.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-ZKUI7MQM.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-DeGfXVQ0.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-BRirzbXJ.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-CouC-Srq.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_37.Bo1vxiYP.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-ulHPZ4Ep.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-fc5Ie8Ar.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-CjaCDRzG.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DcfiSJ1W.js" as="script" type="text/javascript">
       </body>
     </html>
