@@ -5,9 +5,7 @@ import { Children } from 'react'
 import { Reveal } from './Reveal'
 
 function RevealSwap({ children }: { children: React.ReactNode }) {
-  const [initial, replacement] = Children.toArray(children).filter(
-    (c) => typeof c !== 'string' || c.trim() !== '',
-  )
+  const [initial, replacement] = Children.toArray(children).filter((c) => typeof c !== 'string' || c.trim() !== '')
   return (
     <div style={{ display: 'grid', alignItems: 'start' }}>
       <div style={{ gridArea: '1 / 1' }}>
