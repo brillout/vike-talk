@@ -5,6 +5,7 @@
         <link rel="stylesheet" type="text/css" href="/assets/static/components_Reveal-5e90832d.ybfg0sHh.css">
         <link rel="stylesheet" type="text/css" href="/assets/static/components_RevealStrike-87a59600.DOjSeQiy.css">
         <link rel="stylesheet" type="text/css" href="/assets/static/css_index-5ea40173.DLFU8ym7.css">
+        <link rel="stylesheet" type="text/css" href="/assets/static/pages_33_Page-784d3dd8.BWcLQyeo.css">
         <link rel="preload" href="/assets/static/Inter-Var.dulBMp8D.ttf" as="font" type="font/ttf" crossorigin>
         <meta charset="UTF-8" />
         
@@ -20,18 +21,57 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><div style="display:flex;align-items:center;justify-content:center"><img src="data:image/svg+xml,%3csvg%20width=&#x27;47.02&#x27;%20height=&#x27;47.02&#x27;%20version=&#x27;1.1&#x27;%20viewBox=&#x27;0%200%2047.02%2047.02&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%3e%3ccircle%20cx=&#x27;23.51&#x27;%20cy=&#x27;23.51&#x27;%20r=&#x27;21.95&#x27;%20fill=&#x27;%23f7e018&#x27;%20stroke=&#x27;%2331343d&#x27;%20stroke-linejoin=&#x27;round&#x27;%20stroke-width=&#x27;3.12&#x27;%20style=&#x27;paint-order:normal&#x27;/%3e%3cg%20transform=&#x27;matrix(.95503%200%200%20.95503%20.34405%201.0117)&#x27;%20fill=&#x27;%2331343d&#x27;%20shape-rendering=&#x27;auto&#x27;%3e%3cpath%20d=&#x27;m21.804%2013.913%206.4333%209.6458-6.4333%209.6441h5.8824l3.493-5.2352%203.4913%205.2352h5.8824l-12.867-19.29z&#x27;%20color=&#x27;%23000000&#x27;%20color-rendering=&#x27;auto&#x27;%20dominant-baseline=&#x27;auto&#x27;%20image-rendering=&#x27;auto&#x27;%20solid-color=&#x27;%23000000&#x27;%20style=&#x27;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:%23000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal&#x27;/%3e%3cpath%20d=&#x27;m14.882%2013.913%206.4333%209.6458-6.4333%209.6441h5.8824c2.0855-3.2911%204.0452-6.2959%206.2221-9.9618l-6.2221-9.3281z&#x27;%20color=&#x27;%23000000&#x27;%20color-rendering=&#x27;auto&#x27;%20dominant-baseline=&#x27;auto&#x27;%20fill-opacity=&#x27;.57315&#x27;%20image-rendering=&#x27;auto&#x27;%20solid-color=&#x27;%23000000&#x27;%20style=&#x27;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:%23000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal&#x27;/%3e%3cpath%20d=&#x27;m7.9604%2013.913%206.4333%209.6458-6.4333%209.6441h5.8824c2.0855-3.2911%204.0452-6.2959%206.2221-9.9618l-6.2221-9.3281z&#x27;%20color=&#x27;%23000000&#x27;%20color-rendering=&#x27;auto&#x27;%20dominant-baseline=&#x27;auto&#x27;%20fill-opacity=&#x27;.27655&#x27;%20image-rendering=&#x27;auto&#x27;%20solid-color=&#x27;%23000000&#x27;%20style=&#x27;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:%23000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal&#x27;/%3e%3c/g%3e%3c/svg%3e" height="90"/><h1 style="margin:0;margin-left:20px;font-size:2.7em;font-weight:550"> Telefunc</h1></div></div></div></div>
+        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><div style="display:flex" id="telefunc-demo"><div><div style="font-size:15px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="ts" data-theme="github-light"><code data-language="ts" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// CreateTodo.</span><span style="color:#6A737D" class="highlighted-word">telefunc</span><span style="color:#6A737D">.ts</span></span>
+<span class="highlighted" data-line=""><span style="color:#6A737D">// Environment: server</span></span>
+<span data-line=""> </span>
+<span class="highlighted" data-line=""><span style="color:#D73A49">export</span><span style="color:#24292E"> { onNewTodo } </span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { getContext } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;telefunc&#x27;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#6A737D">// Telefunction arguments are automatically validated</span></span>
+<span data-line=""><span style="color:#6A737D">// at runtime, so `text` is guaranteed to be a string.</span></span>
+<span data-line=""><span style="color:#D73A49">async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onNewTodo</span><span style="color:#24292E">(</span><span style="color:#E36209">text</span><span style="color:#D73A49">:</span><span style="color:#005CC5"> string</span><span style="color:#24292E">) {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">user</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#6F42C1"> getContext</span><span style="color:#24292E">()</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#6A737D">  // With an ORM</span></span>
+<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#24292E"> Todo.</span><span style="color:#6F42C1">create</span><span style="color:#24292E">({ text, authorId: user.id })</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#6A737D">  // With SQL</span></span>
+<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#6F42C1"> sql</span><span style="color:#24292E">(</span></span>
+<span data-line=""><span style="color:#032F62">    &#x27;INSERT INTO todo_items VALUES (:text, :authorId)&#x27;</span><span style="color:#24292E">,</span></span>
+<span data-line=""><span style="color:#24292E">    { text, authorId: user.id }</span></span>
+<span data-line=""><span style="color:#24292E">  )</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div><div><div style="font-size:15px;margin-top:-15px"><figure data-rehype-pretty-code-figure=""><pre class="has-highlighted" style="background-color:#fff;color:#24292e" tabindex="0" data-language="ts" data-theme="github-light"><code data-language="ts" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// CreateTodo.tsx</span></span>
+<span class="highlighted" data-line=""><span style="color:#6A737D">// Environment: client</span></span>
+<span data-line=""> </span>
+<span class="highlighted" data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> { onNewTodo } </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;./CreateTodo.telefunc.ts&#x27;</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">async</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onClick</span><span style="color:#24292E">(</span><span style="color:#E36209">form</span><span style="color:#24292E">) {</span></span>
+<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> text</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> form.input.value</span></span>
+<span data-line=""><span style="color:#6A737D">  // Behind the scenes, Telefunc makes an HTTP request</span></span>
+<span data-line=""><span style="color:#6A737D">  // to the server.</span></span>
+<span data-line=""><span style="color:#D73A49">  await</span><span style="color:#6F42C1"> onNewTodo</span><span style="color:#24292E">(text)</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#D73A49">function</span><span style="color:#6F42C1"> CreateTodo</span><span style="color:#24292E">() {</span></span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> (</span></span>
+<span data-line=""><span style="color:#24292E">    &lt;</span><span style="color:#6F42C1">form</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#D73A49">      &lt;</span><span style="color:#24292E">input input</span><span style="color:#D73A49">=</span><span style="color:#032F62">&quot;text&quot;</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">&lt;/</span><span style="color:#6F42C1">input</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#D73A49">      &lt;</span><span style="color:#24292E">button onClick</span><span style="color:#D73A49">=</span><span style="color:#24292E">{onClick}</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">Add To</span><span style="color:#D73A49">-</span><span style="color:#24292E">Do</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">button</span><span style="color:#D73A49">&gt;</span></span>
+<span data-line=""><span style="color:#D73A49">    &lt;/</span><span style="color:#24292E">form</span><span style="color:#D73A49">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">  )</span></span>
+<span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div></div></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/33","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
-import("/assets/entries/client.CTWXd_5k.js");
-import("/assets/entries/entry-client-routing.BY2YZTBG.js");
+import("/assets/entries/client.CHwj4OLZ.js");
+import("/assets/entries/entry-client-routing.B6I_DKKM.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_33.CEHPE-ki.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-ulHPZ4Ep.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-fc5Ie8Ar.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-CjaCDRzG.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-DcfiSJ1W.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_33.BQbT0Qaw.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-ZKUI7MQM.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-DVoDZIvs.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-Kkese83N.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BUYJGYPx.js" as="script" type="text/javascript">
       </body>
     </html>
