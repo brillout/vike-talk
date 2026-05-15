@@ -15,3 +15,6 @@
 #slide-content ul:has(> li > .reveal[data-revealed='true']) .reveal-strike::after {
   opacity: 1;
 }
+#slide-content:has(.reveal-swap-replacement .reveal[data-revealed='true']) .reveal-strike::after {
+  opacity: 1;
+}
