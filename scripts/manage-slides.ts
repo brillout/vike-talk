@@ -66,7 +66,7 @@ function createSlide(slideNumber: number): void {
 
   const mdxContent = `# New Slide
 
-TO-DO: Add content
+TODO: Add content
 `
 
   const mdxPath = path.join(slidePath, '+Page.mdx')
