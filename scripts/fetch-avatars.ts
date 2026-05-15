@@ -1,4 +1,26 @@
-// TODO/ai write a small FLOW overview of what this file does here.
+/*
+Builds pages/34/avatars.json — the data behind the "Thank you" wall.
+
+Flow:
+  1. Resolve the team / major-contributor split.
+     a. Prefer ../vike/docs/pages/team/teamData.ts (local checkout)
+        so unpushed edits are reflected immediately.
+     b. Otherwise fetch https://vike.dev/team.json.
+     c. Otherwise use the hardcoded FALLBACK_* constants.
+  2. Fetch all contributors from vikejs/vike and telefunc/telefunc via
+     the GitHub REST API (paginated), then merge them into one map
+     keyed by login. Contributions sum across repos; bots and non-User
+     accounts are dropped.
+  3. For every team and major-contributor login, look up the avatar
+     in that merged map. Anyone missing (e.g. core team who never
+     committed directly to either repo) is filled in via GET /users/<login>.
+  4. Take the top (TOP_N − team − major) remaining contributors by
+     contribution count and use them as the "rest" bucket.
+  5. Write { team, majorContributors, rest } to pages/34/avatars.json.
+
+Slide 34 imports that JSON and renders a 10-column wall, revealing
+the three buckets in order via display:contents Reveals.
+*/
 
 import fs from 'node:fs/promises'
 import { existsSync } from 'node:fs'
