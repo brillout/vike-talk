@@ -1,6 +1,6 @@
 ## Current talk
 
-Currently deployed: [talk.vike.dev](https://talk.vike.dev) — [`live`](https://github.com/brillout/vike-talk/tree/live).
+Currently deployed: [talk.vike.dev](https://talk.vike.dev) — this branch (`main`).
 
 Previous talks: see [branches](https://github.com/brillout/vike-talk/branches).
 
