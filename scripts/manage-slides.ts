@@ -55,7 +55,7 @@ function renameSlide(oldNumber: number, newNumber: number): void {
   console.log(`Renamed slide ${oldNumber} → ${newNumber}`)
 }
 
-function createSlide(slideNumber: number, title = 'New Slide', content = 'TO-DO: Add content'): void {
+function createSlide(slideNumber: number): void {
   const slidePath = path.join(pagesDir, slideNumber.toString())
 
   if (fs.existsSync(slidePath)) {
@@ -64,18 +64,18 @@ function createSlide(slideNumber: number, title = 'New Slide', content = 'TO-DO:
 
   fs.mkdirSync(slidePath, { recursive: true })
 
-  const mdxContent = `# ${title}
+  const mdxContent = `# New Slide
 
-${content}
+TO-DO: Add content
 `
 
   const mdxPath = path.join(slidePath, '+Page.mdx')
   fs.writeFileSync(mdxPath, mdxContent)
 
-  console.log(`Created slide ${slideNumber}: ${title}`)
+  console.log(`Created slide ${slideNumber}`)
 }
 
-function insertSlide(position: number, title = 'New Slide', content = 'TO-DO: Add content'): void {
+function insertSlide(position: number): void {
   const existingSlides = getExistingSlides()
   const maxSlide = getMaxSlideNumber()
 
@@ -88,14 +88,14 @@ function insertSlide(position: number, title = 'New Slide', content = 'TO-DO: Ad
   }
 
   if (position > maxSlide) {
-    createSlide(position, title, content)
+    createSlide(position)
     return
   }
 
   const slidesToShift = existingSlides.filter((num) => num >= position)
 
   if (slidesToShift.length === 0) {
-    createSlide(position, title, content)
+    createSlide(position)
     return
   }
 
@@ -108,15 +108,15 @@ function insertSlide(position: number, title = 'New Slide', content = 'TO-DO: Ad
     renameSlide(oldNumber, newNumber)
   }
 
-  createSlide(position, title, content)
+  createSlide(position)
 
   console.log(`\n✅ Successfully inserted slide ${position}`)
   console.log(`📊 Total slides: ${getMaxSlideNumber()}`)
 }
 
-function addSlide(title = 'New Slide', content = 'TO-DO: Add content'): void {
+function addSlide(): void {
   const nextPosition = getMaxSlideNumber() + 1
-  createSlide(nextPosition, title, content)
+  createSlide(nextPosition)
   console.log(`\n✅ Successfully added slide ${nextPosition}`)
   console.log(`📊 Total slides: ${getMaxSlideNumber()}`)
 }
@@ -212,24 +212,22 @@ Usage:
   pnpm node-ts scripts/manage-slides.ts <command> [options]
 
 Commands:
-  list                                 List all existing slides
-  add [title] [content]                Add a new slide at the end
-  insert <position> [title] [content]  Insert a slide at position, shifting subsequent slides
-  remove <position>                    Remove a slide and renumber subsequent slides
-  move <from> <to>                     Move a slide to a new position, shifting others
+  list                 List all existing slides
+  add                  Add a new slide at the end
+  insert <position>    Insert a slide at position, shifting subsequent slides
+  remove <position>    Remove a slide and renumber subsequent slides
+  move <from> <to>     Move a slide to a new position, shifting others
 
 Examples:
   pnpm slides:list
-  pnpm slides:add "My New Slide" "This is the content"
-  pnpm slides:insert 5 "Inserted Slide" "This goes between slide 4 and 5"
+  pnpm slides:add
+  pnpm slides:insert 5
   pnpm slides:remove 3
   pnpm slides:move 7 2
 
 Notes:
   - Position numbers start from 1
   - All subsequent slides are automatically renumbered when inserting
-  - Title and content are optional (defaults will be used)
-  - Use quotes for multi-word titles/content
 `)
 }
 
@@ -256,11 +254,9 @@ async function main(): Promise<void> {
         break
 
       case 'add': {
-        const addTitle = args[1] || 'New Slide'
-        const addContent = args[2] || 'TO-DO: Add content'
         const nextPosition = getMaxSlideNumber() + 1
-        addSlide(addTitle, addContent)
-        commitMessage = `Add slide ${nextPosition}: ${addTitle}`
+        addSlide()
+        commitMessage = `Add slide ${nextPosition}`
         break
       }
 
@@ -269,10 +265,8 @@ async function main(): Promise<void> {
         if (isNaN(position)) {
           throw new Error('Position must be a number')
         }
-        const insertTitle = args[2] || 'New Slide'
-        const insertContent = args[3] || 'TO-DO: Add content'
-        insertSlide(position, insertTitle, insertContent)
-        commitMessage = `Insert slide ${position}: ${insertTitle}`
+        insertSlide(position)
+        commitMessage = `Insert slide ${position}`
         break
       }
 
