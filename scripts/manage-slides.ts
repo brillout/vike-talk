@@ -3,16 +3,20 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { shell } from '@brillout/shell'
 
-/* TODO/ai:
-- After: make a commit
-Make these changes in separate commits.
-*/
-
 const MUTATING_COMMANDS = new Set(['add', 'insert', 'remove', 'move'])
 
 async function hasRepoChanges(): Promise<boolean> {
   const res = await shell('git status --porcelain')
   return res.stdout.trim().length > 0
+}
+
+async function commitChanges(message: string): Promise<void> {
+  await shell('git add -A')
+  // Single-quote the message and escape any embedded single quotes so the
+  // shell parses it as one argument.
+  const escaped = message.replace(/'/g, "'\\''")
+  await shell(`git commit -m '${escaped}'`)
+  console.log(`📝 Committed: ${message}`)
 }
 
 const __filename = fileURLToPath(import.meta.url)
@@ -244,6 +248,7 @@ async function main(): Promise<void> {
     process.exit(1)
   }
 
+  let commitMessage: string | null = null
   try {
     switch (command) {
       case 'list':
@@ -253,7 +258,9 @@ async function main(): Promise<void> {
       case 'add': {
         const addTitle = args[1] || 'New Slide'
         const addContent = args[2] || 'TO-DO: Add content'
+        const nextPosition = getMaxSlideNumber() + 1
         addSlide(addTitle, addContent)
+        commitMessage = `Add slide ${nextPosition}: ${addTitle}`
         break
       }
 
@@ -265,6 +272,7 @@ async function main(): Promise<void> {
         const insertTitle = args[2] || 'New Slide'
         const insertContent = args[3] || 'TO-DO: Add content'
         insertSlide(position, insertTitle, insertContent)
+        commitMessage = `Insert slide ${position}: ${insertTitle}`
         break
       }
 
@@ -274,6 +282,7 @@ async function main(): Promise<void> {
           throw new Error('Position must be a number')
         }
         removeSlide(removePosition)
+        commitMessage = `Remove slide ${removePosition}`
         break
       }
 
@@ -284,6 +293,7 @@ async function main(): Promise<void> {
           throw new Error('Both <from> and <to> positions must be numbers')
         }
         moveSlide(fromPosition, toPosition)
+        commitMessage = `Move slide ${fromPosition} → ${toPosition}`
         break
       }
 
@@ -296,6 +306,8 @@ async function main(): Promise<void> {
     console.error(`❌ Error: ${(error as Error).message}`)
     process.exit(1)
   }
+
+  if (commitMessage) await commitChanges(commitMessage)
 }
 
 main().catch((error: unknown) => {
