@@ -21,32 +21,26 @@
       </head>
       <body>
         
-        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="ts" data-theme="github-light"><code data-language="ts" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// pages/</span><span style="color:#6A737D" class="highlighted-word">+onRenderHtml</span><span style="color:#6A737D">.js</span></span>
-<span data-line=""><span style="color:#6A737D">// Environment: server</span></span>
+        <div id="root"><div id="slide-wrapper" class="fullscreen"><div id="slide-content"><figure data-rehype-pretty-code-figure=""><pre style="background-color:#fff;color:#24292e" tabindex="0" data-language="jsx" data-theme="github-light"><code data-language="jsx" data-theme="github-light" style="display:grid"><span data-line=""><span style="color:#6A737D">// pages/hello/</span><span style="color:#6A737D" class="highlighted-word">+Page</span><span style="color:#6A737D">.jsx</span></span>
+<span data-line=""><span style="color:#6A737D">// Environment: client and/or server</span></span>
 <span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">import</span><span style="color:#24292E"> ReactDOMServer </span><span style="color:#D73A49">from</span><span style="color:#032F62"> &#x27;react-dom/server&#x27;</span></span>
-<span data-line=""> </span>
-<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> onRenderHtml</span><span style="color:#24292E">(</span><span style="color:#E36209">pageContext</span><span style="color:#24292E">) {</span></span>
-<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#24292E"> { </span><span style="color:#005CC5">Page</span><span style="color:#24292E"> } </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pageContext</span></span>
-<span data-line=""><span style="color:#D73A49">  const</span><span style="color:#005CC5"> pageHtml</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> ReactDOMServer.</span><span style="color:#6F42C1">renderToString</span><span style="color:#24292E">(&lt;</span><span style="color:#6F42C1">Page</span><span style="color:#24292E">/&gt;)</span></span>
-<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#032F62"> `</span></span>
-<span data-line=""><span style="color:#032F62">    &lt;html&gt;</span></span>
-<span data-line=""><span style="color:#032F62">      &lt;body&gt;</span></span>
-<span data-line=""><span style="color:#032F62">        &lt;div id=&quot;root&quot;&gt;${</span><span style="color:#24292E">pageHtml</span><span style="color:#032F62">}&lt;/div&gt;</span></span>
-<span data-line=""><span style="color:#032F62">      &lt;/body&gt;</span></span>
-<span data-line=""><span style="color:#032F62">    &lt;/html&gt;`</span></span>
+<span data-line=""><span style="color:#D73A49">export</span><span style="color:#D73A49"> function</span><span style="color:#6F42C1"> Page</span><span style="color:#24292E">(</span><span style="color:#E36209">pageContext</span><span style="color:#24292E">) {</span></span>
+<span data-line=""><span style="color:#D73A49">  return</span><span style="color:#24292E"> &lt;&gt;</span></span>
+<span data-line=""><span style="color:#24292E">    &lt;</span><span style="color:#22863A">h1</span><span style="color:#24292E">&gt;Title&lt;/</span><span style="color:#22863A">h1</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">    &lt;</span><span style="color:#22863A">p</span><span style="color:#24292E">&gt;Some content...&lt;/</span><span style="color:#22863A">p</span><span style="color:#24292E">&gt;</span></span>
+<span data-line=""><span style="color:#24292E">  &lt;/&gt;</span></span>
 <span data-line=""><span style="color:#24292E">}</span></span></code></pre></figure></div></div></div>
         
         <script id="vike_pageContext" type="application/json">{"pageId":"\\/pages\\/9","routeParams":{}}</script>
         <script id="vike_globalContext" type="application/json">{}</script>
         <script type="module" async>
-import("/assets/entries/client.u5kpWgCd.js");
-import("/assets/entries/entry-client-routing.B_9XK0sX.js");
+import("/assets/entries/client.DUQKPU_u.js");
+import("/assets/entries/entry-client-routing._38fzFW4.js");
 </script>
-        <link rel="modulepreload" href="/assets/entries/pages_9.CKpQawPM.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-BA-KIFHZ.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-CHm_Zjq4.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-DC_DWxos.js" as="script" type="text/javascript">
-        <link rel="modulepreload" href="/assets/chunks/chunk-BP1u1aQG.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/entries/pages_9.DLbINHfb.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-BWNmAEDU.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-pvNIPYK6.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-bMbZySn8.js" as="script" type="text/javascript">
+        <link rel="modulepreload" href="/assets/chunks/chunk-QTL3kdj_.js" as="script" type="text/javascript">
       </body>
     </html>
