@@ -1,0 +1,1 @@
+.reveal-swap-initial,.reveal-swap-replacement{transition:opacity .2s ease-out}.reveal-swap-replacement{opacity:0}.reveal-swap:has(.reveal-swap-replacement .reveal[data-revealed=true]) .reveal-swap-initial{opacity:0}.reveal-swap:has(.reveal-swap-replacement .reveal[data-revealed=true]) .reveal-swap-replacement{opacity:1}
