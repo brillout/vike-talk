@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@brillout/shell':
+        specifier: ^0.2.2
+        version: 0.2.2
       '@brillout/shiki-transformers':
         specifier: ^4.0.2
         version: 4.0.2
@@ -143,6 +146,9 @@ packages:
 
   '@brillout/picocolors@1.0.30':
     resolution: {integrity: sha512-xJjdgyN1H0qh2nB2xlzazIipiDixuUd9oD5msh/Qv5bXJG9j8MSD/m4lREt6Z10ej6FF31b8vB4tdT7lDUbiyA==}
+
+  '@brillout/shell@0.2.2':
+    resolution: {integrity: sha512-lkf/SenGnAHxtutAgjmSji4n31CmOZyfcOxdSKrpnXFA8Ktup+CJudhBAi0QpUvT03SuXQvSA4+QQrDPkV+0iA==}
 
   '@brillout/shiki-transformers@4.0.2':
     resolution: {integrity: sha512-LELxHWwiIcYoUc/V0KWgfQMWOjRXNebJt9Z1NM9InjPUQ8fsL0ZxttD7qoBzFvaFIbEUJre3N5jc9FmM5b5MBQ==}
@@ -1803,6 +1809,10 @@ snapshots:
   '@brillout/json-serializer@0.5.23': {}
 
   '@brillout/picocolors@1.0.30': {}
+
+  '@brillout/shell@0.2.2':
+    dependencies:
+      '@brillout/picocolors': 1.0.30
 
   '@brillout/shiki-transformers@4.0.2':
     dependencies:

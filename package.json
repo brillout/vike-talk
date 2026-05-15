@@ -21,6 +21,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
+    "@brillout/shell": "^0.2.2",
     "@brillout/shiki-transformers": "^4.0.2",
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
@@ -29,11 +30,11 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "oxfmt": "^0.48.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "rehype-pretty-code": "^0.14.3",
     "remark-gfm": "^4.0.1",
-    "oxfmt": "^0.48.0",
     "shiki": "^4.0.2",
     "typescript": "^6.0.3",
     "vike": "^0.4.259",

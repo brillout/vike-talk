@@ -1,12 +1,19 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { shell } from '@brillout/shell'
 
 /* TODO/ai:
-- Before: ensure Git repo isn't dirty (no uncommitted changes), see how @brillout/spellcheck does it and use @brillout/shell
 - After: make a commit
 Make these changes in separate commits.
 */
+
+const MUTATING_COMMANDS = new Set(['add', 'insert', 'remove', 'move'])
+
+async function hasRepoChanges(): Promise<boolean> {
+  const res = await shell('git status --porcelain')
+  return res.stdout.trim().length > 0
+}
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -222,7 +229,7 @@ Notes:
 `)
 }
 
-function main(): void {
+async function main(): Promise<void> {
   const args = process.argv.slice(2)
 
   if (args.length === 0) {
@@ -230,7 +237,12 @@ function main(): void {
     return
   }
 
-  const command = args[0]
+  const command = args[0]!
+
+  if (MUTATING_COMMANDS.has(command) && (await hasRepoChanges())) {
+    console.error('❌ Commit all changes before running this command.')
+    process.exit(1)
+  }
 
   try {
     switch (command) {
@@ -286,4 +298,7 @@ function main(): void {
   }
 }
 
-main()
+main().catch((error: unknown) => {
+  console.error(`❌ Error: ${(error as Error).message}`)
+  process.exit(1)
+})
