@@ -1,7 +1,5 @@
 /*
-Builds pages/team.json — the data behind the "Thank you" wall.
-
-Flow:
+Builds pages/team.json — flow:
   1. Fetch the team / major-contributor list from https://vike.dev/team.json.
      The script fails fast if that URL is unreachable.
   2. Fetch all contributors from vikejs/vike and telefunc/telefunc via
@@ -14,9 +12,6 @@ Flow:
   4. Take the top (TOP_N − team − major) remaining contributors by
      contribution count and use them as the "rest" bucket.
   5. Write { team, majorContributors, rest } to pages/team.json.
-
-Slide 34 imports that JSON and renders a 10-column wall, revealing
-the three buckets in order via display:contents Reveals.
 */
 
 import fs from 'node:fs/promises'
