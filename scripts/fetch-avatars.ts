@@ -2,6 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+// TODO/ai add a JSON feed ~/code/vike/docs
 // Sourced from https://vike.dev/team. That page has no public JSON feed, so
 // the two lists are mirrored here. Keep them in sync when the team page
 // changes.
