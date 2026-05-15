@@ -2,12 +2,30 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-// TODO/ai add a JSON feed ~/code/vike/docs
-// Sourced from https://vike.dev/team. That page has no public JSON feed, so
-// the two lists are mirrored here. Keep them in sync when the team page
-// changes.
-const TEAM = ['brillout', 'magne4000', 'nitedani', 'richard-unterberg', 'phonzammi']
-const MAJOR_CONTRIBUTORS = ['ambergristle', 'NilsJacobsen', 'AurelienLourot', '4350pChris', 'Blankeos']
+const TEAM_FEED_URL = 'https://vike.dev/team.json'
+
+// Fallback used only if the feed above is unreachable (e.g. before the
+// docs change exposing /team.json has shipped). Keep in sync with
+// vike/docs/public/team.json.
+const FALLBACK_TEAM = ['brillout', 'magne4000', 'nitedani', 'richard-unterberg', 'phonzammi']
+const FALLBACK_MAJOR_CONTRIBUTORS = ['ambergristle', 'NilsJacobsen', 'AurelienLourot', '4350pChris', 'Blankeos']
+
+type TeamEntry = { username: string; firstName: string; isCoreTeam: boolean }
+
+async function fetchTeamLists(): Promise<{ team: string[]; majorContributors: string[] }> {
+  try {
+    const res = await fetch(TEAM_FEED_URL)
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`)
+    const entries = (await res.json()) as TeamEntry[]
+    return {
+      team: entries.filter((e) => e.isCoreTeam).map((e) => e.username),
+      majorContributors: entries.filter((e) => !e.isCoreTeam).map((e) => e.username),
+    }
+  } catch (err) {
+    console.warn(`⚠️  Could not fetch ${TEAM_FEED_URL} (${(err as Error).message}); using hardcoded fallback.`)
+    return { team: FALLBACK_TEAM, majorContributors: FALLBACK_MAJOR_CONTRIBUTORS }
+  }
+}
 
 const REPOS = ['vikejs/vike', 'telefunc/telefunc']
 const TOP_N = 50
@@ -70,6 +88,9 @@ async function pickByLogin(all: Map<string, Contributor>, logins: string[]): Pro
 }
 
 async function main(): Promise<void> {
+  console.log(`Fetching team list from ${TEAM_FEED_URL}...`)
+  const { team: teamUsernames, majorContributors: majorContributorUsernames } = await fetchTeamLists()
+
   console.log(`Fetching contributors from ${REPOS.join(', ')}...`)
   const lists = await Promise.all(REPOS.map(fetchAllContributors))
 
@@ -86,10 +107,10 @@ async function main(): Promise<void> {
     }
   }
 
-  const team = await pickByLogin(byLogin, TEAM)
-  const majorContributors = await pickByLogin(byLogin, MAJOR_CONTRIBUTORS)
+  const team = await pickByLogin(byLogin, teamUsernames)
+  const majorContributors = await pickByLogin(byLogin, majorContributorUsernames)
 
-  const featured = new Set([...TEAM, ...MAJOR_CONTRIBUTORS])
+  const featured = new Set([...teamUsernames, ...majorContributorUsernames])
   const restBudget = TOP_N - team.length - majorContributors.length
   const rest: Avatar[] = [...byLogin.values()]
     .filter((c) => !featured.has(c.login))
