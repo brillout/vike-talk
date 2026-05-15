@@ -1,26 +1,46 @@
 import fs from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 const TEAM_FEED_URL = 'https://vike.dev/team.json'
 
-// Fallback used only if the feed above is unreachable (e.g. before the
-// docs change exposing /team.json has shipped). Keep in sync with
-// vike/docs/public/team.json.
+// Local checkout of vike/docs takes precedence over the remote feed so
+// unpushed edits to teamData.ts are reflected immediately.
+const LOCAL_TEAM_DATA = path.resolve(__dirname, '../../vike/docs/pages/team/teamData.ts')
+
+// Used only if neither the local file nor the remote feed is reachable.
 const FALLBACK_TEAM = ['brillout', 'magne4000', 'nitedani', 'richard-unterberg', 'phonzammi']
-const FALLBACK_MAJOR_CONTRIBUTORS = ['ambergristle', 'NilsJacobsen', 'AurelienLourot', '4350pChris', 'Blankeos']
+const FALLBACK_MAJOR_CONTRIBUTORS = ['NilsJacobsen', 'louwers', 'ambergristle', 'lourot', '4350pChris', 'Blankeos']
 
 type TeamEntry = { username: string; firstName: string; isCoreTeam: boolean }
 
+function splitEntries(entries: TeamEntry[]): { team: string[]; majorContributors: string[] } {
+  return {
+    team: entries.filter((e) => e.isCoreTeam).map((e) => e.username),
+    majorContributors: entries.filter((e) => !e.isCoreTeam).map((e) => e.username),
+  }
+}
+
 async function fetchTeamLists(): Promise<{ team: string[]; majorContributors: string[] }> {
+  if (existsSync(LOCAL_TEAM_DATA)) {
+    try {
+      console.log(`Loading team list from local ${path.relative(process.cwd(), LOCAL_TEAM_DATA)}`)
+      const mod = (await import(LOCAL_TEAM_DATA)) as { teamData: TeamEntry[] }
+      return splitEntries([...mod.teamData])
+    } catch (err) {
+      console.warn(`⚠️  Could not load local teamData.ts (${(err as Error).message}); trying remote.`)
+    }
+  }
   try {
+    console.log(`Fetching team list from ${TEAM_FEED_URL}`)
     const res = await fetch(TEAM_FEED_URL)
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`)
     const entries = (await res.json()) as TeamEntry[]
-    return {
-      team: entries.filter((e) => e.isCoreTeam).map((e) => e.username),
-      majorContributors: entries.filter((e) => !e.isCoreTeam).map((e) => e.username),
-    }
+    return splitEntries(entries)
   } catch (err) {
     console.warn(`⚠️  Could not fetch ${TEAM_FEED_URL} (${(err as Error).message}); using hardcoded fallback.`)
     return { team: FALLBACK_TEAM, majorContributors: FALLBACK_MAJOR_CONTRIBUTORS }
@@ -88,7 +108,6 @@ async function pickByLogin(all: Map<string, Contributor>, logins: string[]): Pro
 }
 
 async function main(): Promise<void> {
-  console.log(`Fetching team list from ${TEAM_FEED_URL}...`)
   const { team: teamUsernames, majorContributors: majorContributorUsernames } = await fetchTeamLists()
 
   console.log(`Fetching contributors from ${REPOS.join(', ')}...`)
@@ -119,8 +138,7 @@ async function main(): Promise<void> {
     .map((c) => ({ login: c.login, avatar_url: c.avatar_url }))
 
   const out = { team, majorContributors, rest }
-  const __filename = fileURLToPath(import.meta.url)
-  const outPath = path.join(path.dirname(__filename), '..', 'pages', '34', 'avatars.json')
+  const outPath = path.join(__dirname, '..', 'pages', '34', 'avatars.json')
   await fs.writeFile(outPath, JSON.stringify(out, null, 2) + '\n')
 
   console.log(

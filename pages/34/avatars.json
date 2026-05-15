@@ -23,16 +23,20 @@
   ],
   "majorContributors": [
     {
-      "login": "ambergristle",
-      "avatar_url": "https://avatars.githubusercontent.com/u/101149854?v=4"
-    },
-    {
       "login": "NilsJacobsen",
       "avatar_url": "https://avatars.githubusercontent.com/u/58360188?v=4"
     },
     {
-      "login": "AurelienLourot",
-      "avatar_url": "https://avatars.githubusercontent.com/u/162899905?v=4"
+      "login": "louwers",
+      "avatar_url": "https://avatars.githubusercontent.com/u/649392?v=4"
+    },
+    {
+      "login": "ambergristle",
+      "avatar_url": "https://avatars.githubusercontent.com/u/101149854?v=4"
+    },
+    {
+      "login": "lourot",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11795312?v=4"
     },
     {
       "login": "4350pChris",
@@ -44,10 +48,6 @@
     }
   ],
   "rest": [
-    {
-      "login": "lourot",
-      "avatar_url": "https://avatars.githubusercontent.com/u/11795312?v=4"
-    },
     {
       "login": "Aslemammad",
       "avatar_url": "https://avatars.githubusercontent.com/u/37929992?v=4"
@@ -63,10 +63,6 @@
     {
       "login": "rtritto",
       "avatar_url": "https://avatars.githubusercontent.com/u/40242971?v=4"
-    },
-    {
-      "login": "louwers",
-      "avatar_url": "https://avatars.githubusercontent.com/u/649392?v=4"
     },
     {
       "login": "gryphonmyers",
@@ -203,6 +199,10 @@
     {
       "login": "nabi-chan",
       "avatar_url": "https://avatars.githubusercontent.com/u/42037851?v=4"
+    },
+    {
+      "login": "AaronBeaudoin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26592486?v=4"
     }
   ]
 }
