@@ -3,23 +3,16 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 /* TODO/ai:
-- Re-write this file in TS while using:
-  "// Run a .ts file with Node.js — flags aren't needed on Node.js 24+": "",
-  "node-ts": "node --experimental-strip-types --no-warnings=ExperimentalWarning",
 - Before: ensure Git repo isn't dirty (no uncommitted changes), see how @brillout/spellcheck does it and use @brillout/shell
 - After: make a commit
 Make these changes in separate commits.
 */
 
-
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const pagesDir = path.join(__dirname, '..', 'pages')
 
-/**
- * Get all existing slide numbers by scanning the pages directory
- */
-function getExistingSlides() {
+function getExistingSlides(): number[] {
   const entries = fs.readdirSync(pagesDir, { withFileTypes: true })
   const slideNumbers = entries
     .filter((entry) => entry.isDirectory())
@@ -30,26 +23,12 @@ function getExistingSlides() {
   return slideNumbers
 }
 
-/**
- * Get the highest slide number
- */
-function getMaxSlideNumber() {
+function getMaxSlideNumber(): number {
   const slides = getExistingSlides()
   return slides.length > 0 ? Math.max(...slides) : 0
 }
 
-/**
- * Check if a slide directory exists
- */
-function slideExists(slideNumber) {
-  const slidePath = path.join(pagesDir, slideNumber.toString())
-  return fs.existsSync(slidePath)
-}
-
-/**
- * Rename a slide directory
- */
-function renameSlide(oldNumber, newNumber) {
+function renameSlide(oldNumber: number, newNumber: number): void {
   const oldPath = path.join(pagesDir, oldNumber.toString())
   const newPath = path.join(pagesDir, newNumber.toString())
 
@@ -65,10 +44,7 @@ function renameSlide(oldNumber, newNumber) {
   console.log(`Renamed slide ${oldNumber} → ${newNumber}`)
 }
 
-/**
- * Create a new slide directory with a basic MDX file
- */
-function createSlide(slideNumber, title = 'New Slide', content = 'TO-DO: Add content') {
+function createSlide(slideNumber: number, title = 'New Slide', content = 'TO-DO: Add content'): void {
   const slidePath = path.join(pagesDir, slideNumber.toString())
 
   if (fs.existsSync(slidePath)) {
@@ -88,14 +64,10 @@ ${content}
   console.log(`Created slide ${slideNumber}: ${title}`)
 }
 
-/**
- * Insert a new slide at the specified position, shifting all subsequent slides
- */
-function insertSlide(position, title = 'New Slide', content = 'TO-DO: Add content') {
+function insertSlide(position: number, title = 'New Slide', content = 'TO-DO: Add content'): void {
   const existingSlides = getExistingSlides()
   const maxSlide = getMaxSlideNumber()
 
-  // Validate position
   if (position < 1) {
     throw new Error('Slide position must be >= 1')
   }
@@ -104,17 +76,14 @@ function insertSlide(position, title = 'New Slide', content = 'TO-DO: Add conten
     throw new Error(`Cannot insert slide at position ${position}. Max position is ${maxSlide + 1}`)
   }
 
-  // If inserting at the end, just create the new slide
   if (position > maxSlide) {
     createSlide(position, title, content)
     return
   }
 
-  // Find slides that need to be shifted
   const slidesToShift = existingSlides.filter((num) => num >= position)
 
   if (slidesToShift.length === 0) {
-    // No slides to shift, just create the new slide
     createSlide(position, title, content)
     return
   }
@@ -122,45 +91,35 @@ function insertSlide(position, title = 'New Slide', content = 'TO-DO: Add conten
   console.log(`Inserting slide at position ${position}`)
   console.log(`Slides to shift: ${slidesToShift.join(', ')}`)
 
-  // Shift slides in reverse order to avoid conflicts
   for (let i = slidesToShift.length - 1; i >= 0; i--) {
-    const oldNumber = slidesToShift[i]
+    const oldNumber = slidesToShift[i]!
     const newNumber = oldNumber + 1
     renameSlide(oldNumber, newNumber)
   }
 
-  // Create the new slide
   createSlide(position, title, content)
 
   console.log(`\n✅ Successfully inserted slide ${position}`)
   console.log(`📊 Total slides: ${getMaxSlideNumber()}`)
 }
 
-/**
- * Add a new slide at the end
- */
-function addSlide(title = 'New Slide', content = 'TO-DO: Add content') {
+function addSlide(title = 'New Slide', content = 'TO-DO: Add content'): void {
   const nextPosition = getMaxSlideNumber() + 1
   createSlide(nextPosition, title, content)
   console.log(`\n✅ Successfully added slide ${nextPosition}`)
   console.log(`📊 Total slides: ${getMaxSlideNumber()}`)
 }
 
-/**
- * Remove a slide directory and shift subsequent slides
- */
-function removeSlide(slideNumber) {
+function removeSlide(slideNumber: number): void {
   const slidePath = path.join(pagesDir, slideNumber.toString())
 
   if (!fs.existsSync(slidePath)) {
     throw new Error(`Slide ${slideNumber} does not exist`)
   }
 
-  // Remove the slide directory and all its contents
   fs.rmSync(slidePath, { recursive: true, force: true })
   console.log(`Removed slide ${slideNumber}`)
 
-  // Rename subsequent slides to fill the gap
   const existingSlides = getExistingSlides().filter((num) => num > slideNumber)
 
   if (existingSlides.length > 0) {
@@ -176,10 +135,7 @@ function removeSlide(slideNumber) {
   console.log(`📊 Total slides: ${getMaxSlideNumber()}`)
 }
 
-/**
- * Move a slide from one position to another, shifting affected slides
- */
-function moveSlide(fromPosition, toPosition) {
+function moveSlide(fromPosition: number, toPosition: number): void {
   const fromPath = path.join(pagesDir, fromPosition.toString())
 
   if (!fs.existsSync(fromPath)) {
@@ -197,7 +153,6 @@ function moveSlide(fromPosition, toPosition) {
     return
   }
 
-  // Park the slide under a temp name so the position is free during shifting
   const tempPath = path.join(pagesDir, '_move_tmp')
   if (fs.existsSync(tempPath)) {
     throw new Error(`Temporary path "_move_tmp" already exists. Aborting.`)
@@ -205,12 +160,10 @@ function moveSlide(fromPosition, toPosition) {
   fs.renameSync(fromPath, tempPath)
 
   if (fromPosition < toPosition) {
-    // Shift slides (fromPosition+1 .. toPosition) down by 1
     for (let i = fromPosition + 1; i <= toPosition; i++) {
       renameSlide(i, i - 1)
     }
   } else {
-    // Shift slides (toPosition .. fromPosition-1) up by 1, in reverse order
     for (let i = fromPosition - 1; i >= toPosition; i--) {
       renameSlide(i, i + 1)
     }
@@ -223,16 +176,12 @@ function moveSlide(fromPosition, toPosition) {
   console.log(`📊 Total slides: ${getMaxSlideNumber()}`)
 }
 
-/**
- * List all existing slides
- */
-function listSlides() {
+function listSlides(): void {
   const slides = getExistingSlides()
   console.log(`📋 Existing slides: ${slides.join(', ')}`)
   console.log(`📊 Total slides: ${slides.length}`)
 
-  // Show any gaps in numbering
-  const gaps = []
+  const gaps: number[] = []
   for (let i = 1; i <= Math.max(...slides); i++) {
     if (!slides.includes(i)) {
       gaps.push(i)
@@ -244,29 +193,26 @@ function listSlides() {
   }
 }
 
-/**
- * Show usage information
- */
-function showUsage() {
+function showUsage(): void {
   console.log(`
 🎯 Slide Management Script
 
 Usage:
-  node scripts/manage-slides.js <command> [options]
+  pnpm node-ts scripts/manage-slides.ts <command> [options]
 
 Commands:
-  list                           List all existing slides
-  add [title] [content]         Add a new slide at the end
+  list                                 List all existing slides
+  add [title] [content]                Add a new slide at the end
   insert <position> [title] [content]  Insert a slide at position, shifting subsequent slides
-  remove <position>             Remove a slide and renumber subsequent slides
-  move <from> <to>              Move a slide to a new position, shifting others
+  remove <position>                    Remove a slide and renumber subsequent slides
+  move <from> <to>                     Move a slide to a new position, shifting others
 
 Examples:
-  node scripts/manage-slides.js list
-  node scripts/manage-slides.js add "My New Slide" "This is the content"
-  node scripts/manage-slides.js insert 5 "Inserted Slide" "This goes between slide 4 and 5"
-  node scripts/manage-slides.js remove 3
-  node scripts/manage-slides.js move 7 2
+  pnpm slides:list
+  pnpm slides:add "My New Slide" "This is the content"
+  pnpm slides:insert 5 "Inserted Slide" "This goes between slide 4 and 5"
+  pnpm slides:remove 3
+  pnpm slides:move 7 2
 
 Notes:
   - Position numbers start from 1
@@ -276,8 +222,7 @@ Notes:
 `)
 }
 
-// Main execution
-function main() {
+function main(): void {
   const args = process.argv.slice(2)
 
   if (args.length === 0) {
@@ -293,14 +238,15 @@ function main() {
         listSlides()
         break
 
-      case 'add':
+      case 'add': {
         const addTitle = args[1] || 'New Slide'
         const addContent = args[2] || 'TO-DO: Add content'
         addSlide(addTitle, addContent)
         break
+      }
 
-      case 'insert':
-        const position = parseInt(args[1], 10)
+      case 'insert': {
+        const position = parseInt(args[1]!, 10)
         if (isNaN(position)) {
           throw new Error('Position must be a number')
         }
@@ -308,23 +254,26 @@ function main() {
         const insertContent = args[3] || 'TO-DO: Add content'
         insertSlide(position, insertTitle, insertContent)
         break
+      }
 
-      case 'remove':
-        const removePosition = parseInt(args[1], 10)
+      case 'remove': {
+        const removePosition = parseInt(args[1]!, 10)
         if (isNaN(removePosition)) {
           throw new Error('Position must be a number')
         }
         removeSlide(removePosition)
         break
+      }
 
-      case 'move':
-        const fromPosition = parseInt(args[1], 10)
-        const toPosition = parseInt(args[2], 10)
+      case 'move': {
+        const fromPosition = parseInt(args[1]!, 10)
+        const toPosition = parseInt(args[2]!, 10)
         if (isNaN(fromPosition) || isNaN(toPosition)) {
           throw new Error('Both <from> and <to> positions must be numbers')
         }
         moveSlide(fromPosition, toPosition)
         break
+      }
 
       default:
         console.error(`❌ Unknown command: ${command}`)
@@ -332,7 +281,7 @@ function main() {
         process.exit(1)
     }
   } catch (error) {
-    console.error(`❌ Error: ${error.message}`)
+    console.error(`❌ Error: ${(error as Error).message}`)
     process.exit(1)
   }
 }
