@@ -29,7 +29,8 @@ const columns = [
   {
     title: 'Larger team',
     subtitle: 'LARGER ORG',
-    price: '$5k',
+    // price: '$5k',
+    price: '€5k',
     toneBg: 'linear-gradient(180deg, rgba(59,130,246,0.16), rgba(139,92,246,0.08), rgba(255,255,255,0.7))',
     panelBg: 'rgba(239,246,255,0.60)',
     priceColor: 'blue' as const,
