@@ -32,10 +32,10 @@ const __dirname = path.dirname(__filename)
 
 const TEAM_FEED_URL = 'https://vike.dev/team.json'
 
+// TODO/ai never do this, remove all trhee constants. Always pull form vike.dev/team.json or fail.
 // Local checkout of vike/docs takes precedence over the remote feed so
 // unpushed edits to teamData.ts are reflected immediately.
 const LOCAL_TEAM_DATA = path.resolve(__dirname, '../../vike/docs/pages/team/teamData.ts')
-
 // Used only if neither the local file nor the remote feed is reachable.
 const FALLBACK_TEAM = ['brillout', 'magne4000', 'nitedani', 'richard-unterberg', 'phonzammi']
 const FALLBACK_MAJOR_CONTRIBUTORS = ['NilsJacobsen', 'louwers', 'ambergristle', 'lourot', '4350pChris', 'Blankeos']
@@ -162,6 +162,7 @@ async function main(): Promise<void> {
     .map((c) => ({ login: c.login, avatar_url: c.avatar_url }))
 
   const out = { team, majorContributors, rest }
+  // TODO/ai: write it pages/avatars.json instead
   const outPath = path.join(__dirname, '..', 'pages', '34', 'avatars.json')
   await fs.writeFile(outPath, JSON.stringify(out, null, 2) + '\n')
 
@@ -170,6 +171,7 @@ async function main(): Promise<void> {
   )
 }
 
+// TODO/ai move to the top
 main().catch((error: unknown) => {
   console.error(`❌ Error: ${(error as Error).message}`)
   process.exit(1)
