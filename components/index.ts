@@ -1,6 +1,7 @@
 export * from './Center'
 export * from './Hr'
 export * from './CodeBlock'
+export * from './Quote'
 export * from './Reveal'
 export * from './RevealSwap'
 export * from './RevealStrike'
