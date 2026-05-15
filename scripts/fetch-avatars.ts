@@ -1,5 +1,5 @@
 /*
-Builds team.json — the data behind the "Thank you" wall.
+Builds pages/team.json — the data behind the "Thank you" wall.
 
 Flow:
   1. Fetch the team / major-contributor list from https://vike.dev/team.json.
@@ -13,7 +13,7 @@ Flow:
      committed directly to either repo) is filled in via GET /users/<login>.
   4. Take the top (TOP_N − team − major) remaining contributors by
      contribution count and use them as the "rest" bucket.
-  5. Write { team, majorContributors, rest } to team.json.
+  5. Write { team, majorContributors, rest } to pages/team.json.
 
 Slide 34 imports that JSON and renders a 10-column wall, revealing
 the three buckets in order via display:contents Reveals.
@@ -78,7 +78,7 @@ async function main(): Promise<void> {
     .map((c) => ({ login: c.login, avatar_url: c.avatar_url }))
 
   const out = { team, majorContributors, rest }
-  const outPath = path.join(__dirname, '..', 'team.json')
+  const outPath = path.join(__dirname, '..', 'pages', 'team.json')
   await fs.writeFile(outPath, JSON.stringify(out, null, 2) + '\n')
 
   console.log(
