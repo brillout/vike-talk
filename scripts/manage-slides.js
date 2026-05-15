@@ -2,6 +2,16 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+/* TODO/ai:
+- Re-write this file in TS while using:
+  "// Run a .ts file with Node.js — flags aren't needed on Node.js 24+": "",
+  "node-ts": "node --experimental-strip-types --no-warnings=ExperimentalWarning",
+- Before: ensure Git repo isn't dirty (no uncommitted changes), see how @brillout/spellcheck does it and use @brillout/shell
+- After: make a commit
+Make these changes in separate commits.
+*/
+
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const pagesDir = path.join(__dirname, '..', 'pages')
