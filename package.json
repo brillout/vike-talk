@@ -11,7 +11,7 @@
     "slides:add": "pnpm node-ts scripts/manage-slides.ts add",
     "slides:list": "pnpm node-ts scripts/manage-slides.ts list",
     "slides:help": "pnpm node-ts scripts/manage-slides.ts",
-    "team:fetch": "pnpm node-ts scripts/fetch-avatars.ts",
+    "team:fetch": "pnpm node-ts scripts/fetch-team.ts",
     "// Run a .ts file with Node.js — flags aren't needed on Node.js 24+": "",
     "node-ts": "node --experimental-strip-types --no-warnings=ExperimentalWarning",
     "========= Formatting": "",
