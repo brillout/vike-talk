@@ -1,11 +1,29 @@
-import { LivingAt } from './LivingAt'
-import { default as vikeLogo } from '../vike.svg'
+import avatars from './avatars.json'
 
-/* TODO/ai
-- Show a wall of GitHub avatars (the Vike/Telefunc team/contributors).
+# Thank you
 
-- Write a script to pull the top 50 GitHub avatars, pulled from:
-  - https://vike.dev/team
-  - https://github.com/vikejs/vike/graphs/contributors?all=1
-  - https://github.com/telefunc/telefunc/graphs/contributors?all=1
-*/
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(10, 1fr)',
+  gap: 12,
+  marginTop: 24,
+  maxWidth: 'min(95vw, 900px)',
+}}>
+  {avatars.map((a) => (
+    <a
+      key={a.login}
+      href={`https://github.com/${a.login}`}
+      target="_blank"
+      rel="noreferrer"
+      title={a.login}
+      style={{display: 'block', lineHeight: 0}}
+    >
+      <img
+        src={a.avatar_url}
+        alt={a.login}
+        loading="lazy"
+        style={{width: '100%', aspectRatio: 1, borderRadius: '50%'}}
+      />
+    </a>
+  ))}
+</div>
