@@ -6,3 +6,17 @@
 #slide-content :is(.reveal[data-revealed='true']:not(li > .reveal), li:has(> .reveal[data-revealed='true'])) {
   opacity: 1;
 }
+
+/* A Reveal that contributes its children directly to its parent's layout
+   (e.g. so several Reveals can share one grid). The wrapper itself has no
+   box, so opacity on it is moot — gate each child instead. */
+#slide-content .reveal-group {
+  display: contents;
+}
+#slide-content .reveal-group > * {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+#slide-content .reveal-group[data-revealed='true'] > * {
+  opacity: 1;
+}
