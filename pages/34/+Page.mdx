@@ -25,9 +25,7 @@ export const Avatar = ({a}) => (
   marginTop: 24,
   maxWidth: 'min(95vw, 900px)',
 }}>
-  <Reveal as="div" className="reveal-group">
-    {avatars.team.map((a) => <Avatar key={a.login} a={a} />)}
-  </Reveal>
+  {avatars.team.map((a) => <Avatar key={a.login} a={a} />)}
   <Reveal as="div" className="reveal-group">
     {avatars.majorContributors.map((a) => <Avatar key={a.login} a={a} />)}
   </Reveal>
