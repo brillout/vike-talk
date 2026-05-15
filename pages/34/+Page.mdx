@@ -2,28 +2,42 @@ import avatars from './avatars.json'
 
 # Thank you
 
-<div style={{
-  display: 'grid',
-  gridTemplateColumns: 'repeat(10, 1fr)',
-  gap: 12,
-  marginTop: 24,
-  maxWidth: 'min(95vw, 900px)',
-}}>
-  {avatars.map((a) => (
-    <a
-      key={a.login}
-      href={`https://github.com/${a.login}`}
-      target="_blank"
-      rel="noreferrer"
-      title={a.login}
-      style={{display: 'block', lineHeight: 0}}
-    >
-      <img
-        src={a.avatar_url}
-        alt={a.login}
-        loading="lazy"
-        style={{width: '100%', aspectRatio: 1, borderRadius: '50%'}}
-      />
-    </a>
-  ))}
-</div>
+export const AvatarRow = ({people, size = 64}) => (
+  <div style={{
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 12,
+    maxWidth: 'min(95vw, 900px)',
+  }}>
+    {people.map((a) => (
+      <a
+        key={a.login}
+        href={`https://github.com/${a.login}`}
+        target="_blank"
+        rel="noreferrer"
+        title={a.login}
+        style={{display: 'block', lineHeight: 0}}
+      >
+        <img
+          src={a.avatar_url}
+          alt={a.login}
+          loading="lazy"
+          style={{width: size, height: size, borderRadius: '50%'}}
+        />
+      </a>
+    ))}
+  </div>
+)
+
+<Reveal as="div" style={{marginTop: 24}}>
+<AvatarRow people={avatars.team} />
+</Reveal>
+
+<Reveal as="div" style={{marginTop: 16}}>
+<AvatarRow people={avatars.majorContributors} />
+</Reveal>
+
+<Reveal as="div" style={{marginTop: 16}}>
+<AvatarRow people={avatars.rest} size={48} />
+</Reveal>
