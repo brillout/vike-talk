@@ -1,4 +1,8 @@
-==== Punchlines
+=== Claude
+claude --resume 04c53514-e6ce-4750-ab2e-476a76a56879
+
+
+=== Punchlines
 
 - Stable yet flexible
   - Rock-solid, yet flexible & can adopt the future
@@ -27,7 +31,8 @@
     - Instead, the deal is simple: we ask companies who clearly can afforted to pay 5k.
     - 5k is nothing for large companies, but it means the world to us OSS maintainers
 
-==== Slide ideas
+
+=== Slide ideas
 
 - Framework graveyard is hude
   - "Many frameworks..." => why another framework?
