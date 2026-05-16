@@ -18,10 +18,14 @@ function Layout({ children }: { children: React.ReactNode }) {
   const { fullscreen, sections } = pageContext.config
   const noFooter = fullscreen || !sections
   const className = noFooter ? 'fullscreen' : undefined
+  // `key` forces a remount on slide change so the fade-in animation
+  // re-triggers. Hash changes (reveal steps) keep the same pathname,
+  // so they don't remount.
+  const { pathname } = pageContext.urlParsed
   return (
     <MDXProvider components={mdxComponents}>
       <div id="slide-wrapper" className={className}>
-        <div id="slide-content" style={style}>
+        <div id="slide-content" key={pathname} style={style}>
           {children}
         </div>
         {!noFooter && <Footer />}
