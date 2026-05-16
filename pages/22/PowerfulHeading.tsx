@@ -29,15 +29,16 @@ export function PowerfulHeading() {
     if (!el) return
     const measure = () => setPowerfulWidth(el.getBoundingClientRect().width)
     measure()
+    if (document.fonts?.ready) document.fonts.ready.then(measure)
     const ro = new ResizeObserver(measure)
     ro.observe(el)
     return () => ro.disconnect()
   }, [])
 
-  const extensionsShift = revealed ? 0 : -powerfulWidth / 2
+  const extensionsShift = revealed ? 0 : -powerfulWidth
 
   return (
-    <h1 style={{ display: 'grid', gridTemplateColumns: 'auto auto', width: 'max-content', margin: '0 auto 25px', lineHeight: 1 }}>
+    <h1 style={{ display: 'grid', gridTemplateColumns: 'auto auto', width: 'max-content', margin: '0 0 25px', lineHeight: 1 }}>
       <motion.span
         ref={powerfulRef}
         className="reveal"
@@ -48,6 +49,7 @@ export function PowerfulHeading() {
         Powerful&nbsp;
       </motion.span>
       <motion.span
+        key={Math.round(powerfulWidth)}
         initial={false}
         animate={{ x: extensionsShift }}
         transition={{ ...MOVE, delay: revealed ? 0 : 0.25 }}
