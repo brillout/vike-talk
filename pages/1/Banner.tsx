@@ -50,13 +50,13 @@ function BannerSlides() {
         }}
       >
         {/* Logo row */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
-          <img src={vikeLogo} style={{ height: 96, objectFit: 'contain' }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginLeft: -10 }}>
+          <img src={vikeLogo} style={{ height: 96, objectFit: 'contain', marginTop: -4 }} />
           <span
             className="logo-font"
             style={{
               fontSize: 72,
-              fontWeight: 580,
+              fontWeight: 450,
               color: '#444',
               lineHeight: '1.2em',
             }}
