@@ -64,8 +64,8 @@ h2 {
   margin-top: 25px;
   margin-bottom: 10px;
 }
-h1:first-of-type,
-h2:first-of-type {
+#slide-content > h1:first-of-type,
+#slide-content > h2:first-of-type {
   margin-top: 0;
 }
 p,
