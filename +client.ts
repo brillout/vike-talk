@@ -2,6 +2,14 @@ import { navigate } from 'vike/client/router'
 import { getSlideNumber } from './utils/getSlideNumber'
 import { nextStep, prevStep } from './utils/reveal'
 
+// Resolved at build time by Vite — no runtime FS access.
+const slidePages = import.meta.glob('./pages/*/+Page.mdx')
+const MAX_SLIDE = Math.max(
+  ...Object.keys(slidePages)
+    .map((p) => Number(p.match(/\/(\d+)\//)?.[1]))
+    .filter(Number.isFinite),
+)
+
 // Keep the screen awake during the presentation
 let wakeLock: WakeLockSentinel | null = null
 async function acquireWakeLock() {
@@ -72,7 +80,7 @@ window.onkeydown = (event) => {
     if (prevStep()) return
     slideNumberNext--
   }
-  if (slideNumberNext !== slideNumber && slideNumberNext !== 0) {
+  if (slideNumberNext !== slideNumber && slideNumberNext !== 0 && slideNumberNext <= MAX_SLIDE) {
     // Backward stepping continues the reveal sequence — land on previous slide's last reveal.
     // Modifier-skip lands fresh on step 0 instead.
     const url = forward || skipReveal ? `/${slideNumberNext}` : `/${slideNumberNext}#last`
