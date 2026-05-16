@@ -80,17 +80,6 @@ function BannerSlides() {
         >
           <span style={{ display: 'block' }}>Build mission-critical applications with</span>
           <span style={{ display: 'block' }}>stability and development freedom.</span>
-          {/*
-          <span style={{ display: 'block', fontWeight: 500 }}>
-            Build applications with stability and development freedom.
-          </span>
-          */}
-          {/*
-          <span style={{ display: 'block' }}>
-            Framework powering mission-critical applications with
-          </span>
-          <span style={{ display: 'block' }}>unmatched stability and development freedom.</span>
-          */}
         </p>
 
         {/* USPs */}
