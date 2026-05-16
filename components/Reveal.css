@@ -20,3 +20,11 @@
 #slide-content .reveal-group[data-revealed='true'] > * {
   opacity: 1;
 }
+
+#slide-content .reveal.reveal-slide-left {
+  transform: translateX(-20px);
+  transition: opacity 0.2s ease-out, transform 0.3s ease-out;
+}
+#slide-content .reveal.reveal-slide-left[data-revealed='true'] {
+  transform: translateX(0);
+}
