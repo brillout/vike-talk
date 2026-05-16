@@ -1,6 +1,0 @@
-import{n as e}from"./chunk-DsIMoRGN.js";import{n as t,r as n}from"./chunk-BZqM-Mya.js";import"./chunk-QKR7zFHW.js";var r=e({default:()=>o}),i=n();function a(e){let n={br:`br`,h1:`h1`,p:`p`,...t(),...e.components},{Reveal:r,RevealStrike:a,RevealSwap:o}=n;return r||s(`Reveal`,!0),a||s(`RevealStrike`,!0),o||s(`RevealSwap`,!0),(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n.h1,{children:(0,i.jsx)(a,{children:`JavaScript Problem`})}),`
-`,(0,i.jsxs)(o,{children:[(0,i.jsx)(n.p,{children:`JavaScript is perceived as unstable.`}),(0,i.jsxs)(r,{children:[(0,i.jsx)(`div`,{style:{marginTop:-32}}),(0,i.jsx)(n.h1,{children:`JavaScript is stable`}),(0,i.jsxs)(n.p,{children:[`🧱 Browser`,(0,i.jsx)(n.br,{}),`
-`,`🧱 Node.js`,(0,i.jsx)(n.br,{}),`
-`,`🧱 Vite`,(0,i.jsx)(n.br,{}),`
-`,`🧱 React/Vue/...`,(0,i.jsx)(n.br,{}),`
-`,(0,i.jsx)(r,{children:`🧱 Vike  `})]})]})]})]})}function o(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,i.jsx)(n,{...e,children:(0,i.jsx)(a,{...e})}):a(e)}function s(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}export{r as t};

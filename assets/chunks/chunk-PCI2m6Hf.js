@@ -1,5 +1,0 @@
-import{n as e}from"./chunk-DsIMoRGN.js";import{n as t,r as n}from"./chunk-BZqM-Mya.js";var r=e({default:()=>o}),i=n();function a(e){let n={h2:`h2`,p:`p`,...t(),...e.components},{Center:r,Reveal:a}=n;return r||s(`Center`,!0),a||s(`Reveal`,!0),(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n.h2,{children:`You want stability?`}),`
-`,(0,i.jsx)(a,{children:(0,i.jsx)(n.p,{children:`Choose stable extensions.`})}),`
-`,(0,i.jsx)(a,{children:(0,i.jsx)(n.h2,{children:`You want the cutting-edge?`})}),`
-`,(0,i.jsx)(a,{children:(0,i.jsx)(n.p,{children:`Choose cutting-edge extensions.`})}),`
-`,(0,i.jsx)(a,{children:(0,i.jsx)(r,{children:(0,i.jsx)(`span`,{style:{fontSize:`1.8em`,fontWeight:500,marginTop:30},children:(0,i.jsx)(n.p,{children:`Your choice.`})})})})]})}function o(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,i.jsx)(n,{...e,children:(0,i.jsx)(a,{...e})}):a(e)}function s(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}export{r as t};
