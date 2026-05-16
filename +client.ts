@@ -1,5 +1,6 @@
 import { navigate } from 'vike/client/router'
 import { getSlideNumber } from './utils/getSlideNumber'
+import { getIsNavigating } from './utils/navState'
 import { nextStep, prevStep } from './utils/reveal'
 
 // Resolved at build time by Vite — no runtime FS access.
@@ -35,6 +36,13 @@ const Digit = 'Digit'
 let digitBuffer = ''
 
 window.onkeydown = (event) => {
+  // Drop auto-repeated keydowns while a slide transition is in flight.
+  // Otherwise rapid presses race vike's navigate(): URL has changed but
+  // the DOM still shows the old slide, so nextStep/prevStep operate on
+  // stale state and either spin in place or trip vike's renderPageClient
+  // infinite-loop guard.
+  if (getIsNavigating()) return
+
   const { code, shiftKey, altKey, ctrlKey, metaKey } = event
 
   if (code.startsWith(Digit)) {

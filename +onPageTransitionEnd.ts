@@ -1,6 +1,7 @@
 import type { OnPageTransitionEndAsync } from 'vike/types'
+import { setIsNavigating } from './utils/navState'
 
 export const onPageTransitionEnd: OnPageTransitionEndAsync = async () => {
-  console.log('Page transition end')
+  setIsNavigating(false)
   document.querySelector('body')?.classList.remove('page-is-transitioning')
 }
