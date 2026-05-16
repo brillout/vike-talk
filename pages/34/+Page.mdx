@@ -1,35 +1,10 @@
-import avatars from '../team.json'
+<Quote
+  quote={<>I skate to where the puck is going to be,<br/>not where it has been.</>}
+  author="Wayne Gretzky (hockey legend)"
+  quoteStyle={{textAlign: 'left'}}
+/>
 
-export const Avatar = ({a}) => (
-  <a
-    key={a.login}
-    href={`https://github.com/${a.login}`}
-    target="_blank"
-    rel="noreferrer"
-    title={a.login}
-    style={{display: 'block', lineHeight: 0}}
-  >
-    <img
-      src={a.avatar_url}
-      alt={a.login}
-      loading="lazy"
-      style={{width: '100%', aspectRatio: 1, borderRadius: '50%'}}
-    />
-  </a>
-)
+<div style={{marginTop: 40}}/>
 
-<div style={{
-  display: 'grid',
-  gridTemplateColumns: 'repeat(10, 1fr)',
-  gap: 12,
-  marginTop: 24,
-  maxWidth: 'min(95vw, 900px)',
-}}>
-  {avatars.team.map((a) => <Avatar key={a.login} a={a} />)}
-  <Reveal as="div" className="reveal-group">
-    {avatars.majorContributors.map((a) => <Avatar key={a.login} a={a} />)}
-  </Reveal>
-  <Reveal as="div" className="reveal-group">
-    {avatars.rest.map((a) => <Avatar key={a.login} a={a} />)}
-  </Reveal>
-</div>
+- <Reveal>First-principle thinking</Reveal>
+- <Reveal>Passionate, listening, thoughtful, questioning status quo, questioning ourselves</Reveal>

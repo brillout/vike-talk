@@ -1,4 +1,35 @@
-<Quote
-  quote="Give me six hours to chop down a tree, and I will spend the first four sharpening the axe."
-  author="Abraham Lincoln (pivotal U.S. president)"
-/>
+import avatars from '../team.json'
+
+export const Avatar = ({a}) => (
+  <a
+    key={a.login}
+    href={`https://github.com/${a.login}`}
+    target="_blank"
+    rel="noreferrer"
+    title={a.login}
+    style={{display: 'block', lineHeight: 0}}
+  >
+    <img
+      src={a.avatar_url}
+      alt={a.login}
+      loading="lazy"
+      style={{width: '100%', aspectRatio: 1, borderRadius: '50%'}}
+    />
+  </a>
+)
+
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(10, 1fr)',
+  gap: 12,
+  marginTop: 24,
+  maxWidth: 'min(95vw, 900px)',
+}}>
+  {avatars.team.map((a) => <Avatar key={a.login} a={a} />)}
+  <Reveal as="div" className="reveal-group">
+    {avatars.majorContributors.map((a) => <Avatar key={a.login} a={a} />)}
+  </Reveal>
+  <Reveal as="div" className="reveal-group">
+    {avatars.rest.map((a) => <Avatar key={a.login} a={a} />)}
+  </Reveal>
+</div>
