@@ -1,9 +1,8 @@
-- Stable primitives
-  - Vike isn't our framework. It's yours.
-    - Choose new technology when *you* want, not because the framework
-- Stable framework
-  - Yet flexible & can adopt the future
-  - the last framework you'll need
+==== Punchlines
+
+- Stable yet flexible
+  - Rock-solid, yet flexible & can adopt the future
+  - Best of both words
 
 - I believe it's because the JavaScript community that is delightfully peculiar. It's the community that wants freedom.
   - At Vike we understand and share the value of Freedom.
@@ -14,11 +13,6 @@
 
 - I believe Next.js is unstable because the JavaScript ecosystem got used to live in an unstable JavaScript environment
   - Our believe is that once enter a new era of stability, users will never want to go back to that instability
-
-- No major dependency except of Vite
-  => Vike is agnostic
-
-- Best of both words
 
 ===============================
 
