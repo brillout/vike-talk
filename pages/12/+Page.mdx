@@ -1,9 +1,10 @@
 ```js
-// Doesn't depend on Node.js (e.g. can be used in Cloudflare Workers)
+// server.js
+
 import { renderPage } from 'vike/server' // [!code highlight]
 
-// Any server: Express.js, Cloudflare Worker, AWS Lambda Function, Fastify, Hono, Nitro, ...
-server.addMiddleware({ // [!code highlight]
+// Any server: Hono, Express.js, Cloudflare Worker, AWS Lambda Function, Nitro, ...
+server.addMiddleware({
   method: 'GET',
   route: '*', // catch-all
   async handler(request) {
