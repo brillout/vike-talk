@@ -1,0 +1,5 @@
+import{n as e}from"./chunk-DsIMoRGN.js";import{n as t,r as n}from"./chunk-BZqM-Mya.js";import{t as r}from"./chunk-CtH9C_85.js";var i=e({default:()=>s}),a=n();function o(e){let n={em:`em`,h1:`h1`,p:`p`,...t(),...e.components},{Reveal:i}=n;return i||c(`Reveal`,!0),(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(n.h1,{children:`2. The Framework Problem`}),`
+`,(0,a.jsx)(r,{allRevealed:!0}),`
+`,(0,a.jsx)(`br`,{}),`
+`,(0,a.jsx)(i,{children:(0,a.jsxs)(n.p,{children:[`Can a framework be `,(0,a.jsx)(n.em,{children:`both`}),` opinionated and unopinionated?`]})}),`
+`,(0,a.jsx)(i,{children:`Yes!`})]})}function s(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,a.jsx)(n,{...e,children:(0,a.jsx)(o,{...e})}):o(e)}function c(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}export{i as t};
