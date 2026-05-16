@@ -1,0 +1,21 @@
+#slide-content .slide-22-heading {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: max-content;
+  margin: 0 auto 25px;
+  overflow: hidden;
+}
+
+#slide-content .slide-22-heading .reveal.reveal-slide-left {
+  transform: translateX(-60px);
+  filter: blur(6px);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.4s ease-out;
+}
+
+#slide-content .slide-22-heading .reveal.reveal-slide-left[data-revealed='true'] {
+  transform: translateX(0);
+  filter: blur(0);
+}
