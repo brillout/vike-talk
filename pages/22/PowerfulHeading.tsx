@@ -4,7 +4,7 @@ import { getCurrentStep } from '../../utils/reveal'
 
 const STEP = 1
 const MOVE = { type: 'spring' as const, stiffness: 220, damping: 26, mass: 0.7 }
-const CROSSFADE = { duration: 0.25, ease: 'easeOut' as const }
+const SLOT = { duration: 0.5, ease: [0.7, 0, 0.3, 1] as const }
 
 export function PowerfulHeading() {
   const powerfulRef = useRef<HTMLSpanElement>(null)
@@ -37,7 +37,7 @@ export function PowerfulHeading() {
   const extensionsShift = revealed ? 0 : -powerfulWidth / 2
 
   return (
-    <h1 style={{ display: 'grid', gridTemplateColumns: 'auto auto', width: 'max-content', margin: '0 auto 25px' }}>
+    <h1 style={{ display: 'grid', gridTemplateColumns: 'auto auto', width: 'max-content', margin: '0 auto 25px', lineHeight: 1 }}>
       <motion.span
         ref={powerfulRef}
         className="reveal"
@@ -53,21 +53,23 @@ export function PowerfulHeading() {
         transition={{ ...MOVE, delay: revealed ? 0 : 0.25 }}
         style={{ display: 'inline-block' }}
       >
-        <span style={{ position: 'relative', display: 'inline-block' }}>
+        <span
+          style={{
+            display: 'inline-block',
+            overflow: 'hidden',
+            verticalAlign: 'top',
+            height: '1em',
+            lineHeight: 1,
+          }}
+        >
           <motion.span
+            style={{ display: 'block', lineHeight: 1 }}
             initial={false}
-            animate={{ opacity: revealed ? 0 : 1 }}
-            transition={{ ...CROSSFADE, delay: revealed ? 0 : 0.25 }}
+            animate={{ y: revealed ? '-1em' : '0em' }}
+            transition={{ ...SLOT, delay: revealed ? 0 : 0.25 }}
           >
-            E
-          </motion.span>
-          <motion.span
-            style={{ position: 'absolute', left: 0, top: 0 }}
-            initial={false}
-            animate={{ opacity: revealed ? 1 : 0 }}
-            transition={{ ...CROSSFADE, delay: revealed ? 0 : 0.25 }}
-          >
-            e
+            <span style={{ display: 'block', lineHeight: 1 }}>E</span>
+            <span style={{ display: 'block', lineHeight: 1 }}>e</span>
           </motion.span>
         </span>
         xtensions
