@@ -80,22 +80,12 @@ window.onkeydown = (event) => {
     if (prevStep()) return
     slideNumberNext--
   }
-  if (slideNumberNext >= 1 && slideNumberNext <= MAX_SLIDE && slideNumberNext !== slideNumber) {
+  if (slideNumberNext !== slideNumber && slideNumberNext !== 0 && slideNumberNext <= MAX_SLIDE) {
     // Backward stepping continues the reveal sequence — land on previous slide's last reveal.
     // Modifier-skip lands fresh on step 0 instead.
     const url = forward || skipReveal ? `/${slideNumberNext}` : `/${slideNumberNext}#last`
     navigate(url)
-  } else if (slideNumberNext < 1 || slideNumberNext > MAX_SLIDE) {
-    pulseEnd()
   }
-}
-
-function pulseEnd(): void {
-  const el = document.getElementById('slide-content')
-  if (!el) return
-  el.classList.remove('end-pulse')
-  void el.offsetWidth // force reflow so the animation restarts on rapid keypresses
-  el.classList.add('end-pulse')
 }
 
 function toggleFullscreen(element: HTMLElement = document.documentElement): void {

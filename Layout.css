@@ -56,19 +56,6 @@ body {
   }
 }
 
-#slide-content.end-pulse {
-  animation: end-pulse 0.18s ease-out;
-}
-@keyframes end-pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.985);
-  }
-}
-
 h1 {
   margin-bottom: 25px;
   font-size: 3.4rem;
