@@ -1,10 +1,10 @@
 import { motion } from 'motion/react'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { getCurrentStep } from '../../utils/reveal'
+import { MorphE } from './MorphE'
 
 const STEP = 1
 const MOVE = { type: 'spring' as const, stiffness: 220, damping: 26, mass: 0.7 }
-const SLOT = { duration: 0.5, ease: [0.7, 0, 0.3, 1] as const }
 
 export function PowerfulHeading() {
   const powerfulRef = useRef<HTMLSpanElement>(null)
@@ -55,25 +55,7 @@ export function PowerfulHeading() {
         transition={{ ...MOVE, delay: revealed ? 0 : 0.25 }}
         style={{ display: 'inline-block' }}
       >
-        <span
-          style={{
-            display: 'inline-block',
-            overflow: 'hidden',
-            verticalAlign: 'top',
-            height: '1em',
-            lineHeight: 1,
-          }}
-        >
-          <motion.span
-            style={{ display: 'block', lineHeight: 1 }}
-            initial={false}
-            animate={{ y: revealed ? '-1em' : '0em' }}
-            transition={{ ...SLOT, delay: revealed ? 0 : 0.25 }}
-          >
-            <span style={{ display: 'block', lineHeight: 1 }}>E</span>
-            <span style={{ display: 'block', lineHeight: 1 }}>e</span>
-          </motion.span>
-        </span>
+        <MorphE revealed={revealed} delayIn={0} delayOut={0.25} />
         xtensions
       </motion.span>
     </h1>

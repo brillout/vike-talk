@@ -43,6 +43,7 @@
     "vite": "^8.0.11"
   },
   "dependencies": {
+    "flubber": "^0.4.2",
     "motion": "^12.38.0"
   }
 }
