@@ -47,7 +47,6 @@
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
     "flubber": "^0.4.2",
-    "gsap": "^3.15.0",
     "motion": "^12.38.0"
   }
 }
