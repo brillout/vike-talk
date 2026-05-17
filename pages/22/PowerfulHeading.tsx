@@ -2,6 +2,7 @@ import { motion } from 'motion/react'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { getCurrentStep } from '../../utils/reveal'
 import { MorphE } from './MorphE'
+import '@fontsource/inter/700.css'
 
 const STEP = 1
 const MOVE = { type: 'spring' as const, stiffness: 220, damping: 26, mass: 0.7 }
@@ -38,7 +39,7 @@ export function PowerfulHeading() {
   const extensionsShift = revealed ? 0 : -powerfulWidth
 
   return (
-    <h1 style={{ display: 'grid', gridTemplateColumns: 'auto auto', width: 'max-content', margin: '0 0 25px', lineHeight: 1 }}>
+    <h1 style={{ display: 'grid', gridTemplateColumns: 'auto auto', width: 'max-content', margin: '0 0 25px', lineHeight: 1, fontFamily: '"Inter", system-ui, sans-serif' }}>
       <motion.span
         ref={powerfulRef}
         className="reveal"

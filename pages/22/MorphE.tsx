@@ -1,44 +1,56 @@
-import { animate, motion, useMotionValue, useTransform } from 'motion/react'
-import { useEffect, useMemo } from 'react'
-import { interpolate } from 'flubber/index.js'
+import { gsap } from 'gsap'
+import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin'
+import { useEffect, useLayoutEffect, useRef } from 'react'
+import { E_LOWER_PATH, E_PATH } from './inter-glyphs'
 
-// Hand-drawn approximations: capital E and lowercase e on a 100×100 viewBox.
-// The two paths intentionally share similar topology so Flubber's interpolation
-// reads as "the top half of E curls around to form the bowl of e".
-const E_PATH =
-  'M 8 8 L 78 8 L 78 22 L 24 22 L 24 42 L 60 42 L 60 56 L 24 56 L 24 76 L 78 76 L 78 90 L 8 90 Z'
-const E_LOWER_PATH =
-  'M 50 28 C 28 28, 12 44, 12 60 C 12 80, 30 92, 50 92 C 64 92, 76 86, 82 76 L 67 70 C 64 75, 58 78, 50 78 C 38 78, 28 72, 28 62 L 84 62 L 84 60 C 84 44, 70 28, 50 28 Z'
+if (typeof window !== 'undefined') gsap.registerPlugin(MorphSVGPlugin)
 
-const MORPH_DURATION = 0.5
-const MORPH_EASE = [0.7, 0, 0.3, 1] as const
+const DURATION = 0.55
+const EASE = 'power3.inOut'
 
 export function MorphE({ revealed, delayIn = 0, delayOut = 0 }: { revealed: boolean; delayIn?: number; delayOut?: number }) {
-  const t = useMotionValue(revealed ? 1 : 0)
-  const morphFn = useMemo(() => interpolate(E_PATH, E_LOWER_PATH, { maxSegmentLength: 2 }), [])
-  const d = useTransform(t, morphFn)
+  const pathRef = useRef<SVGPathElement>(null)
+  const isFirstRun = useRef(true)
+
+  // Set initial d once before the morph effect runs.
+  useLayoutEffect(() => {
+    const el = pathRef.current
+    if (!el) return
+    el.setAttribute('d', revealed ? E_LOWER_PATH : E_PATH)
+  }, [])
 
   useEffect(() => {
-    const controls = animate(t, revealed ? 1 : 0, {
-      duration: MORPH_DURATION,
-      ease: MORPH_EASE,
+    const el = pathRef.current
+    if (!el) return
+    if (isFirstRun.current) {
+      isFirstRun.current = false
+      return
+    }
+    const target = revealed ? E_LOWER_PATH : E_PATH
+    const tween = gsap.to(el, {
+      morphSVG: { shape: target, type: 'rotational', shapeIndex: 'auto' },
+      duration: DURATION,
+      ease: EASE,
       delay: revealed ? delayIn : delayOut,
+      onComplete: () => el.setAttribute('d', target),
     })
-    return () => controls.stop()
-  }, [revealed, delayIn, delayOut, t])
+    return () => {
+      tween.kill()
+    }
+  }, [revealed, delayIn, delayOut])
 
   return (
     <svg
-      viewBox="0 0 96 100"
-      preserveAspectRatio="xMidYMax meet"
+      data-revealed={String(revealed)}
+      viewBox="0 -75 56 75"
       style={{
         display: 'inline-block',
-        width: '0.7em',
-        height: '0.78em',
+        height: '0.75em',
+        width: '0.56em',
         verticalAlign: 'baseline',
       }}
     >
-      <motion.path d={d} fill="currentColor" />
+      <path ref={pathRef} fill="currentColor" />
     </svg>
   )
 }
