@@ -1,14 +1,17 @@
 import { animate, motion, useMotionValue, useTransform } from 'motion/react'
-import { interpolate } from 'flubber/index.js'
+import { separate } from 'flubber/index.js'
 import { useEffect, useMemo } from 'react'
-import { E_LOWER_PATH, E_PATH } from './inter-glyphs'
+import { E_LOWER_SUBPATHS, E_PATH } from './inter-glyphs'
 
 const DURATION = 0.55
 const EASE = [0.7, 0, 0.3, 1] as const
 
 export function MorphE({ revealed, delayIn = 0, delayOut = 0 }: { revealed: boolean; delayIn?: number; delayOut?: number }) {
   const t = useMotionValue(revealed ? 1 : 0)
-  const morphFn = useMemo(() => interpolate(E_PATH, E_LOWER_PATH, { maxSegmentLength: 2 }), [])
+  const morphFn = useMemo(
+    () => separate(E_PATH, E_LOWER_SUBPATHS, { single: true, maxSegmentLength: 2 }),
+    [],
+  )
   const d = useTransform(t, morphFn)
 
   useEffect(() => {
@@ -30,7 +33,7 @@ export function MorphE({ revealed, delayIn = 0, delayOut = 0 }: { revealed: bool
         verticalAlign: 'baseline',
       }}
     >
-      <motion.path d={d} fill="currentColor" />
+      <motion.path d={d} fill="currentColor" fillRule="evenodd" />
     </svg>
   )
 }
