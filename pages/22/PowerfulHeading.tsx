@@ -8,6 +8,7 @@ export function PowerfulHeading() {
   const powerfulRef = useRef<HTMLSpanElement>(null)
   const [revealed, setRevealed] = useState(() => {
     if (typeof window === 'undefined') return false
+    if (window.location.hash.slice(1) === 'last') return true
     return getCurrentStep() >= STEP
   })
   const [powerfulWidth, setPowerfulWidth] = useState(0)
