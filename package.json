@@ -43,7 +43,6 @@
     "vite": "^8.0.11"
   },
   "dependencies": {
-    "@fontsource/inter": "^5.2.8",
     "motion": "^12.38.0"
   }
 }
