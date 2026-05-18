@@ -12,12 +12,19 @@ export function PowerfulHeading() {
     return getCurrentStep() >= STEP
   })
   const [powerfulWidth, setPowerfulWidth] = useState(0)
+  // Suppress transitions until after first paint, so navigating directly into
+  // a state (e.g. /23 → /22#last) never animates from initial-mount defaults.
+  const [transitionsOn, setTransitionsOn] = useState(false)
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setTransitionsOn(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
 
   useEffect(() => {
     const el = powerfulRef.current
     if (!el) return
     const sync = () => setRevealed(el.dataset.revealed === 'true')
-    sync()
     const observer = new MutationObserver(sync)
     observer.observe(el, { attributes: true, attributeFilter: ['data-revealed'] })
     return () => observer.disconnect()
@@ -41,7 +48,7 @@ export function PowerfulHeading() {
         className="reveal"
         style={{
           opacity: revealed ? 1 : 0,
-          transition: `opacity 0.35s ease-out ${revealed ? '0.4s' : '0s'}`,
+          transition: transitionsOn ? `opacity 0.35s ease-out ${revealed ? '0.4s' : '0s'}` : 'none',
         }}
       >
         Powerful&nbsp;
@@ -51,7 +58,7 @@ export function PowerfulHeading() {
         style={{
           display: 'inline-block',
           transform: `translateX(${revealed ? 0 : -powerfulWidth}px)`,
-          transition: `transform 0.55s ${EASE} ${revealed ? '0s' : '0.25s'}`,
+          transition: transitionsOn ? `transform 0.55s ${EASE} ${revealed ? '0s' : '0.25s'}` : 'none',
         }}
       >
         Extensions
