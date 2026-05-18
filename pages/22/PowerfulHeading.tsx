@@ -1,9 +1,8 @@
-import { motion } from 'motion/react'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { getCurrentStep } from '../../utils/reveal'
 
 const STEP = 1
-const MOVE = { type: 'spring' as const, stiffness: 220, damping: 26, mass: 0.7 }
+const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)'
 
 export function PowerfulHeading() {
   const powerfulRef = useRef<HTMLSpanElement>(null)
@@ -34,28 +33,28 @@ export function PowerfulHeading() {
     return () => ro.disconnect()
   }, [])
 
-  const extensionsShift = revealed ? 0 : -powerfulWidth
-
   return (
     <h1 style={{ display: 'grid', gridTemplateColumns: 'auto auto', width: 'max-content', margin: '0 0 25px' }}>
-      <motion.span
+      <span
         ref={powerfulRef}
         className="reveal"
-        initial={false}
-        animate={{ opacity: revealed ? 1 : 0 }}
-        transition={{ duration: 0.35, ease: 'easeOut', delay: revealed ? 0.4 : 0 }}
+        style={{
+          opacity: revealed ? 1 : 0,
+          transition: `opacity 0.35s ease-out ${revealed ? '0.4s' : '0s'}`,
+        }}
       >
         Powerful&nbsp;
-      </motion.span>
-      <motion.span
+      </span>
+      <span
         key={Math.round(powerfulWidth)}
-        initial={false}
-        animate={{ x: extensionsShift }}
-        transition={{ ...MOVE, delay: revealed ? 0 : 0.25 }}
-        style={{ display: 'inline-block' }}
+        style={{
+          display: 'inline-block',
+          transform: `translateX(${revealed ? 0 : -powerfulWidth}px)`,
+          transition: `transform 0.55s ${EASE} ${revealed ? '0s' : '0.25s'}`,
+        }}
       >
         Extensions
-      </motion.span>
+      </span>
     </h1>
   )
 }
