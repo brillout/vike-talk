@@ -1,2 +1,0 @@
-import{n as e}from"./chunk-DsIMoRGN.js";import{n as t,r as n}from"./chunk-BZqM-Mya.js";var r=e({default:()=>o}),i=n();function a(e){let n={h2:`h2`,p:`p`,...t(),...e.components};return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(n.h2,{children:`Status quo`}),`
-`,(0,i.jsx)(n.p,{children:`Frameworks dictate your stack.`})]})}function o(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,i.jsx)(n,{...e,children:(0,i.jsx)(a,{...e})}):a(e)}export{r as t};

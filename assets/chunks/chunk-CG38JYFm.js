@@ -1,0 +1,1 @@
+import{r as e}from"./chunk-DhDnKWac.js";var t=e();function n({children:e,as:n,style:r,className:i}){return(0,t.jsx)(n??`span`,{className:i?`reveal ${i}`:`reveal`,style:r,children:e})}export{n as t};
