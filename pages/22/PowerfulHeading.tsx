@@ -1,7 +1,6 @@
 import { motion } from 'motion/react'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { getCurrentStep } from '../../utils/reveal'
-import { MorphE } from './MorphE'
 import '@fontsource/inter/700.css'
 
 const STEP = 1
@@ -56,8 +55,7 @@ export function PowerfulHeading() {
         transition={{ ...MOVE, delay: revealed ? 0 : 0.25 }}
         style={{ display: 'inline-block' }}
       >
-        <MorphE revealed={revealed} delayIn={0} delayOut={0.25} />
-        xtensions
+        Extensions
       </motion.span>
     </h1>
   )
