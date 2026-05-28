@@ -34,6 +34,16 @@ claude --resume 04c53514-e6ce-4750-ab2e-476a76a56879
 
 === Slide ideas
 
+- Ready for the Future
+  - Mobile => high potential of new tools
+  - RPC => same
+- Deploy anywhere
+  - Universal Deploy
+  - Custom integration
+  - First-class self-hosting integration
+  - First-class Cloudflare integration
+  => No lock-in
+  => Unprecedented flexibility around deployment (one of the most important aspects of software development!)
 - Framework graveyard is hude
   - "Many frameworks..." => why another framework?
   - I agree there are too many frameworks out
