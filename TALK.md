@@ -34,6 +34,9 @@ claude --resume 04c53514-e6ce-4750-ab2e-476a76a56879
 
 === Slide ideas
 
+- Community slide: always big wall, but outline team memebers, significant contributors (with reveal)
+- Zig creator quote?
+- Concrete freedom USPs? E.g. deploy anywhere? Any stack/backend/API?
 - Ready for the Future
   - Mobile => high potential of new tools
   - RPC => same
