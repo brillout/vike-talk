@@ -38,7 +38,7 @@
     "rehype-pretty-code": "^0.14.3",
     "remark-gfm": "^4.0.1",
     "shiki": "^4.0.2",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "vike": "^0.4.259",
     "vike-react": "^0.6.21",
     "vite": "^8.0.11"
